@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRelationshipToZamowienia extends Migration
+class AddRelationshipToZamowieniaMenu extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddRelationshipToZamowienia extends Migration
      */
     public function up()
     {
-        Schema::table('zamowienia', function (Blueprint $table) {
+        Schema::table('zamowienia_menu', function (Blueprint $table) {
             $table->foreign('menu_id')->references('id')->on('menu');
+            $table->foreign('zamowienie_id')->references('id')->on('zamowienia');
         });
     }
 
@@ -25,7 +26,7 @@ class AddRelationshipToZamowienia extends Migration
      */
     public function down()
     {
-        Schema::table('zamowienia', function (Blueprint $table) {
+        Schema::table('zamowienia_menu', function (Blueprint $table) {
             //
         });
     }

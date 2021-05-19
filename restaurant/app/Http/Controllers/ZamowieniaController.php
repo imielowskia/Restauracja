@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\stoliki;
+use App\Models\uzytkownicy;
 use Illuminate\Http\Request;
 use App\Models\Zamowienie;
 use App\Models\Menu;
@@ -11,8 +13,8 @@ class ZamowieniaController extends Controller
     public function index()
     {
         $Zamowienia=Zamowienie::all();
-        $Menu=Menu::all();
-        return view('kuchnia',['Zamowienia'=>$Zamowienia,'Menu'=>$Menu]);
+
+        return view('kuchnia',['Zamowienia'=>$Zamowienia]);
     }
 
     public function realizacja()

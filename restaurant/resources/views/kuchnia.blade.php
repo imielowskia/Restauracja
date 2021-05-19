@@ -48,8 +48,6 @@
 </head>
 <body class="antialiased">
 <div class="container b">
-
-
 <div class="c"><form action="{{ route('kuchnia.realizacja') }}" mothod="get" class=" form-group-item-dark">
         <p>Złożone zamówienia:</p>
         <div class="row justify-content-md-center">
@@ -57,7 +55,7 @@
                 <select name='multiple' multiple='multiple' class="form-control" id="exampleFormControlSelect1">
                     @foreach($Zamowienia as $Zamowienie)
                         @if( $Zamowienie->status =='zlozone')
-                            <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik}} &nbsp&nbsp&nbsp&nbspData zamówienia:{{$Zamowienie->created_at}} &nbsp&nbsp&nbsp&nbsp&nbspZamowienie:{{$Zamowienie->Menu->nazwa}}</option>
+                            <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik_id}} &nbsp&nbsp&nbsp&nbspData zamówienia:{{$Zamowienie->created_at}} &nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach </option>
                         @endif
                     @endforeach
                 </select>
@@ -77,7 +75,7 @@
 
             @foreach($Zamowienia as $Zamowienie)
                 @if( $Zamowienie->status =='w realizacji')
-                    <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik}} &nbsp&nbsp&nbsp&nbspData zamówienia:{{$Zamowienie->created_at}} &nbsp&nbsp&nbsp&nbsp&nbspZamowienie:{{$Zamowienie->Menu->nazwa}}</option>
+                    <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik}} &nbsp&nbsp&nbsp&nbspData zamówienia:{{$Zamowienie->created_at}} &nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach</option>
                 @endif
             @endforeach
         </select>
@@ -87,6 +85,7 @@
 
 </div>
     </form>
+
 </div>
 
 </body>

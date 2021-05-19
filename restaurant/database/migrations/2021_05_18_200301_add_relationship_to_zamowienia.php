@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMenuTable extends Migration
+class AddRelationshipToZamowienia extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateMenuTable extends Migration
      */
     public function up()
     {
-        Schema::create('menu', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nazwa');
-            $table->string("pozycja");
-            $table->string("kategoria");
-            $table->decimal("cena");
-            $table->timestamps();
+        Schema::table('zamowienia', function (Blueprint $table) {
+            $table->foreign('stolik_id')->references('id')->on('stoliki');
         });
     }
 
@@ -30,6 +25,8 @@ class CreateMenuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menu');
+        Schema::table('zamowienia', function (Blueprint $table) {
+            //
+        });
     }
 }

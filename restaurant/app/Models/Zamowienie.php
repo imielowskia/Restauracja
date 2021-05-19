@@ -9,8 +9,12 @@ class Zamowienie extends Model
 {
     protected $table= 'zamowienia';
 
-    public function Menu()
+    public function menu()
     {
-        return $this->belongsTo('App\Models\Menu');
+        return $this->belongsToMany('App\Models\Menu','zamowienia_menu','zamowienie_id','menu_id');
+    }
+    public function stolik()
+    {
+        return $this->belongsTo('App\Models\stoliki');
     }
 }

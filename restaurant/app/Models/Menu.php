@@ -11,6 +11,6 @@ class Menu extends Model
 
     public function zamowienie()
     {
-        return $this->hasMany('App\Models\Zamowienie');
+        return $this->belongsToMany('App\Models\Zamowienie','zamowienia_menu','menu_id','zamowienie_id');
     }
 }
