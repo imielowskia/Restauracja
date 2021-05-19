@@ -28,3 +28,31 @@ Route::post('/admin/menu', [EditMenuController::class, 'add']);
 Route::get('/admin/menu/new', [EditMenuController::class, 'new']);
 Route::get('/admin/menu/{id}', [EditMenuController::class, 'edit']);
 Route::post('/admin/menu/edit', [EditMenuController::class, 'update']);
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+
+
+
+Route::get('/kelnermenu', function () {
+    return view('kelner_views/kelner2');
+});
+
+Route::get('/kelner', function () {
+    return view('kelner_views/kelner');
+});
+
+Route::get('/dania', function () {
+    return view('kelner_views/kelner_dania');
+});
+
+
+Route::get('/napoje', function () {
+    return view('kelner_views/kelner_napoje');
+});
+
+Route::get('/alkohole', function () {
+    return view('kelner_views/kelner_alkohole');
+});
