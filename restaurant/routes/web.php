@@ -13,9 +13,18 @@ use App\Http\Controllers\ZamowieniaController;
 |
 */
 
+use App\Http\Controllers\EditMenuController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/kuchnia', [ZamowieniaController::class, 'index'])->name('kuchnia');
 Route::get('/kuchnia.realizacja', [ZamowieniaController::class, 'realizacja'])->name('kuchnia.realizacja');
 Route::get('/kuchnia.zakoncz', [ZamowieniaController::class, 'wydaj'])->name('kuchnia.zakoncz');
+
+Route::get('/admin/menu', [EditMenuController::class, 'index']);
+Route::post('/admin/menu', [EditMenuController::class, 'add']);
+Route::get('/admin/menu/new', [EditMenuController::class, 'new']);
+Route::get('/admin/menu/{id}', [EditMenuController::class, 'edit']);
+Route::post('/admin/menu/edit', [EditMenuController::class, 'update']);
