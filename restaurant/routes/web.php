@@ -34,7 +34,9 @@ Route::get('/welcome', function () {
 });
 
 
-
+Route::get('/', function () {
+    return view('main_view');
+});
 
 Route::get('/kelnermenu', function () {
     return view('kelner_views/kelner2');
