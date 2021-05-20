@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="../../public/css/style_kelner.css"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -21,7 +22,7 @@
     </style>
 
 </head>
-<body>
+<body id="bodymain_view">
 
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -43,7 +44,7 @@
   <div class="row row-class  align-content-between">
 
       <div id="first" class="col-lg-3 text-danger text-center font-weight-bolder justify-content-center ">
-          <a href="kuchnia">Kuchnia</a></div>
+          <a href="log-in-form">Kuchnia</a></div>
 
       <div id="second" class="col-lg-3 text-danger text-center font-weight-bolder justify-content-center"><a
               href="kelner">Kelner</a></div>

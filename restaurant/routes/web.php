@@ -38,6 +38,11 @@ Route::get('/', function () {
     return view('main_view');
 });
 
+
+Route::get('/log-in-form', function () {
+    return view('logowanie');
+});
+
 Route::get('/kelnermenu', function () {
     return view('kelner_views/kelner2');
 });

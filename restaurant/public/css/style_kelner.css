@@ -104,3 +104,7 @@ a, a:hover, a:focus, a:active {
 .row-class{
     height: 100%;
 }
+
+#bodymain_view {
+    background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80")!important;
+}
