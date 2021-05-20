@@ -1,0 +1,10 @@
+body{
+
+    background-image: url("123.jpg");
+    background: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}

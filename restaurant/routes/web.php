@@ -29,6 +29,8 @@ Route::get('/admin/menu/new', [EditMenuController::class, 'new']);
 Route::get('/admin/menu/{id}', [EditMenuController::class, 'edit']);
 Route::post('/admin/menu/edit', [EditMenuController::class, 'update']);
 
+
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -57,4 +59,20 @@ Route::get('/napoje', function () {
 
 Route::get('/alkohole', function () {
     return view('kelner_views/kelner_alkohole');
+});
+
+Route::get('/index', function () {
+    return view('Strona klient/index');
+});
+
+Route::get('/menu', function () {
+    return view('Strona klient/menu');
+});
+
+Route::get('/galeria', function () {
+    return view('Strona klient/galeria');
+});
+
+Route::get('/kontakt', function () {
+    return view('Strona klient/kontakt');
 });
