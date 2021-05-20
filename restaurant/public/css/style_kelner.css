@@ -64,35 +64,41 @@ a, a:hover, a:focus, a:active {
 
 #first{
     margin-top:10%;
-    margin-left:5%;
+    margin-left: 5%;
+    margin-right:5%;
     font-size: 2em;
-    /*margin-right:2%;*/
     height: 50% !important;
     background-image: url(https://media.istockphoto.com/photos/the-team-of-cooks-backs-in-the-work-in-the-modern-kitchen-the-of-the-picture-id1162911786?k=6&m=1162911786&s=612x612&w=0&h=2d43gr7q_uTc_81GBkZy-yhl4jwM33apitUuzK-_e8w=);
     background-repeat: no-repeat;
     background-size:cover;
+    border-radius: 10px;
+    font-family: sans-serif;
 
 }
 #second{
     margin-top:10%;
-    margin-left:5%;
+    margin-left:2%;
     margin-right:5%;
     font-size: 2em;
     height: 50% !important;
     background-image: url("https://www.touchdynamic.com/wp-content/uploads/2014/12/bigstock-Waiter-holding-empty-silver-tr-42965686-small.jpg");
     background-repeat: no-repeat;
     background-size:cover;
+    border-radius: 10px;
+    font-family: sans-serif;
 
 }
 #third{
     margin-top:10%;
     margin-right:5%;
-    /*margin-left:2*/
+    margin-left:2%;
     font-size: 2em;
     height: 50% !important;
     background-image: url("https://cdn.bcdtravel.com/move-be/wp-content/uploads/sites/122/credit-card-debit-card.jpg");
     background-repeat: no-repeat;
     background-size:cover;
+    border-radius: 10px;
+    font-family: sans-serif;
 }
 
 .row-class{

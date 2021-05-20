@@ -26,14 +26,12 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-        <a class="navbar-brand text-light btn disabled" href="#!">Strona główna</a>
+        <a class="navbar-brand text-light btn disabled" href="#!">Strona główna - pracownicy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link text-light " href="kuchnia">Kuchnia</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="kelner">Kelner</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="#">Kasa</a></li>
-                <li class="nav-item"><a class="nav-link disabled text-light" href="#!">Zaloguj</a></li>
+                <li class="nav-item active"><a class="nav-link text-light" href="/">Strona dla klientów<span class="sr-only">(current)</span></a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Menu</a></li>
 
             </ul>
         </div>
@@ -44,13 +42,13 @@
 
   <div class="row row-class  align-content-between">
 
-      <div id="first" class="col-sm-3 text-light text-center font-weight-bolder justify-content-center ">
+      <div id="first" class="col-lg-3 text-danger text-center font-weight-bolder justify-content-center ">
           <a href="kuchnia">Kuchnia</a></div>
 
-      <div id="second" class="col-sm-3 text-light text-center font-weight-bolder justify-content-center"><a
+      <div id="second" class="col-lg-3 text-danger text-center font-weight-bolder justify-content-center"><a
               href="kelner">Kelner</a></div>
 
-      <div id="third" class="col-sm-3 text-light text-center font-weight-bolder justify-content-center">Kasa</div>
+      <div id="third" class="col-lg-3 text-danger text-center font-weight-bolder justify-content-center">Kasa</div>
 
 
 
