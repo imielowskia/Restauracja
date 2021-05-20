@@ -50,7 +50,7 @@
 	          </form>
 
                         <div class=" d-flex text-center text-light ">
-                            <button type="submit" class="form-control btn btn-primary submit px-3"><a href="/" style="color:black;">Wróć do strony głównej</a></button>
+                            <button type="submit" class="form-control btn btn-primary submit px-3"><a href="/pracownik" style="color:black;">Wróć do strony głównej</a></button>
 
                         </div>
 		      </div>
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 	</section>
-
+{{--skrypty js--}}
 	<script src="{{ asset('logowanie/js/jquery.min.js') }}"></script>
     <script src="{{ asset('logowanie/js/popper.js') }}"></script>
     <script src="{{ asset('logowanie/js/bootstrap.min.js') }}"></script>
