@@ -29,15 +29,18 @@ Route::get('/admin/menu/new', [EditMenuController::class, 'new']);
 Route::get('/admin/menu/{id}', [EditMenuController::class, 'edit']);
 Route::post('/admin/menu/edit', [EditMenuController::class, 'update']);
 
-
-
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
+//routy dla pracowników i kelnera
+Route::get('/pracownik', function () {
+    return view('glownyWidok_pracownicy/employeemain');
+});
 
-Route::get('/', function () {
-    return view('main_view');
+
+Route::get('/log-in-form', function () {
+    return view('logowanie/logowanie');
 });
 
 Route::get('/kelnermenu', function () {
@@ -61,18 +64,6 @@ Route::get('/alkohole', function () {
     return view('kelner_views/kelner_alkohole');
 });
 
-Route::get('/index', function () {
-    return view('Strona klient/index');
-});
-
-Route::get('/menu', function () {
-    return view('Strona klient/menu');
-});
-
-Route::get('/galeria', function () {
-    return view('Strona klient/galeria');
-});
-
-Route::get('/kontakt', function () {
-    return view('Strona klient/kontakt');
+Route::get('/problems', function () {
+    return view('problemy');
 });
