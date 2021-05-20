@@ -9,7 +9,7 @@
 
     <!-- Style Index Css -->
 
-    <link rel="stylesheet" href="css/styleindex.css" >
+    <link rel="stylesheet" href="{{asset ('/public/css/styleindex.css')}}" >
 
 
 
