@@ -67,3 +67,19 @@ Route::get('/alkohole', function () {
 Route::get('/problems', function () {
     return view('problemy');
 });
+
+Route::get('/index', function () {
+    return view('Strona klient/index');
+});
+
+Route::get('/menu', function () {
+    return view('Strona klient/menu');
+});
+
+Route::get('/kontakt', function () {
+    return view('Strona klient/kontakt');
+});
+
+Route::get('/galeria', function () {
+    return view('Strona klient/galeria');
+});
