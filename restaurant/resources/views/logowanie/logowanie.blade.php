@@ -17,13 +17,13 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Logowanie</h2>
+					<h2 class="heading-section" style="margin-right: 18px;">Logowanie</h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-		      	<h3 class="mb-4 text-center">Masz konto?</h3>
+		      	<h3 class="mb-4 justify-content-center text-center">Masz konto?</h3>
 		      	<form action="#" class="signin-form">
 		      		<div class="form-group">
 		      			<input type="text" class="form-control" placeholder="Login" required>
