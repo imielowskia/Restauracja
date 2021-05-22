@@ -15,11 +15,11 @@ class CreateUzytkownicyTable extends Migration
     {
         Schema::create('uzytkownicy', function (Blueprint $table) {
             $table->increments("id");
-            $table->string("logowanie");
+            $table->string("login");
             $table->string("haslo");
             $table->string("imie");
             $table->string("nazwisko");
-            $table->string("stanowisko");
+            $table->unsignedInteger("pozycja_id");
             $table->timestamps();
         });
     }
