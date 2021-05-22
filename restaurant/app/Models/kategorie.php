@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class kategorie extends Model
 {
-    protected $table= 'ketegorie';
+    protected $table='kategorie';
+    protected $fillable = ['nazwa'];
     use HasFactory;
     public function menu()
 {

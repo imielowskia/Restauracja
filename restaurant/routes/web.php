@@ -34,11 +34,18 @@ Route::get('/admin', function () {
 });
 
 Route::get('/admin/menu', [MenuController::class, 'index']);
+Route::get('/admin/menu', [MenuController::class, 'index']);
 Route::get('/admin/menu/new', [MenuController::class, 'new']);
 Route::post('/admin/menu/new', [MenuController::class, 'add']);
 Route::get('/admin/menu/edit/{id}', [MenuController::class, 'edit']);
 Route::post('/admin/menu/edit', [MenuController::class, 'update']);
 Route::get('/admin/menu/delete/{id}', [MenuController::class, 'delete']);
+
+Route::get('/admin/menu/categories/new', [MenuController::class, 'newCategory']);
+Route::post('/admin/menu/categories/new', [MenuController::class, 'addCategory']);
+Route::get('/admin/menu/categories/edit/{id}', [MenuController::class, 'editCategory']);
+Route::post('/admin/menu/categories/edit', [MenuController::class, 'updateCategory']);
+Route::get('/admin/menu/categories/delete/{id}', [MenuController::class, 'deleteCategory']);
 
 Route::get('/admin/users', [UserController::class, 'index']);
 Route::get('/admin/users/new', [UserController::class, 'new']);
