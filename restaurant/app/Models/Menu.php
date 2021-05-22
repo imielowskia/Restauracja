@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     protected $table= 'Menu';
+    protected $fillable = ['nazwa', 'opis', 'kategoria', 'cena'];
 
     public function zamowienie()
     {
