@@ -54,6 +54,12 @@ Route::get('/admin/users/edit/{id}', [UserController::class, 'edit']);
 Route::post('/admin/users/edit', [UserController::class, 'update']);
 Route::get('/admin/users/delete/{id}', [UserController::class, 'delete']);
 
+Route::get('/admin/users/roles/new', [UserController::class, 'newRole']);
+Route::post('/admin/users/roles/new', [UserController::class, 'addRole']);
+Route::get('/admin/users/roles/edit/{id}', [UserController::class, 'editRole']);
+Route::post('/admin/menu/roles/edit', [UserController::class, 'updateRole']);
+Route::get('/admin/users/roles/delete/{id}', [UserController::class, 'deleteRole']);
+
 Route::get('/log-in-form', function () {
     return view('logowanie/logowanie');
 });
