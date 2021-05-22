@@ -13,4 +13,8 @@ class uzytkownicy extends Model
     {
         return $this->belongsToMany('App\Models\stoliki','uzytkownicy_stolik','uzytkownik_id','stolik_id');
     }
+    public function pozycja()
+    {
+        return $this->belongsTo('App\Models\pozycje');
+    }
 }

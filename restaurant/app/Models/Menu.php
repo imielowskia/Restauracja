@@ -14,4 +14,8 @@ class Menu extends Model
     {
         return $this->belongsToMany('App\Models\Zamowienie','zamowienia_menu','menu_id','zamowienie_id');
     }
+    public function ketegoria()
+    {
+        return $this->belongsTo('App\Models\ketegorie');
+    }
 }
