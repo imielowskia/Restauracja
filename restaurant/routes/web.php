@@ -14,6 +14,7 @@ use App\Http\Controllers\ZamowieniaController;
 */
 
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('glownyWidok_pracownicy/employeemain');
@@ -28,12 +29,23 @@ Route::get('/kuchnia', [ZamowieniaController::class, 'index'])->name('kuchnia');
 Route::get('/kuchnia.realizacja', [ZamowieniaController::class, 'realizacja'])->name('kuchnia.realizacja');
 Route::get('/kuchnia.zakoncz', [ZamowieniaController::class, 'wydaj'])->name('kuchnia.zakoncz');
 
+Route::get('/admin', function () {
+    return view('admin.index');
+});
+
 Route::get('/admin/menu', [MenuController::class, 'index']);
 Route::get('/admin/menu/new', [MenuController::class, 'new']);
 Route::post('/admin/menu/new', [MenuController::class, 'add']);
 Route::get('/admin/menu/edit/{id}', [MenuController::class, 'edit']);
 Route::post('/admin/menu/edit', [MenuController::class, 'update']);
 Route::get('/admin/menu/delete/{id}', [MenuController::class, 'delete']);
+
+Route::get('/admin/users', [UserController::class, 'index']);
+Route::get('/admin/users/new', [UserController::class, 'new']);
+Route::post('/admin/users/new', [UserController::class, 'add']);
+Route::get('/admin/users/edit/{id}', [UserController::class, 'edit']);
+Route::post('/admin/users/edit', [UserController::class, 'update']);
+Route::get('/admin/users/delete/{id}', [UserController::class, 'delete']);
 
 Route::get('/log-in-form', function () {
     return view('logowanie/logowanie');

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class uzytkownicy extends Model
 {
     protected $table= 'uzytkownicy';
+    protected $fillable = ['logowanie', 'haslo', 'imie', 'nazwisko', 'stanowisko'];
     use HasFactory;
     public function stoliki()
     {

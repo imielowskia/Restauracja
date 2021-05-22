@@ -1,6 +1,6 @@
 @extends('admin.common')
 
-@section('title', 'Edit menu')
+@section('title', 'your menu')
 
 @section('content')
 
