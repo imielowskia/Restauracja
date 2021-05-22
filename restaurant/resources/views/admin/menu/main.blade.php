@@ -1,6 +1,6 @@
-@extends('common.main')
+@extends('admin.common')
 
-@section('title', 'Menu all')
+@section('title', 'Edit menu')
 
 @section('content')
 
@@ -14,26 +14,23 @@
           <th scope="col">Opis</th>
           <th scope="col">Kategoria</th>
           <th scope="col">Cena</th>
-          <th scope="col">Edit</th>
+          <th scope="col">Zarządzaj</th>
         </tr>
       </thead>
       <tbody>
 
   @foreach($menu as $row)
-    
-            <tr>
-              <th scope="row">{{$row->id}}</th>
-              <td>{{$row->nazwa}}</td>
-              <td>{{$row->opis}}</td>
-              <td>{{$row->kategoria}}</td>
-              <td>{{$row->cena}}</td>
-              <td>
-                <a href="menu/{{$row->id}}">
-                  <i class="bi bi-pencil"></i>
-                </a>
-              </td>
-            </tr>
-
+        <tr>
+          <th scope="row">{{$row->id}}</th>
+          <td>{{$row->nazwa}}</td>
+          <td>{{$row->opis}}</td>
+          <td>{{$row->kategoria}}</td>
+          <td>{{$row->cena}}</td>
+          <td>
+            <a href="menu/edit/{{$row->id}}"><i class="bi bi-pencil"></i></a>
+            <a href="menu/delete/{{$row->id}}"><i class="text-danger bi bi-trash"></i></a>
+          </td>
+        </tr>
   @endforeach
         <tr>
           <td style="text-align: center;" class="table-secondary" colspan="6">
@@ -46,4 +43,5 @@
     </table>
   </div>
 </div>
+
 @endsection
