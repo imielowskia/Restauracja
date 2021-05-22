@@ -34,7 +34,7 @@
   @endforeach
         <tr>
           <td style="text-align: center;" class="table-secondary" colspan="6">
-            <a href="menu/new">
+            <a href="/admin/menu/new">
               <i class="bi bi-plus-circle-dotted" data-bs-toggle="modal" data-bs-target="#newUser"></i>
             </a>
           </td>
