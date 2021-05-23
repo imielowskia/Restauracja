@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KasaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZamowieniaController;
 /*
@@ -28,6 +29,11 @@ Route::get('/pracownik', function () {
 Route::get('/kuchnia', [ZamowieniaController::class, 'index'])->name('kuchnia');
 Route::get('/kuchnia.realizacja', [ZamowieniaController::class, 'realizacja'])->name('kuchnia.realizacja');
 Route::get('/kuchnia.zakoncz', [ZamowieniaController::class, 'wydaj'])->name('kuchnia.zakoncz');
+
+// routy dla kasy
+Route::get("/kasa", [KasaController::class, 'index'])->name("kasa");
+Route::post("/kasa/zarchiwizuj", [KasaController::class, 'zarchiwizuj'])->name('kasa.zarchiwizuj');
+Route::post("/kasa/zaplac", [KasaController::class, 'zaplac'])->name('kasa.zaplac');
 
 Route::get('/admin', function () {
     return view('admin.index');
