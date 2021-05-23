@@ -91,11 +91,4 @@ Route::get('/problems', function () {
 
 Route::get('/index', function () {
     return view('widok_klient/index');
-
-Route::get('/kontakt', function () {
-    return view('Strona klient/kontakt');
-});
-
-Route::get('/galeria', function () {
-    return view('Strona klient/galeria');
 });
