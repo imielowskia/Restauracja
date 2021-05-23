@@ -90,12 +90,7 @@ Route::get('/problems', function () {
 });
 
 Route::get('/index', function () {
-    return view('Strona klient/index');
-});
-
-Route::get('/menu', function () {
-    return view('Strona klient/menu');
-});
+    return view('widok_klient/index');
 
 Route::get('/kontakt', function () {
     return view('Strona klient/kontakt');
