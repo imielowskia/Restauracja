@@ -1,3 +1,4 @@
+<?php include_once('../public/functions/header_kuchnia.php'); ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="public/css/kuchnia.css">
     <title>Kuchnia</title>
 
     <!-- Fonts -->
@@ -17,41 +18,14 @@
 
     </style>
 
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-            background-image: url('1.png');
-        }
-        .c{
-            margin-top: 10%;
-        }
-        .a{
-            margin-top: 20%;
-        }
-        .b{
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: auto;
 
-        }
-        p{
-            color: white;
-            font-size: 300%;
-        }
-        select{
-            height: 200%;
-        }
-        option{
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body class="antialiased">
-<div class="container b">
-<div class="c"><form action="{{ route('kuchnia.realizacja') }}" mothod="get" class=" form-group-item-dark">
-        <p>Złożone zamówienia:</p>
-        <div class="row justify-content-md-center">
-            <div class="col-12 col-sm-8 ">
+<div class="container">
+<div><form action="{{ route('kuchnia.realizacja') }}" mothod="get" class=" form-group-item-dark">
+        <p class="col-12" id="b">Złożone zamówienia:</p>
+        <div class="row justify-content-md-center" id="a">
+            <div class="col-12  " id="a">
                 <select name='multiple' multiple='multiple' class="form-control" id="exampleFormControlSelect1">
                     @foreach($Zamowienia as $Zamowienie)
                         @if( $Zamowienie->status =='zlozone')
@@ -60,33 +34,32 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-sm-3 b"><button type="submit" class="btn btn-primary btn-lg">Przyjmij</button></div>
+            <div class="col-sm-6 " id="a"><button type="submit" class="btn btn-secondary btn-lg" id="a">Przyjmij</button></div>
 
 
         </div>
     </form>
 </div>
 <div class="a"><form action="{{ route('kuchnia.zakoncz') }}" mothod="get" class=" form-group-item-dark">
-        <p class="col-8">Zamówienia w realizacji:</p>
-<div class="row justify-content-md-center">
-
-    <div class="col-xs-12 col-sm-8">
+        <p class="col-12" id="b">Zamówienia w realizacji:</p>
+        <div class="row justify-content-md-center" id="a">
+            <div class="col-12  " id="a">
         <select name='multiple' multiple='multiple' class="form-control" id="exampleFormControlSelect1">
 
             @foreach($Zamowienia as $Zamowienie)
                 @if( $Zamowienie->status =='w realizacji')
-                    <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik}} &nbsp&nbsp&nbsp&nbspData zamówienia:{{$Zamowienie->created_at}} &nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach</option>
+                    <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik->numer}} &nbsp&nbsp&nbsp&nbspData zamówienia:{{$Zamowienie->created_at}} &nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach</option>
                 @endif
             @endforeach
         </select>
     </div>
-    <div class="col-xs-12 col-sm-3 b"><button type="submit" class="btn btn-primary btn-lg">Wydaj</button></div>
+            <div class="col-sm-6 " id="a"><button type="submit" class="btn btn-secondary btn-lg" id="a">Wydaj</button></div>
 
 
 </div>
     </form>
 
 </div>
-
+</div>
 </body>
 </html>
