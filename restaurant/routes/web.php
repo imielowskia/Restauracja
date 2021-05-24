@@ -71,16 +71,13 @@ Route::get('/log-in-form', function () {
 
 Route::get('/kelnermenu', function () {
     return view('kelner_views/kelner2');
-});
+})->name('kelnermenu');
 
 Route::get('/kelner', function () {
     return view('kelner_views/kelner');
 });
 
-Route::get('/dania', function () {
-    return view('kelner_views/kelner_dania');
-});
-
+Route::get('/kelner_views/kelner_dania/{id}', [MenuController::class, 'wyswietl'])->name('dania');
 
 Route::get('/napoje', function () {
     return view('kelner_views/kelner_napoje');
