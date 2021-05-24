@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class="row">
-    <form action="edit" method="POST">
+    <form action="." method="POST">
       @csrf
       <input type="hidden" value="{{$menu->id}}" name="id">
       <input type="text" value="{{$menu->nazwa}}" name="nazwa" placeholder="Nazwa"><br>
