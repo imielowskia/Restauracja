@@ -17,4 +17,8 @@ class Zamowienie extends Model
     {
         return $this->belongsTo('App\Models\stoliki');
     }
+    public function uzytkownik()
+    {
+        return $this->belongsTo('App\Models\uzytkownicy');
+    }
 }

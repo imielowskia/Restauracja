@@ -17,6 +17,7 @@ class CreateZamowieniaTable extends Migration
             $table->increments("id");
             $table->unsignedInteger('stolik_id');
             $table->string('status');
+            $table->unsignedInteger('uzytkownik_id');
             $table->timestamps();
         });
     }
