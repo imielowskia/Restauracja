@@ -34,7 +34,6 @@ Route::get('/admin', function () {
 });
 
 Route::get('/admin/menu', [MenuController::class, 'index']);
-Route::get('/admin/menu', [MenuController::class, 'index']);
 Route::get('/admin/menu/new', [MenuController::class, 'new']);
 Route::post('/admin/menu/new', [MenuController::class, 'add']);
 Route::get('/admin/menu/edit/{id}', [MenuController::class, 'edit']);
