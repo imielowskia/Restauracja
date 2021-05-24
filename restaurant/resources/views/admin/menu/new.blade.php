@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class="row">
-    <form action="/admin/menu/new" method="POST">
+    <form action="new" method="POST">
       @csrf
       <input type="text" name="nazwa" placeholder="Nazwa"><br>
       <input type="text" name="opis" placeholder="Opis"><br>

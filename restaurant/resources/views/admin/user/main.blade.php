@@ -29,7 +29,7 @@
         @endforeach
                     <tr>
                         <td style="text-align: center;" class="table-secondary" colspan="6">
-                            <a href="/admin/users/roles/new">
+                            <a href="users/roles/new">
                                 <i class="bi bi-plus-circle-dotted" data-bs-toggle="modal" data-bs-target="#newUser"></i>
                             </a>
                         </td>
@@ -66,7 +66,7 @@
         @endforeach
                     <tr>
                         <td style="text-align: center;" class="table-secondary" colspan="6">
-                            <a href="/admin/users/new">
+                            <a href="users/new">
                                 <i class="bi bi-plus-circle-dotted" data-bs-toggle="modal" data-bs-target="#newUser"></i>
                             </a>
                         </td>

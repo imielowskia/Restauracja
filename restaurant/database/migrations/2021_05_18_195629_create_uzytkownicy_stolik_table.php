@@ -14,7 +14,7 @@ class CreateUzytkownicyStolikTable extends Migration
     public function up()
     {
         Schema::create('uzytkownicy_stolik', function (Blueprint $table) {
-            $table->integer('id');
+            $table->increments('id');
             $table->unsignedInteger("stolik_id");
             $table->unsignedInteger("uzytkownik_id");
 
