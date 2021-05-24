@@ -14,7 +14,7 @@ class CreateZamowieniaMenuTable extends Migration
     public function up()
     {
         Schema::create('zamowienia_menu', function (Blueprint $table) {
-            $table->integer('id');
+            $table->increments('id');
             $table->unsignedInteger("menu_id");
             $table->unsignedInteger("zamowienie_id");
 
