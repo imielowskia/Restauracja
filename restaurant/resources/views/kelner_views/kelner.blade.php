@@ -6,8 +6,7 @@
                        <div class="col-sm-7 text-center align-items-sm-center ">
                            <div class="list-group mt-4 ">
                              <a href="#" class="list-group-item list-group-item-action bg-light disabled text-dark">
-                                  Wybierz stolik
-                              </a>
+                                  Wybierz zamówienie</a>
                               <a href="kelnermenu"  class="list-group-item list-group-item-action bg-dark text-light">Stolik 1</a>
                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 2</a>
                                <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 3</a>

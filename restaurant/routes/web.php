@@ -94,3 +94,7 @@ Route::get('/problems', function () {
 Route::get('/index', function () {
     return view('widok_klient/index');
 });
+
+Route::get('/kelner-zamowienia', function () {
+    return view('kelner_views/kelnerZamowienie');
+});
