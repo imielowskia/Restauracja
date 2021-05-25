@@ -40,7 +40,6 @@ Route::get('/admin', function () {
 });
 
 Route::get('/admin/menu', [MenuController::class, 'index']);
-Route::get('/admin/menu', [MenuController::class, 'index']);
 Route::get('/admin/menu/new', [MenuController::class, 'new']);
 Route::post('/admin/menu/new', [MenuController::class, 'add']);
 Route::get('/admin/menu/edit/{id}', [MenuController::class, 'edit']);
@@ -72,16 +71,13 @@ Route::get('/log-in-form', function () {
 
 Route::get('/kelnermenu', function () {
     return view('kelner_views/kelner2');
-});
+})->name('kelnermenu');
 
 Route::get('/kelner', function () {
     return view('kelner_views/kelner');
 });
 
-Route::get('/dania', function () {
-    return view('kelner_views/kelner_dania');
-});
-
+Route::get('/kelner_views/kelner_dania/{id}', [MenuController::class, 'wyswietl'])->name('dania');
 
 Route::get('/napoje', function () {
     return view('kelner_views/kelner_napoje');
@@ -96,17 +92,5 @@ Route::get('/problems', function () {
 });
 
 Route::get('/index', function () {
-    return view('Strona klient/index');
-});
-
-Route::get('/menu', function () {
-    return view('Strona klient/menu');
-});
-
-Route::get('/kontakt', function () {
-    return view('Strona klient/kontakt');
-});
-
-Route::get('/galeria', function () {
-    return view('Strona klient/galeria');
+    return view('widok_klient/index');
 });

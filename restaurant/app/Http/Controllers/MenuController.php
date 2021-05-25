@@ -107,5 +107,11 @@ class menuController extends Controller
         kategorie::findOrFail($id) -> delete();
 
         return redirect('/admin/menu');
-    }    
+    }
+
+    function wyswietl($id){
+       $dania=kategorie::find($id);
+
+        return view('kelner_views/kelner_dania',['dania'=>$dania]);
+    }
 }
