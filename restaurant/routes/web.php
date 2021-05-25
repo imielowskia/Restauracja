@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 //routy dla pracowników i kelnera
 Route::get('/pracownik', function () {
-    return view('');
+    return view('glownyWidok_pracownicy/employeemain');
 });
 
 Route::get('/kuchnia', [ZamowieniaController::class, 'index'])->name('kuchnia');
@@ -103,4 +103,8 @@ Route::get('/problems', function () {
 
 Route::get('/index', function () {
     return view('widok_klient/index');
+});
+
+Route::get('/kelner-zamowienia', function () {
+    return view('kelner_views/kelnerZamowienie');
 });

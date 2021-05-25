@@ -33,8 +33,8 @@
                     </a>
                 </li>
                 <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Menu </a></li>
-                <li class="nav-item"><a class="nav-link  text-light" href="kelner-zamowienia">Przejdź do widoku początkowego</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="welcome">Wyloguj</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="kelner">Przejdź do stolików</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Wyloguj </a></li>
 
             </ul>
         </div>
@@ -47,24 +47,35 @@
         <div class="col-sm-2"></div>
                        <div class="col-sm-7 text-center align-items-sm-center ">
                            <div class="list-group mt-4 ">
-                             <a href="#" class="list-group-item list-group-item-action bg-light disabled text-dark">
-                                  Wybierz zamówienie</a>
-                              <a href="kelnermenu"  class="list-group-item list-group-item-action bg-dark text-light">Stolik 1</a>
-                              <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 2</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 3</a>
-                              <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 4</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 5</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 6</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 7</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 8</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 9</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 10</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 11</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 12</a>
+                               <table class="table table-bordered table-dark bg-dark mt-4 ">
+
+                                   <thead>
+                                   <tr>
+                                       <th scope="col">Nazwa</th>
+                                       <th scope="col">Status</th>
+                                       <th scope="col">Numer stolika</th>
+                                       <th scope="col">Akcja</th>
+                                   </tr>
+                                   </thead>
+                                   <!--zawartosc tabeli-->
+                                   <tbody>
+                                   <tr>
+                                       <th scope="row">Produkt 1</th>
+                                       <td>Do wydania</td>
+                                       <td>12</td>
+                                       <td><button type="button" class="btn btn-danger">Odbierz</button>
+
+                                       </td>
+
+                                   </tr>
+
+
+                               </table>
 
                           </div>
         </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 mt-4">
+{{--                <a class="text-light"  href=""><h2 class="ml-5 mt-5">Przejdź do stolików</h2></a>--}}
             </div>
     </div>
 
