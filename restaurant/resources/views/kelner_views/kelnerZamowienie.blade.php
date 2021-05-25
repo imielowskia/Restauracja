@@ -33,9 +33,8 @@
                     </a>
                 </li>
                 <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Menu </a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Przejdź do stolików</a></li>
-                <li class="nav-item"><a class="nav-link disabled text-light" href="#!"></a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="kelner"></a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="kelner">Przejdź do stolików</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Wyloguj </a></li>
 
             </ul>
         </div>
