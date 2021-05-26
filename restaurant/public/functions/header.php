@@ -34,7 +34,7 @@
                 </li>
                 <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Menu </a></li>
                 <li class="nav-item"><a class="nav-link disabled text-light" href="#!"><?php include_once("WaiterName.php") ?></a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="welcome"><?php include_once('waiterSignOut.php')?></a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="/"><?php include_once('waiterSignOut.php')?></a></li>
 
             </ul>
         </div>

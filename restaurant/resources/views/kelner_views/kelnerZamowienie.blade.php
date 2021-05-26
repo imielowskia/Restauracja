@@ -23,9 +23,7 @@
                                    <tbody>
 
                                    @foreach($zamowienie as $Zamowienia)
-
                                    <tr>
-
                                        <th scope="row">{{$Zamowienia->id}}</th>
                                        <td>{{$Zamowienia->status}}</td>
                                        <td>{{ $Zamowienia->stolik_id }}</td>
@@ -33,8 +31,6 @@
                                        @if ($Zamowienia->status=='Do wydania')
                                        <td><a href="{{route('kelner_zmien',['id'=>$Zamowienia->id])}}"> <button type="button" onclick="" class="btn btn-danger">Odbierz</button></a>
                                            @endif
-
-
                                        </td>@endforeach
                                    </tr>
                                </table>
