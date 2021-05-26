@@ -3,6 +3,7 @@
 use App\Http\Controllers\KasaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZamowieniaController;
+use App\Http\Controllers\loginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,9 +66,9 @@ Route::get('/admin/users/roles/edit/{id}', [UserController::class, 'editRole']);
 Route::post('/admin/menu/roles/edit', [UserController::class, 'updateRole']);
 Route::get('/admin/users/roles/delete/{id}', [UserController::class, 'deleteRole']);
 
-Route::get('/log-in-form', function () {
-    return view('logowanie/logowanie');
-});
+Route::get('log-in-form', [loginController::class, 'login']);
+Route::post('log-in-form/login', [loginController::class, 'tryLogin']);
+
 
 Route::get('/kelnermenu', function () {
     return view('kelner_views/kelner2');

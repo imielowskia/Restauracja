@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\uzytkownicy;
 use App\Models\pozycja;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
     function index()
@@ -26,14 +29,17 @@ class UserController extends Controller
     function add(request $r)
     {
         $r->validate([
-            'login' => 'required',
+            'login' => 'required|unique:uzytkownicy',
             'haslo' => 'required',
             'imie' => 'required',
             'nazwisko' => 'required',
             'pozycja_id' => 'required'
         ]);
 
-        uzytkownicy::create($r->all());
+        $temp = $r->all();
+        $temp['haslo'] = Hash::make($r->haslo);
+
+        uzytkownicy::create($temp);
 
         return redirect('/admin/users');
     }
@@ -49,17 +55,14 @@ class UserController extends Controller
     function update(request $r)
     {
         $r->validate([
-            'login' => 'required',
-            'haslo' => 'required',
             'imie' => 'required',
             'nazwisko' => 'required',
             'pozycja_id' => 'required'
         ]);
 
         $temp = uzytkownicy::findOrFail($r->input('id'));
-
-        $temp->login = $r->input('login');
-        $temp->haslo = $r->input('haslo');
+        if($r->input('haslo') != '')
+            $temp->haslo = Hash::make($r->haslo);
         $temp->imie = $r->input('imie');
         $temp->nazwisko = $r->input('nazwisko');
         $temp->pozycja_id = $r->input('pozycja_id');
