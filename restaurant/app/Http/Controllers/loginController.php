@@ -35,9 +35,12 @@ class loginController extends Controller
         //if not logged in then show log-in form
         return view('logowanie.logowanie');
     }
-
+    
     function failedLogin(){
-        //TODO!
+        $error['color'] = 'warning';
+        $error['message'] = 'You should check your login or/and password.';
+
+        return view('logowanie.logowanie', compact('error'));
     }
 
     function tryLogin(request $r){
@@ -45,11 +48,22 @@ class loginController extends Controller
         
         //user not found ..
         if(!$user)
-        failedLogin();
+            return self::failedLogin();
         //check pass
-        if(Hash::check($r->haslo, $user->haslo))
-        Session()->put('userID', $user->id);
+        if(Hash::check($r->haslo, $user->haslo)){
+            Session()->put('userID', $user->id);
+            return self::login();
+        }
         else
-        failedLogin();
+            return self::failedLogin();
+    }
+
+    function logout(){
+        Session()->forget('userID');
+
+        $error['color'] = 'success';
+        $error['message'] = 'You are logged out.';
+
+        return view('logowanie.logowanie', compact('error'));;
     }
 }

@@ -50,6 +50,8 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
+Route::get('/out', [loginController::class, 'logout']);
+
 Route::get('/admin/menu', [MenuController::class, 'index']);
 Route::get('/admin/menu/new', [MenuController::class, 'new']);
 Route::post('/admin/menu/new', [MenuController::class, 'add']);
