@@ -58,9 +58,7 @@
             <div class="col-sm-3">
             </div>
     </div>
-    <div class="row" style="width:25%!important;">
-        <div class="col-sm-8"><button>Cofnij do zamówień</button></div>
-    </div>
+   
 
 </div>
 <!-- Bootstrap core JS-->
