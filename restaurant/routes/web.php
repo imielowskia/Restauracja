@@ -29,6 +29,16 @@ Route::get('/pracownik', function () {
 Route::get('/kuchnia', [ZamowieniaController::class, 'index'])->name('kuchnia');
 Route::get('/kuchnia.realizacja', [ZamowieniaController::class, 'realizacja'])->name('kuchnia.realizacja');
 Route::get('/kuchnia.zakoncz', [ZamowieniaController::class, 'wydaj'])->name('kuchnia.zakoncz');
+Route::get('/kuchnia/dostepne', function ()
+{return view('kuchnia/dosepne_dania');}
+)->name('dostepne_dania');
+Route::get('/kuchnia/dostepnosc/{id}', [MenuController::class,  function ($id){
+    $dania=\App\Models\kategorie::find($id);
+
+    return view('kuchnia/dania_dostepnosc',['dania'=>$dania]);
+}])->name('dania_dostepnosc');
+Route::get('/kuchnia/usun_dostepnosc/{id}', [MenuController::class, 'usun_dostepnosc'])->name('usun.dostepnosc');
+Route::get('/kuchnia/dodaj_dostepnosc/{id}', [MenuController::class, 'dodaj_dostepnosc'])->name('dodaj.dostepnosc');
 
 // routy dla kasy
 Route::get("/kasa", [KasaController::class, 'index'])->name("kasa");

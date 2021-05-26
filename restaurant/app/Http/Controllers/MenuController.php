@@ -114,4 +114,29 @@ class menuController extends Controller
 
         return view('kelner_views/kelner_dania',['dania'=>$dania]);
     }
+
+    function wyswietl_dostepnosc($id){
+        $dania=kategorie::find($id);
+
+        return view('kuchnia/dania_dostepnosc',['dania'=>$dania]);
+    }
+
+    function dodaj_dostepnosc($id)
+    {
+        $danie=Menu::find($id);
+        $danie->dostepnosc=1;
+        $danie->save();
+        $kategoria=$danie->kategoria_id;
+
+        return redirect()->route('dania_dostepnosc',['id'=>$kategoria]);
+    }
+    function usun_dostepnosc($id)
+    {
+        $danie=Menu::find($id);
+        $danie->dostepnosc=false;
+        $danie->save();
+        $kategoria=$danie->kategoria_id;
+
+        return redirect()->route('dania_dostepnosc',['id'=>$kategoria]);
+    }
 }

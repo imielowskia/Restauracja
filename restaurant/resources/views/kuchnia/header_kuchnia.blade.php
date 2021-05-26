@@ -27,12 +27,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link text-light" href="/">
-                        Strona główna
+                    <a class="nav-link text-light" href="{{route('kuchnia')}}">
+                        Kuchnia
                     </a>
                 </li>
-                <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Menu </a></li>
-
+                <li class="nav-item"><a class="nav-link text-light" href="{{route('dostepne_dania')}}">Dostępność dań </a></li>
 
             </ul>
         </div>
