@@ -1,7 +1,6 @@
-<?php include_once('../public/functions/header.php'); ?>
 
 @php $stolik=\App\Models\Stoliki::all();@endphp
-{{--<div id="main" class="container-fluid ">
+<div id="main" class="container-fluid ">
 
     <div class="row ">
                         <div class="col-sm-2"></div>
@@ -10,14 +9,14 @@
                              <a href="#" class="list-group-item list-group-item-action bg-light disabled text-dark">
                                   Wybierz stolik</a>
                                @foreach($stolik as $stoliki)
-                              <a href="{{route('kelnermenu')}}"  class="list-group-item list-group-item-action bg-dark text-light">Stolik {{$stoliki->id}}</a>
+                              <a href="{{route('kelnermenu')}}"  class="list-group-item list-group-item-action bg-dark text-light">Stolik {{$stoliki->numer}}</a>
                                @endforeach
 
                           </div>
         </div>
                         <div class="col-sm-3"></div>
-    </div>--}}
-{{--    <div class="row mt-5">
+    </div>
+    <div class="row mt-5">
         <div class="col-sm-2"></div>
         <div class="col-sm-7 text-center align-items-sm-center ">
             <div class="list-group mt-4 ">
@@ -28,11 +27,11 @@
             </div>
         </div>
         <div class="col-sm-3"></div>
-    </div>--}}
+    </div>
 
 
 
-{{--</div>--}}
+</div>
 <!-- Bootstrap core JS-->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
