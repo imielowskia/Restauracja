@@ -1,4 +1,5 @@
 <?php include_once('../public/functions/header.php'); ?>
+
 @php $stolik=\App\Models\Stoliki::all();@endphp
 <div id="main" class="container-fluid ">
 
@@ -20,7 +21,7 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-7 text-center align-items-sm-center ">
             <div class="list-group mt-4 ">
-                <a href="kelner-zamowienia" class="list-group-item list-group-item-action bg-dark text-light">
+                <a href="{{route('kelner-zamowienia')}}" class="list-group-item list-group-item-action bg-dark text-light">
                     Cofnij do widoku zamówień</a>
 
 
