@@ -1,5 +1,5 @@
 <?php include_once('../public/functions/header.php'); ?>
-@php $stolik=\App\Models\Stoliki::all();@endphp
+@php $stolik=\App\Models\stoliki::all();@endphp
 <div id="main" class="container-fluid ">
 
     <div class="row ">
