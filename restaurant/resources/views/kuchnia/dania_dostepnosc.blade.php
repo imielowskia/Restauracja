@@ -15,7 +15,7 @@
             <h3 class="text-light mt-4">{{$kategoria->nazwa}}</h3>
             <div class="row mt-4 mb-4">
 
-   
+
                 @foreach($dania->menu as $danie)
 
                             @if ($danie->dostepnosc==1)
