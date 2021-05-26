@@ -1,4 +1,4 @@
 <p>Wyloguj</p>
 <?php
-//session_destroy();
+Session::flush();
 ?>
