@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="row">
-        <form action="/admin/users/edit" method="POST">
+        <form action="../edit" method="POST">
             @csrf
             <input type="hidden" value="{{$user->id}}" name="id">
             <input type="text" value="{{$user->login}}" name="login" placeholder="Login"><br>

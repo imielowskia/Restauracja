@@ -3,13 +3,29 @@
 
 <!-- Page content-->
 <div id="main" class="container-fluid">
-
     <div class="row push-up">
         <div class="col-sm-2"></div>
 
         <div id="menu-wybor" class="col-sm-7 text-center align-self-center bg-dark">
 
             <h3 class="text-light mt-4">Dania</h3>
+            @php $i=0;
+            @endphp
+                @foreach($dania->menu as $danie)
+                @if ($i==0)
+                <div class="row mt-4 ">
+                    @endif
+                    @php $i=$i+1;
+                    @endphp
+                <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">{{$danie->nazwa}}</a></div>
+                    @if ($i==3)
+                </div>
+                    @php $i=0;
+                    @endphp
+                        @endif
+                    @endforeach
+            </div>
+{{--
            <div class="row mt-4 ">
 
                <div class="col-sm-1"></div>
@@ -40,6 +56,7 @@
                 <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Risotto<p>18zł</p></a></div>
                 <div class="col-sm-1"></div>
             </div>
+--}}
 
 
 
@@ -48,7 +65,7 @@
 
                         <div class="col-sm-12 mt-2 p-3 d-flex justify-flex-end">
                             <a href="kelnermenu"> <button type="button" class="btn btn-success mt-2">Dodaj</button></a>
-                            <a href="kelnermenu"> <button type="button" class="btn btn-danger mt-2 ml-2 ">Cofnij</button></a>
+                            <a href="{{route('kelnermenu')}}"> <button type="button" class="btn btn-danger mt-2 ml-2 ">Cofnij</button></a>
                         </div>
                     </div>
                 </div>

@@ -23,12 +23,22 @@ Route::get('/', function () {
 
 //routy dla pracowników i kelnera
 Route::get('/pracownik', function () {
-    return view('');
+    return view('glownyWidok_pracownicy/employeemain');
 });
 
 Route::get('/kuchnia', [ZamowieniaController::class, 'index'])->name('kuchnia');
 Route::get('/kuchnia.realizacja', [ZamowieniaController::class, 'realizacja'])->name('kuchnia.realizacja');
 Route::get('/kuchnia.zakoncz', [ZamowieniaController::class, 'wydaj'])->name('kuchnia.zakoncz');
+Route::get('/kuchnia/dostepne', function ()
+{return view('kuchnia/dosepne_dania');}
+)->name('dostepne_dania');
+Route::get('/kuchnia/dostepnosc/{id}', [MenuController::class,  function ($id){
+    $dania=\App\Models\kategorie::find($id);
+
+    return view('kuchnia/dania_dostepnosc',['dania'=>$dania]);
+}])->name('dania_dostepnosc');
+Route::get('/kuchnia/usun_dostepnosc/{id}', [MenuController::class, 'usun_dostepnosc'])->name('usun.dostepnosc');
+Route::get('/kuchnia/dodaj_dostepnosc/{id}', [MenuController::class, 'dodaj_dostepnosc'])->name('dodaj.dostepnosc');
 
 // routy dla kasy
 Route::get("/kasa", [KasaController::class, 'index'])->name("kasa");
@@ -39,7 +49,6 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
-Route::get('/admin/menu', [MenuController::class, 'index']);
 Route::get('/admin/menu', [MenuController::class, 'index']);
 Route::get('/admin/menu/new', [MenuController::class, 'new']);
 Route::post('/admin/menu/new', [MenuController::class, 'add']);
@@ -72,16 +81,13 @@ Route::get('/log-in-form', function () {
 
 Route::get('/kelnermenu', function () {
     return view('kelner_views/kelner2');
-});
+})->name('kelnermenu');
 
 Route::get('/kelner', function () {
     return view('kelner_views/kelner');
 });
 
-Route::get('/dania', function () {
-    return view('kelner_views/kelner_dania');
-});
-
+Route::get('/kelner_views/kelner_dania/{id}', [MenuController::class, 'wyswietl'])->name('dania');
 
 Route::get('/napoje', function () {
     return view('kelner_views/kelner_napoje');
@@ -98,3 +104,10 @@ Route::get('/problems', function () {
 Route::get('/index', function () {
     return view('index');
 });
+
+Route::get('/kelner-zamowienia', function () {
+    return view('kelner_views/kelnerZamowienie');
+});
+
+
+//Route::get('/kelner-zamowienia', [ZamowieniaController::class, 'index2']);

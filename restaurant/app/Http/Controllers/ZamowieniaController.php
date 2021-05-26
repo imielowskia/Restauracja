@@ -19,23 +19,39 @@ class ZamowieniaController extends Controller
 
     public function realizacja()
     {
-        $a=$_GET['multiple'];
-        $zamowienie=Zamowienie::find($a);
-        $zamowienie->status='w realizacji';
-        $zamowienie->save();
-
+        if(isset($_GET['multiple'])) {
+            $a = $_GET['multiple'];
+            $zamowienie = Zamowienie::find($a);
+            $zamowienie->status = 'w realizacji';
+            $zamowienie->save();
+        }
         return redirect()->route('kuchnia');
     }
 
     public function wydaj()
     {
-        $a=$_GET['multiple'];
-        $zamowienie=Zamowienie::find($a);
-        $zamowienie->status='wydano';
-        $zamowienie->save();
-
+        if(isset($_GET['multiple'])) {
+            $a = $_GET['multiple'];
+            $zamowienie = Zamowienie::find($a);
+            $zamowienie->status = 'wydano z kuchni';
+            $zamowienie->save();
+        }
         return redirect()->route('kuchnia');
+
     }
 
+    public function index2()
+    {
+        $Zamowienia=Zamowienie::all();
 
+        return view('kelner-zamowienia',['Zamowienia'=>$Zamowienia]);
+    }
+
+    public function zmianaStatusu($id)
+    {
+        $Zamowienia=Zamowienie::all();
+        $zamowienie=Zamowienie::find($id);
+        $zamowienie->status='wydano';
+        $zamowienie->save();
+    }
 }

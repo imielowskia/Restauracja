@@ -3,23 +3,27 @@
 
 <!-- Page content-->
 <div id="main" class="container-fluid ">
+@php $kategorie=\App\Models\kategorie::all();
 
+@endphp
     <div class="row">
         <div class="col-sm-2"></div>
         <div id="menu-wybor" class="col-sm-7 text-center align-self-center bg-dark">
                        <h3 class="text-light mt-4">MENU</h3>
                        <div class="row mt-4 mb-4">
 
-
+@foreach($kategorie as $kategoria)
                            <div class="col-sm-4 mt-2">
-                               <a href="dania"><button type="button"  class="btn btn-light btn-block custom-button" >Dania</button></a>
+                               <a href="{{route('dania',['id'=>$kategoria->id])}}"><button type="button"  class="btn btn-light btn-block custom-button" >
+                                   {{$kategoria->nazwa}}</button></a>
                            </div>
-                           <div class="col-sm-4 mt-2">
+                           @endforeach
+{{--                           <div class="col-sm-4 mt-2">
                                <a href="napoje"><button type="button"  class="btn btn-light btn-block custom-button">Napoje</button></a>
                            </div>
                            <div class="col-sm-4 mt-2">
                                <a href="alkohole"><button type="button" class="btn btn-light btn-block custom-button">Alkohole</button></a>
-                           </div>
+                           </div>--}}
                           <div class="container">
                                 <div class="row mt-4">
 

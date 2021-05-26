@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="row">
-        <form action="/admin/users/new" method="POST">
+        <form action="new" method="POST">
             @csrf
             <input type="text" name="login" placeholder="Login"><br>
             <input type="password" name="haslo" placeholder="Haslo"><br>

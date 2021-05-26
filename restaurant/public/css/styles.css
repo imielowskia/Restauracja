@@ -64,9 +64,10 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    color: #a71d2a;
     text-align: left;
-    background-color: #fff;
+    background-color: #343a40;
+
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -366,6 +367,7 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .h1 {
     font-size: 2.5rem;
+    text-align: center;
 }
 
 h2, .h2 {
@@ -1653,7 +1655,7 @@ pre code {
 .table {
     width: 100%;
     margin-bottom: 1rem;
-    color: #212529;
+    color: #fff;
 }
 .table th,
 .table td {
@@ -2400,7 +2402,7 @@ textarea.form-control {
 
 .btn {
     display: inline-block;
-    font-weight: 400;
+    font-weight: 700;
     color: #212529;
     text-align: center;
     vertical-align: middle;

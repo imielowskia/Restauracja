@@ -19,6 +19,7 @@ class CreateMenuTable extends Migration
             $table->string("opis");
             $table->unsignedInteger("kategoria_id");
             $table->decimal("cena");
+            $table->boolean('dostepnosc')->default(1);
             $table->timestamps();
         });
     }
