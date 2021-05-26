@@ -18,6 +18,7 @@
 
 </head>
 <body>
+@php $zamowienie=\App\Models\Zamowienie::all();@endphp
 
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -33,7 +34,7 @@
                     </a>
                 </li>
                 <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Menu </a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="kelner">Przejdź do stolików</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="kelner">Nowe zamówienie</a></li>
                 <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Wyloguj </a></li>
 
             </ul>
@@ -51,22 +52,29 @@
 
                                    <thead>
                                    <tr>
-                                       <th scope="col">Nazwa</th>
+                                       <th scope="col">ID zamówienia</th>
                                        <th scope="col">Status</th>
                                        <th scope="col">Numer stolika</th>
+                                       <th scope="col">Czas</th>
                                        <th scope="col">Akcja</th>
                                    </tr>
+
+
                                    </thead>
                                    <!--zawartosc tabeli-->
                                    <tbody>
-                                   <tr>
-                                       <th scope="row">Produkt 1</th>
-                                       <td>Do wydania</td>
-                                       <td>12</td>
-                                       <td><button type="button" class="btn btn-danger">Odbierz</button>
 
+                                   @foreach($zamowienie as $Zamowienia)
+
+                                   <tr>
+                                       <th scope="row">{{$Zamowienia->id}}</th>
+                                       <td>{{$Zamowienia->status}}</td>
+                                       <td>{{ $Zamowienia->stolik_id }}</td>
+                                       <td>{{ $Zamowienia->updated_at }}</td>
+                                       <td><button type="button" onclick="" class="btn btn-danger">Odbierz</button>
                                        </td>
 
+                                    @endforeach
                                    </tr>
 
 

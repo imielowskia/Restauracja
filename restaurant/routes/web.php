@@ -98,3 +98,6 @@ Route::get('/index', function () {
 Route::get('/kelner-zamowienia', function () {
     return view('kelner_views/kelnerZamowienie');
 });
+
+
+//Route::get('/kelner-zamowienia', [ZamowieniaController::class, 'index2']);

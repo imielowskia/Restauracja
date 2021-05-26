@@ -37,5 +37,18 @@ class ZamowieniaController extends Controller
         return redirect()->route('kuchnia');
     }
 
+    public function index2()
+    {
+        $Zamowienia=Zamowienie::all();
 
+        return view('kelner-zamowienia',['Zamowienia'=>$Zamowienia]);
+    }
+
+    public function zmianaStatusu($id)
+    {
+        $Zamowienia=Zamowienie::all();
+        $zamowienie=Zamowienie::find($id);
+        $zamowienie->status='wydano';
+        $zamowienie->save();
+    }
 }
