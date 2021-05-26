@@ -20,7 +20,7 @@
 </head>
 <body>
 
-@php $stolik=\App\Models\Stoliki::all();@endphp
+
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
@@ -51,9 +51,9 @@
                            <div class="list-group mt-4 ">
                              <a href="#" class="list-group-item list-group-item-action bg-light disabled text-dark">
                                   Wybierz stolik</a>
-                               @foreach($stolik as $stoliki)
-                              <a href="{{route('kelnermenu')}}"  class="list-group-item list-group-item-action bg-dark text-light">Stolik {{$stoliki->numer}}</a>
-                               @endforeach
+
+                              <a href="{{route('kelnermenu')}}"  class="list-group-item list-group-item-action bg-dark text-light">Stolik </a>
+
 
                           </div>
         </div>
