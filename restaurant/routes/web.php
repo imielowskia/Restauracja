@@ -96,5 +96,5 @@ Route::get('/problems', function () {
 });
 
 Route::get('/index', function () {
-    return view('widok_klient/index');
+    return view('index');
 });
