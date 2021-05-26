@@ -10,7 +10,7 @@
                              <a href="#" class="list-group-item list-group-item-action bg-light disabled text-dark">
                                   Wybierz stolik</a>
                                @foreach($stolik as $stoliki)
-                              <a href="route{{'kelnermenu'}}"  class="list-group-item list-group-item-action bg-dark text-light">Stolik {{$stoliki->id}}</a>
+                              <a href="{{route('kelnermenu')}}"  class="list-group-item list-group-item-action bg-dark text-light">Stolik {{$stoliki->id}}</a>
                                @endforeach
 
                           </div>
