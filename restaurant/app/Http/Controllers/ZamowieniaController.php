@@ -49,9 +49,9 @@ class ZamowieniaController extends Controller
 
     public function zmianaStatusu($id)
     {
-        $Zamowienia=Zamowienie::all();
         $zamowienie=Zamowienie::find($id);
         $zamowienie->status='wydano';
         $zamowienie->save();
+        return redirect()->route('kelner-zamowienia');
     }
 }

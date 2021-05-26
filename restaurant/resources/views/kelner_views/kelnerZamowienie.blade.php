@@ -71,7 +71,10 @@
                                        <td>{{$Zamowienia->status}}</td>
                                        <td>{{ $Zamowienia->stolik_id }}</td>
                                        <td>{{ $Zamowienia->updated_at }}</td>
-                                       <td><button type="button" onclick="" class="btn btn-danger">Odbierz</button>
+                                       @if ($Zamowienia->status=='wydano z kuchni')
+                                       <td><a href="{{route('kelner_zmien',['id'=>$Zamowienia->id])}}"> <button type="button" onclick="" class="btn btn-danger">Odbierz</button></a>
+                                           @endif
+
                                        </td>
 
                                     @endforeach

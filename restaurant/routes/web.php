@@ -86,6 +86,7 @@ Route::get('/kelnermenu', function () {
 Route::get('/kelner', function () {
     return view('kelner_views/kelner');
 });
+Route::get('/kelner_zmien/{id}', [ZamowieniaController::class, 'zmianaStatusu'])->name('kelner_zmien');
 
 Route::get('/kelner_views/kelner_dania/{id}', [MenuController::class, 'wyswietl'])->name('dania');
 
@@ -107,7 +108,7 @@ Route::get('/index', function () {
 
 Route::get('/kelner-zamowienia', function () {
     return view('kelner_views/kelnerZamowienie');
-});
+})->name('kelner-zamowienia');
 
 
 //Route::get('/kelner-zamowienia', [ZamowieniaController::class, 'index2']);
