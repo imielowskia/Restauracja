@@ -12,6 +12,8 @@ class menuController extends Controller
         $menu = Menu::all();
         $categories = kategorie::all();
 
+        
+
         return view('admin.menu.main', compact('menu', 'categories'));
     }
 
@@ -23,7 +25,7 @@ class menuController extends Controller
 
     function add(request $r){
         $r -> validate([
-            'nazwa' => 'required',
+            'nazwa' => 'required|unique:menu',
             'opis' => 'required|min:15',
             'kategoria_id' => 'required',
             'cena' => 'required'
@@ -43,7 +45,7 @@ class menuController extends Controller
 
     function update(request $r){
         $r -> validate([
-            'nazwa' => 'required',
+            'nazwa' => 'required|unique:menu',
             'opis' => 'required|min:15',
             'kategoria_id' => 'required',
             'cena' => 'required'
