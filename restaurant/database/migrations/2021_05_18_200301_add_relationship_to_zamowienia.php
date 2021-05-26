@@ -15,6 +15,7 @@ class AddRelationshipToZamowienia extends Migration
     {
         Schema::table('zamowienia', function (Blueprint $table) {
             $table->foreign('stolik_id')->references('id')->on('stoliki');
+            $table->foreign('uzytkownik_id')->references('id')->on('uzytkownicy');
         });
     }
 

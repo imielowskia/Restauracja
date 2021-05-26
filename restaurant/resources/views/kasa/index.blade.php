@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kasa</title>
     <link href="{{ asset('/css/styles.css') }}" rel="stylesheet">
+
 </head>
 <body>
 
@@ -15,27 +16,32 @@
     <table class="table table-stripped">
         <thead>
             <tr>
-                <th>numer</th>
-                <th>do zaplaty</th>
-                <th>czy zarchiwizowane</th>
+                <th>numer stolika</th>
+                <th>numer zamowienia</th>
+                <th>Godzina</th>
+                <th>Zawartość</th>
+                <th></th>
                 <th>akcje</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($stoliki as $stolik)
+            @foreach($zamowienia as $zamowienie)
                 <tr>
-                    <td>{{$stolik['numer']}}</td>
-                    <td>{{$stolik['suma']}} zl</td>
-                    <td>{{$stolik['zarchiwizowane']}}</td>
+                    <td>{{$zamowienie->stolik['numer']}}</td> <!-- nr stolika-->
+                    <td>{{$zamowienie['id']}} </td> <!--nr zam-->
+                    <td>{{$zamowienie['created_at']}}</td><!--godz-->
+                    <td>@foreach ($zamowienie->menu as $danie){{$danie->nazwa}}, @endforeach</td> <!--zawartosc-->
+                    <td>{{$zamowienie['zaplac']}}</td> <!--akcja-->
                     <td>
-                        <form action="{{ url("/kasa/zarchiwizuj") }}" method="post">
+                     <!--  <form action="{{ url("/kasa/zarchiwizuj") }}" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="{{$stolik['numer']}}">
+                            <input type="hidden" name="id" value="{{$zamowienie['numers']}}">
                             <input type="submit" class="btn btn-warning" value="zarchiwizuj">
                         </form>
+-->
                         <form action="{{ url("/kasa/zaplac") }}" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="{{$stolik['numer']}}">
+                            <input type="hidden" name="id" value="{{$zamowienie['id']}}">
                             <input type="submit" class="btn btn-success" value="zaplac">
                         </form>
                     </td>

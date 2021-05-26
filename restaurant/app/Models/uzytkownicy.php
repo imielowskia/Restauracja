@@ -18,4 +18,8 @@ class uzytkownicy extends Model
     {
         return $this->belongsTo('App\Models\pozycje');
     }
+    public function Zamowienia()
+    {
+        return $this->hasMany('App\Models\Zamowienie','uzytkownik_id');
+    }
 }

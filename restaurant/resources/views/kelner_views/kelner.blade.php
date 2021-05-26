@@ -1,31 +1,35 @@
 <?php include_once('../public/functions/header.php'); ?>
+@php $stolik=\App\Models\Stoliki::all();@endphp
 <div id="main" class="container-fluid ">
 
     <div class="row ">
-        <div class="col-sm-2"></div>
+                        <div class="col-sm-2"></div>
                        <div class="col-sm-7 text-center align-items-sm-center ">
                            <div class="list-group mt-4 ">
                              <a href="#" class="list-group-item list-group-item-action bg-light disabled text-dark">
-                                  Wybierz stolik
-                              </a>
-                              <a href="kelnermenu"  class="list-group-item list-group-item-action bg-dark text-light">Stolik 1</a>
-                              <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 2</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 3</a>
-                              <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 4</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 5</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 6</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 7</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 8</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 9</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 10</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 11</a>
-                               <a href="kelnermenu" class="list-group-item list-group-item-action bg-dark text-light">Stolik 12</a>
+                                  Wybierz stolik</a>
+                               @foreach($stolik as $stoliki)
+                              <a href="kelnermenu"  class="list-group-item list-group-item-action bg-dark text-light">Stolik {{$stoliki->id}}</a>
+                               @endforeach
 
                           </div>
         </div>
-            <div class="col-sm-3">
-            </div>
+                        <div class="col-sm-3"></div>
     </div>
+    <div class="row mt-5">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-7 text-center align-items-sm-center ">
+            <div class="list-group mt-4 ">
+                <a href="kelner-zamowienia" class="list-group-item list-group-item-action bg-dark text-light">
+                    Cofnij do widoku zamówień</a>
+
+
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
 
 </div>
 <!-- Bootstrap core JS-->

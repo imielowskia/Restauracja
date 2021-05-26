@@ -1,4 +1,4 @@
-<?php include_once('../public/functions/header_kuchnia.php'); ?>
+@include('kuchnia/header_kuchnia')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="public/css/kuchnia.css">
+    <link rel="stylesheet" href="{{asset('css/kuchnia.css')}}">
     <title>Kuchnia</title>
 
     <!-- Fonts -->
@@ -29,7 +29,7 @@
                 <select name='multiple' multiple='multiple' class="form-control" id="exampleFormControlSelect1">
                     @foreach($Zamowienia as $Zamowienie)
                         @if( $Zamowienie->status =='zlozone')
-                            <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik_id}} &nbsp&nbsp&nbsp&nbspData zamówienia:{{$Zamowienie->created_at}} &nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach </option>
+                            <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik->numer}} &nbsp&nbsp&nbsp&nbspGodzina:{{$Zamowienie->created_at->hour}}:{{$Zamowienie->created_at->minute}}&nbsp&nbsp&nbsp&nbspKelner:{{$Zamowienie->uzytkownik->imie}} {{$Zamowienie->uzytkownik->nazwisko}}&nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach </option>
                         @endif
                     @endforeach
                 </select>
@@ -48,7 +48,7 @@
 
             @foreach($Zamowienia as $Zamowienie)
                 @if( $Zamowienie->status =='w realizacji')
-                    <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik->numer}} &nbsp&nbsp&nbsp&nbspData zamówienia:{{$Zamowienie->created_at}} &nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach</option>
+                    <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik->numer}} &nbsp&nbsp&nbsp&nbspGodzina:{{$Zamowienie->created_at->hour}}:{{$Zamowienie->created_at->minute}}&nbsp&nbsp&nbsp&nbspKelner:{{$Zamowienie->uzytkownik->imie}} {{$Zamowienie->uzytkownik->nazwisko}}&nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach </option>
                 @endif
             @endforeach
         </select>
