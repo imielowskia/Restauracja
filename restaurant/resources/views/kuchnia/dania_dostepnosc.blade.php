@@ -15,28 +15,20 @@
             <h3 class="text-light mt-4">{{$kategoria->nazwa}}</h3>
             <div class="row mt-4 mb-4">
 
-                @php $i=0;
-                @endphp
+   
                 @foreach($dania->menu as $danie)
-                    @if ($i==0)
-                            @endif
-                            @php $i=$i+1;
-                            @endphp
+
                             @if ($danie->dostepnosc==1)
-                                <div class="col-sm-4 mt-2">
+                                <div class="col-sm-4 mt-5">
                                 <a href="{{route('usun.dostepnosc',['id'=>$danie->id])}}"><button type="button"  class="btn btn-light btn-block custom-button" >{{$danie->nazwa}}</button></a>
                                 </div>
                                     @endif
                             @if ($danie->dostepnosc==0)
-                                <div class="col-sm-4 mt-2">
+                                <div class="col-sm-4 mt-5">
                                 <a href="{{route('dodaj.dostepnosc',['id'=>$danie->id])}}"><button type="button"  class="btn btn-light btn-block custom-button" style="background-color: #f00" >{{$danie->nazwa}}</button></a>
                                 </div>
                                     @endif
-                            @if ($i==3)
-                        </div>
-                        @php $i=0;
-                        @endphp
-                    @endif
+
                 @endforeach
                 <div class="container">
                     <div class="row mt-4">

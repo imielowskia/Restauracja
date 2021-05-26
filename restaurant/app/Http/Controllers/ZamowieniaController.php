@@ -33,7 +33,7 @@ class ZamowieniaController extends Controller
         if(isset($_GET['multiple'])) {
             $a = $_GET['multiple'];
             $zamowienie = Zamowienie::find($a);
-            $zamowienie->status = 'wydano z kuchni';
+            $zamowienie->status = 'Do wydania';
             $zamowienie->save();
         }
         return redirect()->route('kuchnia');
