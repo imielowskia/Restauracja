@@ -14,15 +14,16 @@ class ZamowieniaController extends Controller
 {
     public function index()
     {
-        $user = isset(uzytkownicy::find(Session()->get('userID'))->pozycja->nazwa) ? uzytkownicy::find(Session()->get('userID'))->pozycja->nazwa : '';
-        if($user=='kucharz') {
-            $Zamowienia = Zamowienie::all();
-            return view('kuchnia', ['Zamowienia' => $Zamowienia]);
+        if (Session()->get('userID')) {
+            $user = uzytkownicy::find(Session()->get('userID'))->pozycja->nazwa;
+            if ($user == 'kucharz') {
+                $Zamowienia = Zamowienie::all();
+                return view('kuchnia', ['Zamowienia' => $Zamowienia]);
+            } else {
+                return view('logowanie.logowanie');
+            }
         }
-        else
-        {
-            return view('logowanie.logowanie');
-        }
+        else return view('logowanie.logowanie');
     }
 
 
