@@ -79,7 +79,7 @@ Route::post('/admin/menu/roles/edit', [UserController::class, 'updateRole']);
 Route::get('/admin/users/roles/delete/{id}', [UserController::class, 'deleteRole']);
 
 Route::get('log-in-form', [loginController::class, 'login']);
-Route::post('log-in-form/login', [loginController::class, 'tryLogin']);
+Route::post('log-in-form', [loginController::class, 'tryLogin']);
 
 
 Route::get('/kelnermenu', function () {

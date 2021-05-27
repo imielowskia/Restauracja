@@ -31,7 +31,7 @@
 			@endif
 	
 						<h3 class="mb-4 justify-content-center text-center">Masz konto?</h3>
-						<form action="log-in-form/login" method="POST" class="signin-form">
+						<form action="log-in-form" method="POST" class="signin-form">
 						@csrf
 							<div class="form-group">
 								<input type="text" class="form-control" name="login" placeholder="Login" required>
