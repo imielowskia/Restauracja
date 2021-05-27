@@ -13,12 +13,16 @@ class KasaController extends Controller
 
         return view('kasa/index', ['zamowienia' => $zamowienia]);
     }
+
+
 /*
     public function zarchiwizuj(Request $request) {
         echo 'zarchiwizowano zamowienie o numerze ' . ($request->get("id"));
     }
 */
-    public function zaplac(Request $request) {
+    public function zaplac(Request $request)
+    {
         echo 'Zaplacono za zamowienie o numerze ' . ($request->get("id"));
     }
 }
+

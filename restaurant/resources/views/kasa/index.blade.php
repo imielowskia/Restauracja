@@ -16,8 +16,8 @@
     <table class="table table-stripped">
         <thead>
             <tr>
+                <th>nr zamówienia</th>
                 <th>nr stolika</th>
-                <th>nr zamowienia</th>
                 <th>kelner</th>
                 <th>Godzina wydania</th>
                 <th>Zawartość</th>
@@ -28,14 +28,15 @@
             </tr>
         </thead>
         <tbody>
+
             @foreach($zamowienia as $zamowienie)
                 <tr>
-                    <td>{{$zamowienie->stolik['numer']}}</td> <!-- nr stolika-->
                     <td>{{$zamowienie['id']}} </td> <!--nr zam-->
+                    <td>{{$zamowienie->stolik['numer']}}</td> <!-- nr stolika-->
                     <td>{{$zamowienie->uzytkownik['imie']}}</td>
                     <td>{{$zamowienie['created_at']}}</td>
                     <td>@foreach($zamowienie->menu as $danie){{$danie->nazwa}}, @endforeach</td> <!--zawartosc-->
-                    <td>@foreach($zamowienie->menu as $danie){{$danie->cena}}, @endforeach</td>  <!--cena-->
+                    <td>{{$zamowienie->menu->sum('cena')}}</td>  <!--cena-->
                     <td>{{$zamowienie['zaplac']}} zł</td> <!--akcja-->
 
                     <td>
