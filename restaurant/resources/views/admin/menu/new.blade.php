@@ -6,21 +6,20 @@
 
 <div class="container">
   <div class="row">
-    <form action="new" method="POST">
-      @csrf
-      <input type="text" name="nazwa" placeholder="Nazwa"><br>
-      <input type="text" name="opis" placeholder="Opis"><br>
-      <select class="custom-select" name="kategoria_id">
-        @foreach($categories as $row)
-          <option value="{{$row->id}}">{{$row->nazwa}}</option>
-        @endforeach
-      </select><br>
-      <input type="text" name="cena" placeholder="Cena"><br>
-      <button class="btn btn-primary">Add!</button>
-
-
-
-    </form>
+    <div class="offset-4 col-4">
+      <form action="new" method="POST">
+        @csrf
+        <input class="btn-block" type="text" name="nazwa" placeholder="Nazwa">
+        <input class="btn-block" type="text" name="opis" placeholder="Opis">
+        <select class="custom-select btn-block" name="kategoria_id">
+          @foreach($categories as $row)
+            <option value="{{$row->id}}">{{$row->nazwa}}</option>
+          @endforeach
+        </select>
+        <input class="btn-block" type="text" name="cena" placeholder="Cena"><br><br>
+        <button class="btn-block btn btn-primary">Dodaj!</button>
+      </form>
+    </div>
   </div>
 </div>
 
