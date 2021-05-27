@@ -12,8 +12,6 @@ class menuController extends Controller
         $menu = Menu::all();
         $categories = kategorie::all();
 
-        
-
         return view('admin.menu.main', compact('menu', 'categories'));
     }
 
@@ -45,12 +43,12 @@ class menuController extends Controller
 
     function update(request $r){
         $r -> validate([
-            'nazwa' => 'required|unique:menu',
+            'nazwa' => 'required',
             'opis' => 'required|min:15',
             'kategoria_id' => 'required',
             'cena' => 'required'
         ]);
-
+        
         $temp = menu::findOrFail($r->input('id'));
 
         $temp -> nazwa = $r->input('nazwa');
@@ -106,13 +104,21 @@ class menuController extends Controller
     }
 
     function deleteCategory($id){
+
+        $r = new Request([ 'id' => $id ]);
+        $rules = [ 'id' => 'unique:menu,kategoria_id' ];
+        $messages = [ 'id.unique' => 'Some menu possiotion has this category' ];
+
+        $this->validate($r, $rules, $messages);
+
         kategorie::findOrFail($id) -> delete();
+
 
         return redirect('/admin/menu');
     }
 
     function wyswietl($id){
-       $dania=kategorie::find($id);
+        $dania=kategorie::find($id);
 
         return view('kelner_views/kelner_dania',['dania'=>$dania]);
     }

@@ -15,8 +15,9 @@ class UserController extends Controller
     {
         $user = uzytkownicy::all();
         $roles = pozycja::all();
+        $rolesCount = pozycja::all()->count();
 
-        return view('admin.user.main', compact('user', 'roles'));
+        return view('admin.user.main', compact('user', 'roles', 'rolesCount'));
     }
 
     function new()
@@ -55,6 +56,7 @@ class UserController extends Controller
     function update(request $r)
     {
         $r->validate([
+            'login' => 'required',
             'imie' => 'required',
             'nazwisko' => 'required',
             'pozycja_id' => 'required'
@@ -63,6 +65,7 @@ class UserController extends Controller
         $temp = uzytkownicy::findOrFail($r->input('id'));
         if($r->input('haslo') != '')
             $temp->haslo = Hash::make($r->haslo);
+        $temp->login = $r->input('login');
         $temp->imie = $r->input('imie');
         $temp->nazwisko = $r->input('nazwisko');
         $temp->pozycja_id = $r->input('pozycja_id');
@@ -87,7 +90,7 @@ class UserController extends Controller
 
     function addRole(request $r){
         $r -> validate([
-            'nazwa' => 'required|min:3'
+            'nazwa' => 'required|min:3|unique:pozycje'
         ]);
 
         pozycja::create($r->all());
@@ -114,6 +117,13 @@ class UserController extends Controller
     }
     
     function deleteRole($id){
+
+        $r = new Request([ 'id' => $id ]);
+        $rules = [ 'id' => 'unique:uzytkownicy,pozycja_id' ];
+        $messages = [ 'id.unique' => 'Some user has that position!' ];
+
+        $this->validate($r, $rules, $messages);
+
         pozycja::findOrFail($id) -> delete();
         
         return redirect('/admin/users');
