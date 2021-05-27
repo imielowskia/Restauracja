@@ -16,7 +16,7 @@ class ZamowieniaController extends Controller
     {
         if (Session()->get('userID')) {
             $user = uzytkownicy::find(Session()->get('userID'))->pozycja->nazwa;
-            if ($user == 'Kucharz') {
+            if ($user == 'kucharz') {
                 $Zamowienia = Zamowienie::all();
                 return view('kuchnia', ['Zamowienia' => $Zamowienia]);
             } else {
