@@ -29,7 +29,7 @@
 				<strong>Holy guacamole!</strong> {{$error['message']}}
 				</div>
 			@endif
-	
+
 						<h3 class="mb-4 justify-content-center text-center">Masz konto?</h3>
 						<form action="log-in-form" method="POST" class="signin-form">
 						@csrf
@@ -46,7 +46,7 @@
 						</form>
 
 						<div class=" d-flex text-center text-light ">
-							<button type="submit" class="form-control btn btn-primary submit px-3"><a href="/pracownik" style="color:black;">Wróć do strony głównej</a></button>
+							<button type="submit" class="form-control btn btn-primary submit px-3"><a href="{{route('pracownik')}}" style="color:black;">Wróć do strony głównej</a></button>
 						</div>
 					</div>
 				</div>

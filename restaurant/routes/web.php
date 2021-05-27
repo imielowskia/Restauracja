@@ -27,7 +27,7 @@ Route::get('/', function () {
 //routy dla pracowników i kelnera
 Route::get('/pracownik', function () {
     return view('glownyWidok_pracownicy/employeemain');
-});
+})->name('pracownik');
 
 Route::get('/kuchnia', [ZamowieniaController::class, 'index'])->name('kuchnia');
 Route::get('/kuchnia.realizacja', [ZamowieniaController::class, 'realizacja'])->name('kuchnia.realizacja');
