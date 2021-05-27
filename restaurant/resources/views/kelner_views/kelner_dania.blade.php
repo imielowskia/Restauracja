@@ -15,7 +15,7 @@
 
                         @if ($danie->dostepnosc==1)
                             <div class="col-sm-4 mt-5">
-                                <a href="{{route('usun.dostepnosc',['id'=>$danie->id])}}"><button type="button"  class="btn btn-light btn-block custom-button" >{{$danie->nazwa}}</button></a>
+                                <a href=""><button type="button"  class="btn btn-light btn-block custom-button" >{{$danie->nazwa}}</button></a>
                             </div>
                         @endif
 
