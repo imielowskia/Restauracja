@@ -4,6 +4,8 @@ use App\Http\Controllers\KasaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZamowieniaController;
 use App\Http\Controllers\loginController;
+use Illuminate\Database\Eloquent;
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +42,8 @@ Route::get('/kuchnia/dostepnosc/{id}', [MenuController::class,  function ($id){
 }])->name('dania_dostepnosc');
 Route::get('/kuchnia/usun_dostepnosc/{id}', [MenuController::class, 'usun_dostepnosc'])->name('usun.dostepnosc');
 Route::get('/kuchnia/dodaj_dostepnosc/{id}', [MenuController::class, 'dodaj_dostepnosc'])->name('dodaj.dostepnosc');
+Route::get('/kuchnia/zestawienie', [ZamowieniaController::class, 'zamowienia_dzis'])->name('zestawienie');
+Route::get('/kuchnia_zestawienie_kelner', [ZamowieniaController::class, 'zamowienia_dzis_kelner'])->name('kuchnia_zestawienie_kelner');
 
 // routy dla kasy
 Route::get("/kasa", [KasaController::class, 'index'])->name("kasa");
@@ -50,7 +54,7 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
-Route::get('/out', [loginController::class, 'logout']);
+Route::get('/out', [loginController::class, 'logout'])->name('logout');
 
 Route::get('/admin/menu', [MenuController::class, 'index']);
 Route::get('/admin/menu/new', [MenuController::class, 'new']);
