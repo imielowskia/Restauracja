@@ -54,7 +54,7 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
-Route::get('/out', [loginController::class, 'logout']);
+Route::get('/out', [loginController::class, 'logout'])->name('logout');
 
 Route::get('/admin/menu', [MenuController::class, 'index']);
 Route::get('/admin/menu/new', [MenuController::class, 'new']);
