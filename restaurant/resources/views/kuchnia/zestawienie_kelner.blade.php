@@ -3,7 +3,7 @@
 
     <h1 class="text-white">Dzisiejsze zamówienia kelnera:</h1>
     <h2 class="text-white">{{$kelner->imie}} {{$kelner->nazwisko}}</h2>
-    <table class="table table-stripped">
+    <table class="table table-dark">
         <thead>
         <tr>
             <th>numer stolika</th>

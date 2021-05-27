@@ -28,7 +28,9 @@ $user=\App\Models\uzytkownicy::find($session_id);
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+                @isset($session_id)
                 <li class="nav-item"><a class="nav-link text-light" href="#">Zalogowano jako:{{$user->imie}} {{$user->nazwisko}}</a></li>
+                @endisset
                 <li class="nav-item active">
                     <a class="nav-link text-light" href="{{route('kuchnia')}}">
                         Kuchnia
@@ -36,7 +38,9 @@ $user=\App\Models\uzytkownicy::find($session_id);
                 </li>
                 <li class="nav-item"><a class="nav-link text-light" href="{{route('dostepne_dania')}}">Dostępność dań </a></li>
                 <li class="nav-item"><a class="nav-link text-light" href="{{route('zestawienie')}}">Zestawienie</a></li>
+                    @isset($session_id)
                 <li class="nav-item"><a class="nav-link text-light" href="{{route('logout')}}">Wyolguj</a></li>
+                    @endisset
             </ul>
         </div>
     </div>

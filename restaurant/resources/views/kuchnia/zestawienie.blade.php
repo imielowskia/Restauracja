@@ -2,7 +2,7 @@
 <div class="container">
 
     <h1 class="text-white">Dzisiejsze zamówienia</h1>
-    <table class="table table-stripped">
+    <table class="table table-dark">
         <thead>
         <tr>
             <th>numer stolika</th>
