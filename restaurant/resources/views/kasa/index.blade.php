@@ -16,12 +16,15 @@
     <table class="table table-stripped">
         <thead>
             <tr>
-                <th>numer stolika</th>
-                <th>numer zamowienia</th>
-                <th>Godzina</th>
+                <th>nr stolika</th>
+                <th>nr zamowienia</th>
+                <th>kelner</th>
+                <th>Godzina wydania</th>
                 <th>Zawartość</th>
+                <th>Cena</th>
                 <th></th>
                 <th>akcje</th>
+
             </tr>
         </thead>
         <tbody>
@@ -29,9 +32,12 @@
                 <tr>
                     <td>{{$zamowienie->stolik['numer']}}</td> <!-- nr stolika-->
                     <td>{{$zamowienie['id']}} </td> <!--nr zam-->
-                    <td>{{$zamowienie['created_at']}}</td><!--godz-->
-                    <td>@foreach ($zamowienie->menu as $danie){{$danie->nazwa}}, @endforeach</td> <!--zawartosc-->
-                    <td>{{$zamowienie['zaplac']}}</td> <!--akcja-->
+                    <td>{{$zamowienie->uzytkownik['imie']}}</td>
+                    <td>{{$zamowienie['created_at']}}</td>
+                    <td>@foreach($zamowienie->menu as $danie){{$danie->nazwa}}, @endforeach</td> <!--zawartosc-->
+                    <td>@foreach($zamowienie->menu as $danie){{$danie->cena}}, @endforeach</td>  <!--cena-->
+                    <td>{{$zamowienie['zaplac']}} zł</td> <!--akcja-->
+
                     <td>
                      <!--  <form action="{{ url("/kasa/zarchiwizuj") }}" method="post">
                             @csrf
@@ -46,6 +52,7 @@
                         </form>
                     </td>
                 </tr>
+
             @endforeach
         </tbody>
     </table>
