@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Zamowienie;
 use App\Models\Menu;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 class ZamowieniaController extends Controller
 {
     public function index()
@@ -54,4 +55,35 @@ class ZamowieniaController extends Controller
         $zamowienie->save();
         return redirect()->route('kelner-zamowienia');
     }
+    public function zamowienia_dzis()
+    {   $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+        ->wherein('status', ['Do wydania', 'Wydano' ,'Zakonczone'])->get();;
+        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
+    }
+    public function zamowienia_dzis_kelner()
+    {   if(isset($_GET['id']))
+    {
+        $id=$_GET['id'];
+
+    if($id=="wszystkie")
+    {
+        $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+            ->wherein('status', ['Do wydania', 'Wydano' ,'Zakonczone'])->get();;
+        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
+    }
+    else {
+        $kelner = uzytkownicy::find($id);
+        $zamowienia = \App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+            ->where('uzytkownik_id', $id)
+            ->wherein('status', ['Do wydania', 'Wydano' ,'Zakonczone'])->get();;
+        return view('kuchnia/zestawienie_kelner', ['zamowienia' => $zamowienia, 'kelner' => $kelner]);
+    }
+    }
+    else  {
+        $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+            ->wherein('status', ['Do wydania', 'Wydano' ,'Zakonczone'])->get();;
+        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
+    }
+}
+
 }

@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li class="nav-item"><a class="nav-link text-light" href="{{route('dostepne_dania')}}">Dostępność dań </a></li>
-
+                <li class="nav-item"><a class="nav-link text-light" href="{{route('zestawienie')}}">Zestawienie</a></li>
             </ul>
         </div>
     </div>
