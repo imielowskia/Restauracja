@@ -9,14 +9,21 @@ use App\Models\Zamowienie;
 use App\Models\Menu;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use mysql_xdevapi\Session;
 class ZamowieniaController extends Controller
 {
     public function index()
     {
-        $Zamowienia=Zamowienie::all();
-
-        return view('kuchnia',['Zamowienia'=>$Zamowienia]);
+        if(uzytkownicy::find(Session()->get('userID'))->pozycja_id==2) {
+            $Zamowienia = Zamowienie::all();
+            return view('kuchnia', ['Zamowienia' => $Zamowienia]);
+        }
+        else
+        {
+            return view('logowanie.logowanie');
+        }
     }
+
 
     public function realizacja()
     {
