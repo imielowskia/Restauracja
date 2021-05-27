@@ -1,13 +1,13 @@
 @extends('admin.common')
 
-@section('title', 'your users')
+@section('title', 'Users')
 
 @section('content')
 
 <div class="container">
     <div class="row">
         <div class="col-4">
-            <table class="table">
+            <table class="table table-dark">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -28,7 +28,7 @@
                     </tr>
         @endforeach
                     <tr>
-                        <td style="text-align: center;" class="table-secondary" colspan="6">
+                        <td style="text-align: center;" colspan="6">
                             <a href="users/roles/new">
                                 <i class="bi bi-plus-circle-dotted" data-bs-toggle="modal" data-bs-target="#newUser"></i>
                             </a>
@@ -38,7 +38,7 @@
             </table>
         </div>
         <div class="col-8">
-            <table class="table">
+            <table class="table table-dark">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -51,7 +51,7 @@
                 </thead>
                 <tbody>
 
-        @foreach($user as $row)
+                @foreach($user as $row)
                     <tr>
                         <th scope="row">{{$row->id}}</th>
                         <td>{{$row->login}}</td>
@@ -63,9 +63,9 @@
                             <a href="users/delete/{{$row->id}}"><i class="text-danger bi bi-trash"></i></a>
                         </td>
                     </tr>
-        @endforeach
+                @endforeach
                     <tr>
-                        <td style="text-align: center;" class="table-secondary" colspan="6">
+                        <td style="text-align: center;" colspan="6">
                             <a href="users/new">
                                 <i class="bi bi-plus-circle-dotted" data-bs-toggle="modal" data-bs-target="#newUser"></i>
                             </a>

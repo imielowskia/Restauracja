@@ -6,12 +6,13 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-4 offset-4">
         <form action="new" method="POST">
             @csrf
-            <input type="text" name="nazwa" placeholder="Nazwa"><br>
-            <button class="btn btn-primary">Add!</button>
+                <button class="btn-block btn btn-primary">Dodaj!</button>
         </form>
     </div>
+</div>
 </div>
 
 @endsection
