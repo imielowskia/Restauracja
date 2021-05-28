@@ -16,7 +16,7 @@ class CreateZamowieniaTable extends Migration
         Schema::create('zamowienia', function (Blueprint $table) {
             $table->increments("id");
             $table->unsignedInteger('stolik_id');
-            $table->string('status');
+            $table->unsignedInteger('status_id');
             $table->unsignedInteger('uzytkownik_id');
             $table->timestamps();
         });
