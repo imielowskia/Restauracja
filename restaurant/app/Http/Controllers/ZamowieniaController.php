@@ -32,7 +32,7 @@ class ZamowieniaController extends Controller
         if(isset($_GET['multiple'])) {
             $a = $_GET['multiple'];
             $zamowienie = Zamowienie::find($a);
-            $zamowienie->status = 'w realizacji';
+            $zamowienie->status_id = 2;
             $zamowienie->save();
         }
         return redirect()->route('kuchnia');
@@ -43,7 +43,7 @@ class ZamowieniaController extends Controller
         if(isset($_GET['multiple'])) {
             $a = $_GET['multiple'];
             $zamowienie = Zamowienie::find($a);
-            $zamowienie->status = 'Do wydania';
+            $zamowienie->status_id = 3;
             $zamowienie->save();
         }
         return redirect()->route('kuchnia');
@@ -60,13 +60,13 @@ class ZamowieniaController extends Controller
     public function zmianaStatusu($id)
     {
         $zamowienie=Zamowienie::find($id);
-        $zamowienie->status='Wydano';
+        $zamowienie->status_id=4;
         $zamowienie->save();
         return redirect()->route('kelner-zamowienia');
     }
     public function zamowienia_dzis()
     {   $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
-        ->wherein('status', ['Do wydania', 'Wydano' ,'Zakonczone'])->get();;
+        ->wherein('status_id', [3,4,5])->get();
         return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
     }
     public function zamowienia_dzis_kelner()
@@ -77,20 +77,20 @@ class ZamowieniaController extends Controller
     if($id=="wszystkie")
     {
         $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
-            ->wherein('status', ['Do wydania', 'Wydano' ,'Zakonczone'])->get();;
+            ->wherein('status_id', [3,4,5])->get();
         return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
     }
     else {
         $kelner = uzytkownicy::find($id);
         $zamowienia = \App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
             ->where('uzytkownik_id', $id)
-            ->wherein('status', ['Do wydania', 'Wydano' ,'Zakonczone'])->get();;
+            ->wherein('status_id', [3,4,5])->get();
         return view('kuchnia/zestawienie_kelner', ['zamowienia' => $zamowienia, 'kelner' => $kelner]);
     }
     }
     else  {
         $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
-            ->wherein('status', ['Do wydania', 'Wydano' ,'Zakonczone'])->get();;
+            ->wherein('status_id', [3,4,5])->get();
         return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
     }
 }

@@ -21,7 +21,7 @@
                 <td>{{$zamowienie->uzytkownik->imie}} {{$zamowienie->uzytkownik->nazwisko}}</td>
                 <td>{{$zamowienie['created_at']}}</td><!--godz-->
                 <td>@foreach ($zamowienie->menu as $danie){{$danie->nazwa}}, @endforeach</td> <!--zawartosc-->
-\               <td>{{$zamowienie->status}}</td>
+\               <td>{{$zamowienie->status->nazwa}}</td>
             </tr>
         @endforeach
         </tbody>
