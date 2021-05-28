@@ -1,5 +1,4 @@
-<?php include_once('../public/functions/header.php'); ?>
-
+@include('kelner_views/header')
 
 <!-- Page content-->
 <div id="main" class="container-fluid ">

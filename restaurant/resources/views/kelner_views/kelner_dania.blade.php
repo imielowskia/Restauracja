@@ -1,5 +1,5 @@
-<?php include_once('../public/functions/header.php'); ?>
 
+@include('kelner_views/header')
 
 <!-- Page content-->
 <div id="main" class="container-fluid">
@@ -70,9 +70,9 @@
 
         </div>
         {{--            zamowienie--}}
-        <div class="col-sm-3">
+        <div class="col-sm-3 ">
 
-            <table class="table table-bordered table-dark bg-dark mt-4">
+            <table class="table table-bordered table-dark bg-dark mt-4 ">
                 <thead>
                 <tr>
                     <th class="text-center" colspan="3" scope="row">Zamówienie</th>
@@ -119,7 +119,7 @@
                 </thead>
             </table>
             <div class="d-flex justify-content-sm-end">
-                <button type="button" class="btn btn-success ml-4">Zatwierdź</button>
+                <button type="button" class="btn btn-success">Zatwierdź</button>
                 <button type="button" class="btn btn-danger ml-2">Anuluj</button></div>
         </div>
     </div>
@@ -134,6 +134,7 @@
 <script src="../../js/scripts.js"></script>
 
 
-
+</div>
+</div>
 </body>
 </html>

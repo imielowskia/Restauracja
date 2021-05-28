@@ -1,7 +1,8 @@
-<?php include_once('../public/functions/header.php'); ?>
-@php $zamowienie=\App\Models\Zamowienie::all();@endphp
+@include('kelner_views/header')
+@php
+    $session_id = Session::get('userID');
+            $zamowienie=\App\Models\Zamowienie::where('uzytkownik_id',$session_id )->get();@endphp
 <div id="main" class="container-fluid ">
-
     <div class="row ">
         <div class="col-sm-2"></div>
                        <div class="col-sm-7 text-center align-items-sm-center ">
