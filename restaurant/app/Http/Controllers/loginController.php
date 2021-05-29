@@ -14,19 +14,17 @@ class loginController extends Controller
 {
     function login(){
         $user = Session()->get('userID');
-        // return $user;
+
         if($user){
             $role = uzytkownicy::find($user)->pozycja_id;
-            $role = pozycja::find($role)->nazwa;
-            $role = strtolower($role);
 
-            if($role == 'kelner')
+            if($role == 1)
                 return redirect('kelner-zamowienia');
-            elseif($role == 'kasjer')
+            elseif($role == 2)
                 return redirect('kasa');
-            elseif($role == 'kucharz')
+            elseif($role == 3)
                 return redirect('kuchnia');
-            elseif($role == 'kierownik')
+            elseif($role == 4)
                 return redirect('admin');
         }
         else
