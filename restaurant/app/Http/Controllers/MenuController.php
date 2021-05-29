@@ -12,6 +12,9 @@ class menuController extends Controller
         $menu = Menu::all();
         $categories = kategorie::all();
 
+        foreach ($menu as $temp)
+            $temp->kategoria_id = kategorie::find($temp->kategoria_id)->nazwa;
+
         return view('admin.menu.main', compact('menu', 'categories'));
     }
 

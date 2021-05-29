@@ -20,7 +20,7 @@
                 </thead>
                 <tbody>
 
-                @foreach($user as $row)
+                @foreach($users as $row)
                     <tr>
                         <th scope="row">{{$row->id}}</th>
                         <td>{{$row->login}}</td>

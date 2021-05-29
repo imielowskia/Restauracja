@@ -13,9 +13,12 @@ class UserController extends Controller
 {
     function index()
     {
-        $user = uzytkownicy::all();
+        $users = uzytkownicy::all();
 
-        return view('admin.user.main', compact('user'));
+        foreach ($users as $user)
+            $user->pozycja_id = pozycja::find($user->pozycja_id) -> nazwa;
+
+    return view('admin.user.main', compact('users'));
     }
 
     function new()
