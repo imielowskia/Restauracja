@@ -14,7 +14,13 @@
             <div class="col-xl-2 col-md-4 col-6 ">
                 <div class="icon-box">
                     <i class="ri-shirt-fill"></i>
-                    <h3><a href="admin/users">Edytuj użytkowników</a></h3>
+                    <h3><a href="admin/users">Edytuj pracowników</a></h3>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-6 ">
+                <div class="icon-box">
+                    <i class="ri-shirt-fill"></i>
+                    <h3><a href="admin/autoTables">Auto tabele</a></h3>
                 </div>
             </div>
         </div>

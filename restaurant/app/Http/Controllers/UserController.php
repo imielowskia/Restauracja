@@ -14,10 +14,8 @@ class UserController extends Controller
     function index()
     {
         $user = uzytkownicy::all();
-        $roles = pozycja::all();
-        $rolesCount = pozycja::all()->count();
 
-        return view('admin.user.main', compact('user', 'roles', 'rolesCount'));
+        return view('admin.user.main', compact('user'));
     }
 
     function new()
@@ -79,53 +77,6 @@ class UserController extends Controller
     {
         uzytkownicy::findOrFail($id)->delete();
 
-        return redirect('/admin/users');
-    }
-
-    // Roles
-
-    function newRole(){
-        return view('admin.user.roles.new');
-    }
-
-    function addRole(request $r){
-        $r -> validate([
-            'nazwa' => 'required|min:3|unique:pozycje'
-        ]);
-
-        pozycja::create($r->all());
-
-        return redirect('/admin/users');
-    }
-
-    function editRole($id){
-        $role = pozycja::findOrFail($id);
-
-        return view('admin.user.roles.edit', compact('role'));
-    }
-
-    function updateRole(request $r){
-        $r->validate([
-            'nazwa' => 'required|min:3'
-        ]);
-
-        $temp = pozycja::findOrFail($r->input('id'));
-        $temp -> nazwa = $r->input('nazwa');
-        $temp -> save();
-
-        return redirect('/admin/users');
-    }
-    
-    function deleteRole($id){
-
-        $r = new Request([ 'id' => $id ]);
-        $rules = [ 'id' => 'unique:uzytkownicy,pozycja_id' ];
-        $messages = [ 'id.unique' => 'Some user has that position!' ];
-
-        $this->validate($r, $rules, $messages);
-
-        pozycja::findOrFail($id) -> delete();
-        
         return redirect('/admin/users');
     }
 }

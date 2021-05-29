@@ -1,3 +1,4 @@
+  
 @extends('admin.common')
 
 @section('title', 'Edit ' . $role->nazwa)
@@ -7,7 +8,7 @@
 <div class="container">
   <div class="row">
     <div class="col-4 offset-4">
-      <form action="../edit" method="POST">
+      <form action="../role" method="POST">
         @csrf
         <input type="hidden" value="{{$role->id}}" name="id">
         <input class="btn-block" disabled value="{{$role->id}}">

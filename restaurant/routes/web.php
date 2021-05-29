@@ -4,6 +4,7 @@ use App\Http\Controllers\KasaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZamowieniaController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\autoTablesController;
 use Illuminate\Database\Eloquent;
 use Carbon\Carbon;
 /*
@@ -76,11 +77,14 @@ Route::get('/admin/users/edit/{id}', [UserController::class, 'edit']);
 Route::post('/admin/users/edit', [UserController::class, 'update']);
 Route::get('/admin/users/delete/{id}', [UserController::class, 'delete']);
 
-Route::get('/admin/users/roles/new', [UserController::class, 'newRole']);
-Route::post('/admin/users/roles/new', [UserController::class, 'addRole']);
-Route::get('/admin/users/roles/edit/{id}', [UserController::class, 'editRole']);
-Route::post('/admin/users/roles/edit', [UserController::class, 'updateRole']);
-Route::get('/admin/users/roles/delete/{id}', [UserController::class, 'deleteRole']);
+Route::get('/admin/autoTables', [autoTablesController::class, 'init']);
+Route::get('/admin/autoTables/edit/roles', [autoTablesController::class, 'editRoles']);
+Route::get('/admin/autoTables/edit/roles/{id}', [autoTablesController::class, 'editRole']);
+Route::post('/admin/autoTables/edit/role', [autoTablesController::class, 'updateRoles']);
+
+Route::get('/admin/autoTables/edit/statuses', [autoTablesController::class, 'editStatuses']);
+Route::get('/admin/autoTables/edit/statuses/{id}', [autoTablesController::class, 'editStatus']);
+Route::post('/admin/autoTables/edit/status', [autoTablesController::class, 'updateStatus']);
 
 Route::get('log-in-form', [loginController::class, 'login']);
 Route::post('log-in-form', [loginController::class, 'tryLogin']);

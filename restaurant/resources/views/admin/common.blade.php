@@ -18,7 +18,7 @@
     <link href="{{asset('mainpagestyles/assets/css/style.css')}}" rel="stylesheet">
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtR48fo07tFOljlalJbpzz4nStduiATr1gcPEx_My6rgN3474omfpW5wjXZLLGa9RaXy8&usqp=CAU">
 </head>
-<body>
+<body style="overflow-y: auto;">
 
   @if($errors->any())
   <div class="alert alert-warning alert-dismissible fade show" role="alert">

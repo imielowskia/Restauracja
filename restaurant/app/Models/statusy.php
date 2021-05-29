@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class statusy extends Model
 {
     protected $table= 'statusy';
+    protected $fillable = ['nazwa'];
     use HasFactory;
 
     public function Zamowienia()
