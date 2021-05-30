@@ -1,5 +1,5 @@
-<?php include_once('../public/functions/header.php'); ?>
 
+@include('kelner_views/header')
 
 <!-- Page content-->
 <div id="main" class="container-fluid">
@@ -9,20 +9,17 @@
         <div id="menu-wybor" class="col-sm-7 text-center align-self-center bg-dark">
 
             <h3 class="text-light mt-4">Dania</h3>
-            @php $i=0;
-            @endphp
-                @foreach($dania->menu as $danie)
-                @if ($i==0)
+
                 <div class="row mt-4 ">
-                    @endif
-                    @php $i=$i+1;
-                    @endphp
-                <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">{{$danie->nazwa}}</a></div>
-                    @if ($i==3)
-                </div>
-                    @php $i=0;
-                    @endphp
+                    @foreach($dania->menu as $danie)
+
+                        @if ($danie->dostepnosc==1)
+                            <div class="col-sm-4 mt-5">
+                                <a href=""><button type="button"  class="btn btn-light btn-block custom-button" >{{$danie->nazwa}}</button></a>
+                            </div>
                         @endif
+
+
                     @endforeach
             </div>
 {{--
@@ -73,9 +70,9 @@
 
         </div>
         {{--            zamowienie--}}
-        <div class="col-sm-3">
+        <div class="col-sm-3 ">
 
-            <table class="table table-bordered table-dark bg-dark mt-4">
+            <table class="table table-bordered table-dark bg-dark mt-4 ">
                 <thead>
                 <tr>
                     <th class="text-center" colspan="3" scope="row">Zamówienie</th>
@@ -122,7 +119,7 @@
                 </thead>
             </table>
             <div class="d-flex justify-content-sm-end">
-                <button type="button" class="btn btn-success ml-4">Zatwierdź</button>
+                <button type="button" class="btn btn-success">Zatwierdź</button>
                 <button type="button" class="btn btn-danger ml-2">Anuluj</button></div>
         </div>
     </div>
@@ -137,6 +134,7 @@
 <script src="../../js/scripts.js"></script>
 
 
-
+</div>
+</div>
 </body>
 </html>

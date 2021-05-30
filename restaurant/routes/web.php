@@ -3,6 +3,10 @@
 use App\Http\Controllers\KasaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZamowieniaController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\autoTablesController;
+use Illuminate\Database\Eloquent;
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +30,7 @@ Route::get('/temp', function () {
 //routy dla pracowników i kelnera
 Route::get('/pracownik', function () {
     return view('glownyWidok_pracownicy/employeemain');
-});
+})->name('pracownik');
 
 Route::get('/kuchnia', [ZamowieniaController::class, 'index'])->name('kuchnia');
 Route::get('/kuchnia.realizacja', [ZamowieniaController::class, 'realizacja'])->name('kuchnia.realizacja');
@@ -41,6 +45,8 @@ Route::get('/kuchnia/dostepnosc/{id}', [MenuController::class,  function ($id){
 }])->name('dania_dostepnosc');
 Route::get('/kuchnia/usun_dostepnosc/{id}', [MenuController::class, 'usun_dostepnosc'])->name('usun.dostepnosc');
 Route::get('/kuchnia/dodaj_dostepnosc/{id}', [MenuController::class, 'dodaj_dostepnosc'])->name('dodaj.dostepnosc');
+Route::get('/kuchnia/zestawienie', [ZamowieniaController::class, 'zamowienia_dzis'])->name('zestawienie');
+Route::get('/kuchnia_zestawienie_kelner', [ZamowieniaController::class, 'zamowienia_dzis_kelner'])->name('kuchnia_zestawienie_kelner');
 
 // routy dla kasy
 Route::get("/kasa", [KasaController::class, 'index'])->name("kasa");
@@ -50,6 +56,8 @@ Route::post("/kasa/zaplac", [KasaController::class, 'zaplac'])->name('kasa.zapla
 Route::get('/admin', function () {
     return view('admin.index');
 });
+
+Route::get('/out', [loginController::class, 'logout'])->name('logout');
 
 Route::get('/admin/menu', [MenuController::class, 'index']);
 Route::get('/admin/menu/new', [MenuController::class, 'new']);
@@ -71,15 +79,18 @@ Route::get('/admin/users/edit/{id}', [UserController::class, 'edit']);
 Route::post('/admin/users/edit', [UserController::class, 'update']);
 Route::get('/admin/users/delete/{id}', [UserController::class, 'delete']);
 
-Route::get('/admin/users/roles/new', [UserController::class, 'newRole']);
-Route::post('/admin/users/roles/new', [UserController::class, 'addRole']);
-Route::get('/admin/users/roles/edit/{id}', [UserController::class, 'editRole']);
-Route::post('/admin/menu/roles/edit', [UserController::class, 'updateRole']);
-Route::get('/admin/users/roles/delete/{id}', [UserController::class, 'deleteRole']);
+Route::get('/admin/autoTables', [autoTablesController::class, 'init']);
+Route::get('/admin/autoTables/edit/roles', [autoTablesController::class, 'editRoles']);
+Route::get('/admin/autoTables/edit/roles/{id}', [autoTablesController::class, 'editRole']);
+Route::post('/admin/autoTables/edit/role', [autoTablesController::class, 'updateRoles']);
 
-Route::get('/log-in-form', function () {
-    return view('logowanie/logowanie');
-});
+Route::get('/admin/autoTables/edit/statuses', [autoTablesController::class, 'editStatuses']);
+Route::get('/admin/autoTables/edit/statuses/{id}', [autoTablesController::class, 'editStatus']);
+Route::post('/admin/autoTables/edit/status', [autoTablesController::class, 'updateStatus']);
+
+Route::get('log-in-form', [loginController::class, 'login']);
+Route::post('log-in-form', [loginController::class, 'tryLogin']);
+
 
 Route::get('/kelnermenu', function () {
     return view('kelner_views/kelner2');
@@ -88,6 +99,7 @@ Route::get('/kelnermenu', function () {
 Route::get('/kelner', function () {
     return view('kelner_views/kelner');
 });
+Route::get('/kelner_zmien/{id}', [ZamowieniaController::class, 'zmianaStatusu'])->name('kelner_zmien');
 
 Route::get('/kelner_views/kelner_dania/{id}', [MenuController::class, 'wyswietl'])->name('dania');
 
@@ -109,7 +121,7 @@ Route::get('/', function () {
 
 Route::get('/kelner-zamowienia', function () {
     return view('kelner_views/kelnerZamowienie');
-});
+})->name('kelner-zamowienia');
 
 
 

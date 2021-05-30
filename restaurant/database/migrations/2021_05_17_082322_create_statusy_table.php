@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateZamowieniaTable extends Migration
+class CreateStatusyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateZamowieniaTable extends Migration
      */
     public function up()
     {
-        Schema::create('zamowienia', function (Blueprint $table) {
+        Schema::create('statusy', function (Blueprint $table) {
             $table->increments("id");
-            $table->unsignedInteger('stolik_id');
-            $table->unsignedInteger('status_id');
-            $table->unsignedInteger('uzytkownik_id');
+            $table->string('nazwa');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateZamowieniaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zamowienias');
+        Schema::dropIfExists('statusy');
     }
 }

@@ -1,5 +1,4 @@
-<?php include_once('../public/functions/header.php'); ?>
-
+@include('kelner_views/header')
 
 <!-- Page content-->
 <div id="main" class="container-fluid ">
@@ -13,11 +12,12 @@
                        <div class="row mt-4 mb-4">
 
 @foreach($kategorie as $kategoria)
-                           <div class="col-sm-4 mt-2">
+                           <div class="col-sm-4 mt-5">
                                <a href="{{route('dania',['id'=>$kategoria->id])}}"><button type="button"  class="btn btn-light btn-block custom-button" >
                                    {{$kategoria->nazwa}}</button></a>
                            </div>
                            @endforeach
+
 {{--                           <div class="col-sm-4 mt-2">
                                <a href="napoje"><button type="button"  class="btn btn-light btn-block custom-button">Napoje</button></a>
                            </div>

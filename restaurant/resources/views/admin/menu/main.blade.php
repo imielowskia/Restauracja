@@ -6,8 +6,13 @@
 
 <div class="container">
   <div class="row">
+        <div class="col-12">
+            <a href="../">
+                <button type="button" class="btn-block btn btn-secondary mb-3">Powrót</button>
+            </a>
+        </div>
     <div class="col-8">
-      <table class="table">
+      <table class="table table-dark">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -33,7 +38,7 @@
           </tr>
           @endforeach
           <tr>
-            <td style="text-align: center;" class="table-secondary" colspan="6">
+            <td style="text-align: center;" colspan="6">
               <a href="menu/new">
                 <i class="bi bi-plus-circle-dotted" data-bs-toggle="modal" data-bs-target="#newUser"></i>
               </a>
@@ -44,7 +49,7 @@
     </div>
 
     <div class="col-4">
-      <table class="table">
+    <table class="table table-dark">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -64,7 +69,7 @@
           </tr>
           @endforeach
           <tr>
-            <td style="text-align: center;" class="table-secondary" colspan="6">
+            <td style="text-align: center;" colspan="6">
               <a href="menu/categories/new">
                 <i class="bi bi-plus-circle-dotted" data-bs-toggle="modal" data-bs-target="#newUser"></i>
               </a>

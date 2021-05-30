@@ -8,21 +8,31 @@ use Illuminate\Http\Request;
 use App\Models\Zamowienie;
 use App\Models\Menu;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+use mysql_xdevapi\Session;
 class ZamowieniaController extends Controller
 {
     public function index()
     {
-        $Zamowienia=Zamowienie::all();
-
-        return view('kuchnia',['Zamowienia'=>$Zamowienia]);
+        if (Session()->get('userID')) {
+            $user = (isset(uzytkownicy::find(Session()->get('userID'))->login))? uzytkownicy::find(Session()->get('userID'))->pozycja->nazwa : '';
+            if ($user == 'kucharz') {
+                $Zamowienia = Zamowienie::all();
+                return view('kuchnia', ['Zamowienia' => $Zamowienia]);
+            } else {
+                return view('logowanie.logowanie');
+            }
+        }
+        else return view('logowanie.logowanie');
     }
+
 
     public function realizacja()
     {
         if(isset($_GET['multiple'])) {
             $a = $_GET['multiple'];
             $zamowienie = Zamowienie::find($a);
-            $zamowienie->status = 'w realizacji';
+            $zamowienie->status_id = 2;
             $zamowienie->save();
         }
         return redirect()->route('kuchnia');
@@ -33,7 +43,7 @@ class ZamowieniaController extends Controller
         if(isset($_GET['multiple'])) {
             $a = $_GET['multiple'];
             $zamowienie = Zamowienie::find($a);
-            $zamowienie->status = 'wydano z kuchni';
+            $zamowienie->status_id = 3;
             $zamowienie->save();
         }
         return redirect()->route('kuchnia');
@@ -49,9 +59,40 @@ class ZamowieniaController extends Controller
 
     public function zmianaStatusu($id)
     {
-        $Zamowienia=Zamowienie::all();
         $zamowienie=Zamowienie::find($id);
-        $zamowienie->status='wydano';
+        $zamowienie->status_id=4;
         $zamowienie->save();
+        return redirect()->route('kelner-zamowienia');
     }
+    public function zamowienia_dzis()
+    {   $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+        ->wherein('status_id', [3,4,5])->get();
+        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
+    }
+    public function zamowienia_dzis_kelner()
+    {   if(isset($_GET['id']))
+    {
+        $id=$_GET['id'];
+
+    if($id=="wszystkie")
+    {
+        $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+            ->wherein('status_id', [3,4,5])->get();
+        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
+    }
+    else {
+        $kelner = uzytkownicy::find($id);
+        $zamowienia = \App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+            ->where('uzytkownik_id', $id)
+            ->wherein('status_id', [3,4,5])->get();
+        return view('kuchnia/zestawienie_kelner', ['zamowienia' => $zamowienia, 'kelner' => $kelner]);
+    }
+    }
+    else  {
+        $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+            ->wherein('status_id', [3,4,5])->get();
+        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
+    }
+}
+
 }

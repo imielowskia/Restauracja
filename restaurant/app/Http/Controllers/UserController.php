@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\uzytkownicy;
 use App\Models\pozycja;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
     function index()
     {
-        $user = uzytkownicy::all();
-        $roles = pozycja::all();
+        $users = uzytkownicy::all();
 
-        return view('admin.user.main', compact('user', 'roles'));
+        foreach ($users as $user)
+            $user->pozycja_id = pozycja::find($user->pozycja_id) -> nazwa;
+
+    return view('admin.user.main', compact('users'));
     }
 
     function new()
@@ -26,14 +31,17 @@ class UserController extends Controller
     function add(request $r)
     {
         $r->validate([
-            'login' => 'required',
+            'login' => 'required|unique:uzytkownicy',
             'haslo' => 'required',
             'imie' => 'required',
             'nazwisko' => 'required',
             'pozycja_id' => 'required'
         ]);
 
-        uzytkownicy::create($r->all());
+        $temp = $r->all();
+        $temp['haslo'] = Hash::make($r->haslo);
+
+        uzytkownicy::create($temp);
 
         return redirect('/admin/users');
     }
@@ -50,16 +58,15 @@ class UserController extends Controller
     {
         $r->validate([
             'login' => 'required',
-            'haslo' => 'required',
             'imie' => 'required',
             'nazwisko' => 'required',
             'pozycja_id' => 'required'
         ]);
 
         $temp = uzytkownicy::findOrFail($r->input('id'));
-
+        if($r->input('haslo') != '')
+            $temp->haslo = Hash::make($r->haslo);
         $temp->login = $r->input('login');
-        $temp->haslo = $r->input('haslo');
         $temp->imie = $r->input('imie');
         $temp->nazwisko = $r->input('nazwisko');
         $temp->pozycja_id = $r->input('pozycja_id');
@@ -73,46 +80,6 @@ class UserController extends Controller
     {
         uzytkownicy::findOrFail($id)->delete();
 
-        return redirect('/admin/users');
-    }
-
-    // Roles
-
-    function newRole(){
-        return view('admin.user.roles.new');
-    }
-
-    function addRole(request $r){
-        $r -> validate([
-            'nazwa' => 'required|min:3'
-        ]);
-
-        pozycja::create($r->all());
-
-        return redirect('/admin/users');
-    }
-
-    function editRole($id){
-        $role = pozycja::findOrFail($id);
-
-        return view('admin.user.roles.edit', compact('role'));
-    }
-
-    function updateRole(request $r){
-        $r->validate([
-            'nazwa' => 'required|min:3'
-        ]);
-
-        $temp = pozycja::findOrFail($r->input('id'));
-        $temp -> nazwa = $r->input('nazwa');
-        $temp -> save();
-
-        return redirect('/admin/users');
-    }
-    
-    function deleteRole($id){
-        pozycja::findOrFail($id) -> delete();
-        
         return redirect('/admin/users');
     }
 }
