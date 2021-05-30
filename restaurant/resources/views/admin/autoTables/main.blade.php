@@ -6,6 +6,11 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-12">
+            <a href=".">
+                <button type="button" class="btn-block btn btn-secondary mb-3">Powrót</button>
+            </a>
+        </div>
         <div class="col-6 bg-dark offset-3 text-light border border-light py-3 rounded">
             {!! $message !!}
         </div>

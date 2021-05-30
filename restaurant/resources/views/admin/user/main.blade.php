@@ -7,6 +7,11 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+            <a href=".">
+                <button type="button" class="btn-block btn btn-secondary mb-3">Powrót</button>
+            </a>
+        </div>
+        <div class="col-12">
             <table class="table table-dark">
                 <thead>
                     <tr>
