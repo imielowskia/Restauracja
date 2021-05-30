@@ -10,23 +10,23 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../../public/strona_k/assets/img/favicon.png" rel="icon">
-    <link href="../../public/strona_k/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{asset('strona_k/assets/img/favicon.png')}}" rel="icon">
+    <link href="{{asset('strona_k/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="../../public/strona_k/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../public/strona_k/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-    <link href="../../public/strona_k/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../../public/strona_k/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="../../public/strona_k/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../../public/strona_k/assets/vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="../../public/strona_k/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="{{asset('strona_k/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('strona_k/assets/vendor/icofont/icofont.min.css')}}" rel="stylesheet">
+    <link href="{{asset('strona_k/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+    <link href="{{asset('strona_k/assets/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('strona_k/assets/vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('strona_k/assets/vendor/venobox/venobox.css')}}" rel="stylesheet">
+    <link href="{{asset('strona_k/assets/vendor/aos/aos.css')}}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="../../public/strona_k/assets/css/style.css" rel="stylesheet">
+    <link href="{{asset('strona_k/assets/css/style.css')}}" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: Restaurantly - v1.2.1
@@ -58,13 +58,13 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-        <h1 class="logo mr-auto"><a href="index.html">Restauracja</a></h1>
+        <h1 class="logo mr-auto"><a href="index.blade.php">Restauracja</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <!-- <a href="index.blade.php" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.html">Strona Główna</a></li>
+                <li class="active"><a href="/">Strona Główna</a></li>
                 <li><a href="#about">Info</a></li>
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#events">Wydarzenia</a></li>
@@ -107,7 +107,7 @@
             <div class="row">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
                     <div class="about-img">
-                        <img src="../../public/strona_k/assets/img/about.jpg" alt="">
+                        <img src="{{asset('strona_k/assets/img/about.jpg')}}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
@@ -195,7 +195,7 @@
             <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
 
                 <div class="col-lg-6 menu-item filter-starters">
-                    <img src="../../public/strona_k/assets/img/menu/lobster-bisque.jpg" class="menu-img" alt="">
+                    <img src="{{asset('strona_k/assets/img/menu/lobster-bisque.jpg')}}" class="menu-img" alt="">
                     <div class="menu-content">
                         <a href="#">Lobster Bisque</a><span>$5.95</span>
                     </div>
@@ -205,7 +205,7 @@
                 </div>
 
                 <div class="col-lg-6 menu-item filter-specialty">
-                    <img src="../../public/strona_k/assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
+                    <img src="{{asset('strona_k/assets/img/menu/bread-barrel.jpg')}}" class="menu-img" alt="">
                     <div class="menu-content">
                         <a href="#">Bread Barrel</a><span>$6.95</span>
                     </div>
@@ -215,7 +215,7 @@
                 </div>
 
                 <div class="col-lg-6 menu-item filter-starters">
-                    <img src="../../public/strona_k/assets/img/menu/cake.jpg" class="menu-img" alt="">
+                    <img src="{{asset('strona_k/assets/img/menu/cake.jpg')}}" class="menu-img" alt="">
                     <div class="menu-content">
                         <a href="#">Crab Cake</a><span>$7.95</span>
                     </div>
@@ -225,7 +225,7 @@
                 </div>
 
                 <div class="col-lg-6 menu-item filter-salads">
-                    <img src="../../public/strona_k/assets/img/menu/caesar.jpg" class="menu-img" alt="">
+                    <img src="{{asset('public/strona_k/assets/img/menu/caesar.jpg')}}" class="menu-img" alt="">
                     <div class="menu-content">
                         <a href="#">Caesar Selections</a><span>$8.95</span>
                     </div>
@@ -235,7 +235,7 @@
                 </div>
 
                 <div class="col-lg-6 menu-item filter-specialty">
-                    <img src="../../public/strona_k/assets/img/menu/tuscan-grilled.jpg" class="menu-img" alt="">
+                    <img src="{{asset('public/strona_k/assets/img/menu/tuscan-grilled.jpg')}}" class="menu-img" alt="">
                     <div class="menu-content">
                         <a href="#">Tuscan Grilled</a><span>$9.95</span>
                     </div>
@@ -245,7 +245,7 @@
                 </div>
 
                 <div class="col-lg-6 menu-item filter-starters">
-                    <img src="../../public/strona_k/assets/img/menu/mozzarella.jpg" class="menu-img" alt="">
+                    <img src="{{asset('strona_k/assets/img/menu/mozzarella.jpg')}}" class="menu-img" alt="">
                     <div class="menu-content">
                         <a href="#">Mozzarella Stick</a><span>$4.95</span>
                     </div>
@@ -255,7 +255,7 @@
                 </div>
 
                 <div class="col-lg-6 menu-item filter-salads">
-                    <img src="../../public/strona_k/assets/img/menu/greek-salad.jpg" class="menu-img" alt="">
+                    <img src="{{asset('strona_k/assets/img/menu/greek-salad.jpg')}}" class="menu-img" alt="">
                     <div class="menu-content">
                         <a href="#">Greek Salad</a><span>$9.95</span>
                     </div>
@@ -265,7 +265,7 @@
                 </div>
 
                 <div class="col-lg-6 menu-item filter-salads">
-                    <img src="../../public/strona_k/assets/img/menu/spinach-salad.jpg" class="menu-img" alt="">
+                    <img src="{{asset('strona_k/assets/img/menu/spinach-salad.jpg')}}" class="menu-img" alt="">
                     <div class="menu-content">
                         <a href="#">Spinach Salad</a><span>$9.95</span>
                     </div>
@@ -275,7 +275,7 @@
                 </div>
 
                 <div class="col-lg-6 menu-item filter-specialty">
-                    <img src="../../public/strona_k/assets/img/menu/lobster-roll.jpg" class="menu-img" alt="">
+                    <img src="{{asset('strona_k/assets/img/menu/lobster-roll.jpg')}}" class="menu-img" alt="">
                     <div class="menu-content">
                         <a href="#">Lobster Roll</a><span>$12.95</span>
                     </div>
@@ -304,7 +304,7 @@
 
                 <div class="row event-item">
                     <div class="col-lg-6">
-                        <img src="../../public/strona_k/assets/img/event-birthday.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('strona_k/assets/img/event-birthday.jpg')}}" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0 content">
                         <h3>Urodziny</h3>
@@ -328,7 +328,7 @@
 
                 <div class="row event-item">
                     <div class="col-lg-6">
-                        <img src="../../public/strona_k/assets/img/event-custom.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('strona_k/assets/img/event-custom.jpg')}}" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0 content">
                         <h3>Prywatną imprezę</h3>
@@ -352,7 +352,7 @@
 
                 <div class="row event-item">
                     <div class="col-lg-6">
-                        <img src="../../public/strona_k/assets/img/event-private.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('strona_k/assets/img/event-private.jpg')}}" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0 content">
                         <h3>Przyjęcia rodzinne</h3>
@@ -398,64 +398,64 @@
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="../../public/strona_k/assets/img/gallery/gallery-1.jpg" class="venobox" data-gall="gallery-item">
-                            <img src="../../public/strona_k/assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+                        <a href="{{asset('strona_k/assets/img/gallery/gallery-1.jpg')}}" class="venobox" data-gall="gallery-item">
+                            <img src="{{asset('strona_k/assets/img/gallery/gallery-1.jpg')}}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="../../public/strona_k/assets/img/gallery/gallery-2.jpg" class="venobox" data-gall="gallery-item">
-                            <img src="../../public/strona_k/assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+                        <a href="{{asset('strona_k/assets/img/gallery/gallery-2.jpg')}}" class="venobox" data-gall="gallery-item">
+                            <img src="{{asset('strona_k/assets/img/gallery/gallery-2.jpg')}}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="../../public/strona_k/assets/img/gallery/gallery-3.jpg" class="venobox" data-gall="gallery-item">
-                            <img src="../../public/strona_k/assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+                        <a href="{{asset('strona_k/assets/img/gallery/gallery-3.jpg')}}" class="venobox" data-gall="gallery-item">
+                            <img src="{{asset('strona_k/assets/img/gallery/gallery-3.jpg')}}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="../../public/strona_k/assets/img/gallery/gallery-4.jpg" class="venobox" data-gall="gallery-item">
-                            <img src="../../public/strona_k/assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+                        <a href="{{asset('strona_k/assets/img/gallery/gallery-4.jpg')}}" class="venobox" data-gall="gallery-item">
+                            <img src="{{asset('strona_k/assets/img/gallery/gallery-4.jpg')}}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="../../public/strona_k/assets/img/gallery/gallery-5.jpg" class="venobox" data-gall="gallery-item">
-                            <img src="../../public/strona_k/assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+                        <a href="{{asset('strona_k/assets/img/gallery/gallery-5.jpg')}}" class="venobox" data-gall="gallery-item">
+                            <img src="{{asset('strona_k/assets/img/gallery/gallery-5.jpg')}}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="../../public/strona_k/assets/img/gallery/gallery-6.jpg" class="venobox" data-gall="gallery-item">
-                            <img src="../../public/strona_k/assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+                        <a href="{{asset('strona_k/assets/img/gallery/gallery-6.jpg')}}" class="venobox" data-gall="gallery-item">
+                            <img src="{{asset('strona_k/assets/img/gallery/gallery-6.jpg')}}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="../../public/strona_k/assets/img/gallery/gallery-7.jpg" class="venobox" data-gall="gallery-item">
-                            <img src="../../public/strona_k/assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+                        <a href="{{asset('strona_k/assets/img/gallery/gallery-7.jpg')}}" class="venobox" data-gall="gallery-item">
+                            <img src="{{asset('strona_k/assets/img/gallery/gallery-7.jpg')}}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="../../public/strona_k/assets/img/gallery/gallery-8.jpg" class="venobox" data-gall="gallery-item">
-                            <img src="../../public/strona_k/assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+                        <a href="{{asset('strona_k/assets/img/gallery/gallery-8.jpg" class="venobox')}}" data-gall="gallery-item">
+                            <img src="{{asset('strona_k/assets/img/gallery/gallery-8.jpg')}}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
@@ -478,7 +478,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="../../public/strona_k/assets/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('strona_k/assets/img/chefs/chefs-1.jpg')}}" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>Walter White</h4>
@@ -496,7 +496,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="../../public/strona_k/assets/img/chefs/chefs-2.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('strona_k/assets/img/chefs/chefs-2.jpg')}}" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>Sarah Jhonson</h4>
@@ -514,7 +514,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                        <img src="../../public/strona_k/assets/img/chefs/chefs-3.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('strona_k/assets/img/chefs/chefs-3.jpg')}}" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>William Anderson</h4>
@@ -545,7 +545,10 @@
                     <h2>Kontakt</h2>
                     <p>Z kontaktuj się z nami</p>
                 </div>
-
+            <a href="log-in-form"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
+                <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
+            </svg></a>
 
 
                 <!-- Footer -->
@@ -562,6 +565,7 @@
                                 <h6 class="text-uppercase mb-4 font-weight-bold">Restaurant</h6>
                                 <p>Dziękujemy za wizitę na naszej stronie i zapraszamy ponownie.</p>
                             </div>
+
                             <!-- Grid column -->
 
                             <hr class="w-100 clearfix d-md-none">
@@ -629,17 +633,17 @@
 <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="../../public/strona_k/assets/vendor/jquery/jquery.min.js"></script>
-<script src="../../public/strona_k/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../../public/strona_k/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-<script src="../../public/strona_k/assets/vendor/php-email-form/validate.js"></script>
-<script src="../../public/strona_k/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-<script src="../../public/strona_k/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="../../public/strona_k/assets/vendor/venobox/venobox.min.js"></script>
-<script src="../../public/strona_k/assets/vendor/aos/aos.js"></script>
+<script src="{{asset('strona_k/assets/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('strona_k/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('strona_k/assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+<script src="{{asset('strona_k/assets/vendor/php-email-form/validate.js')}}"></script>
+<script src="{{asset('strona_k/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+<script src="{{asset('strona_k/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('strona_k/assets/vendor/venobox/venobox.min.js')}}"></script>
+<script src="{{asset('strona_k/assets/vendor/aos/aos.js')}}"></script>
 
 <!-- Template Main JS File -->
-<script src="../../public/strona_k/assets/js/main.js"></script>
+<script src="{{asset('strona_k/assets/js/main.js')}}"></script>
 
 
 

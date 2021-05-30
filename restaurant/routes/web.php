@@ -17,9 +17,11 @@ use App\Http\Controllers\ZamowieniaController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
+Route::get('/temp', function () {
     return view('glownyWidok_pracownicy/employeemain');
 });
+
+
 
 //routy dla pracowników i kelnera
 Route::get('/pracownik', function () {
@@ -101,13 +103,14 @@ Route::get('/problems', function () {
     return view('problemy');
 });
 
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('index');
 });
 
 Route::get('/kelner-zamowienia', function () {
     return view('kelner_views/kelnerZamowienie');
 });
+
 
 
 //Route::get('/kelner-zamowienia', [ZamowieniaController::class, 'index2']);
