@@ -22,7 +22,13 @@
                 <h3><a href="autoTables/edit/roles">Edytuj pozycje</a></h3>
             </div>
         </div>
-        <div class="offset-2 col-xl-2 col-md-4 col-6 ">
+        <div class="col-xl-2 col-md-4 col-6 ">
+            <div class="icon-box">
+                <i class="ri-dashboard-line"></i>
+                <h3><a href="{{url('/admin/autoTables/tables/show')}}">Edytuj stoliki</a></h3>
+            </div>
+        </div>
+        <div class="col-xl-2 col-md-4 col-6 ">
             <div class="icon-box">
                 <i class="ri-align-center"></i>
                 <h3><a href="autoTables/edit/statuses">Edytuj statusy</a></h3>

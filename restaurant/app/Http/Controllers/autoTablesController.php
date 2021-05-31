@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\pozycja;
 use App\Models\statusy;
+use App\Models\stoliki;
 
 class autoTablesController extends Controller
 {
@@ -15,6 +16,8 @@ class autoTablesController extends Controller
         $message = self::checkRoles($message);
         $message .= "<hr/>";
         $message = self::checkStatuses($message);
+        $message .= "<hr/>";
+        $message = self::checkTables($message);
         
         return view('admin.autoTables.main', compact('message'));
     }
@@ -59,7 +62,7 @@ class autoTablesController extends Controller
         $countStatuses = statusy::all()->count();
 
         if($countStatuses == 0){
-            $message .= "Nieznaleziono pozycji..<br/>";
+            $message .= "Nieznaleziono statusów..<br/>";
             $temp = [
                 [ 'nazwa' => 'Złożone' ],
                 [ 'nazwa' => 'W realizacji' ],
@@ -141,5 +144,60 @@ class autoTablesController extends Controller
         $temp -> save();
         
         return self::editStatuses();
+    }
+
+    // --------------------------------------------------- TABLES
+
+    function checkTables($message){
+        $count = stoliki::all()->count();
+        
+        if($count == 0)
+            $message .= 'Nie znaleziono żadnych stolików, kliknij <a href="autoTables/generateTables">tutaj</a> aby je wygenerować!<br/>';
+        else
+            $message .= 'Masz ' . $count . ' stolików. Możesz jest edytować poniżej!<br/>';
+        
+        return $message;
+    }
+    
+    function generateTables(){
+        $count = stoliki::all()->count();
+        
+        return view('admin.autoTables.generateTables');
+    }
+
+    function processGenerateTables(request $r){
+        $r->validate([
+            'ilosc' => 'integer'
+        ]);
+        $quantity = $r -> input('ilosc');
+
+        for($i = 1; $i<$quantity; $i++)
+            stoliki::create(['numer' => $i]);
+
+        return redirect(url('/admin/autoTables'));
+    }
+
+    function tablesShow(){
+        $tables = stoliki::all();
+
+        return view('admin.autoTables.showTables', compact('tables'));
+    }
+
+    function editTable($id){
+        $table = stoliki::findOrFail($id);
+
+        return view('admin.autoTables.editTable', compact('table'));
+    }
+
+    function updateTable(request $r){
+        $r->validate([
+            'numer' => 'integer'
+        ]);
+
+        $temp = stoliki::findOrFail($r->input('id'));
+        $temp -> numer = $r->input('numer');
+        $temp -> save();
+
+        return redirect(url('/admin/autoTables/tables/show'));
     }
 }

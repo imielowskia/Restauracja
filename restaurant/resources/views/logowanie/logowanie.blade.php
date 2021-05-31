@@ -46,7 +46,7 @@
 						</form>
 
 						<div class=" d-flex text-center text-light ">
-							<button type="submit" class="form-control btn btn-primary submit px-3"><a href="{{route('pracownik')}}" style="color:black;">Wróć do strony głównej</a></button>
+							<button type="submit" class="form-control btn btn-primary submit px-3"><a href="{{url('/')}}" style="color:black;">Wróć do strony głównej</a></button>
 						</div>
 					</div>
 				</div>

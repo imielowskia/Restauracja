@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class stoliki extends Model
 {
     protected $table= 'stoliki';
+    protected $fillable = ['numer'];
     use HasFactory;
     public function kelner()
     {

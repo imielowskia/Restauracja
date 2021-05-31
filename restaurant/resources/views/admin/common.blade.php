@@ -18,36 +18,33 @@
     <link href="{{asset('mainpagestyles/assets/css/style.css')}}" rel="stylesheet">
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtR48fo07tFOljlalJbpzz4nStduiATr1gcPEx_My6rgN3474omfpW5wjXZLLGa9RaXy8&usqp=CAU">
 </head>
-<body style="overflow-y: auto;">
+<body>
 
-  @if($errors->any())
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-    @foreach($errors->all() as $e)
-      <li>{{$e}}</li>
-    @endforeach
-  </div>
-  @endif
-
-    <header id="header" class="fixed-top ">
-      <div class="container d-flex align-items-center justify-content-between">
-
-        <h1 class="logo"><a href="employeemain.blade.php">Restauracja<span>.</span></a></h1>
-
-        <nav class="nav-menu d-none d-lg-block nav-bar-overflow">
-          <ul>
-            <li><a href=".">Strona dla klientów</a></li>
-            <li><a href="./out">Wyloguj</a></li>
-          </ul>
-        </nav>
+  <header id="header" class="fixed-top ">
+    @if($errors->any())
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        @foreach($errors->all() as $e)
+          <li>{{$e}}</li>
+        @endforeach
       </div>
-    </header>
+      @endif
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="employeemain.blade.php">Restauracja<span>.</span></a></h1>
+      <nav class="nav-menu d-none d-lg-block nav-bar-overflow">
+        <ul>
+          <li><a href="{{url('/')}}">Strona dla klientów</a></li>
+          <li><a href="./out">Wyloguj</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <section id="hero" class="d-flex align-items-center justify-content-center">
-        <div class="container" data-aos="fade-up">
-          @yield('content')
-        </div>
-    </section>
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+      <div class="container" data-aos="fade-up">
+        @yield('content')
+      </div>
+  </section>
 
     <!-- <div id="preloader"></div> -->
 

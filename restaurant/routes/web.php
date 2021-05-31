@@ -77,6 +77,15 @@ Route::get('/admin/autoTables/edit/statuses', [autoTablesController::class, 'edi
 Route::get('/admin/autoTables/edit/statuses/{id}', [autoTablesController::class, 'editStatus']);
 Route::post('/admin/autoTables/edit/status', [autoTablesController::class, 'updateStatus']);
 
+Route::get('/admin/autoTables/generateTables', [autoTablesController::class, 'generateTables']);
+Route::post('/admin/autoTables/generateTables', [autoTablesController::class, 'processGenerateTables']);
+
+Route::prefix('/admin/autoTables/tables/')->group(function () {
+    Route::get('show', [autoTablesController::class, 'tablesShow']);
+    Route::get('show/{id}', [autoTablesController::class, 'editTable']);
+    Route::post('update', [autoTablesController::class, 'updateTable']);
+});
+
 Route::get('log-in-form', [loginController::class, 'login']);
 Route::post('log-in-form', [loginController::class, 'tryLogin']);
 
