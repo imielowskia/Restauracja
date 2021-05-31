@@ -29,6 +29,20 @@
   </div>
   @endif
 
+    <header id="header" class="fixed-top ">
+      <div class="container d-flex align-items-center justify-content-between">
+
+        <h1 class="logo"><a href="employeemain.blade.php">Restauracja<span>.</span></a></h1>
+
+        <nav class="nav-menu d-none d-lg-block nav-bar-overflow">
+          <ul>
+            <li><a href=".">Strona dla klientów</a></li>
+            <li><a href="./out">Wyloguj</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <section id="hero" class="d-flex align-items-center justify-content-center">
         <div class="container" data-aos="fade-up">
           @yield('content')
