@@ -21,17 +21,6 @@ use Carbon\Carbon;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 
-Route::get('/temp', function () {
-    return view('glownyWidok_pracownicy/employeemain');
-});
-
-
-
-//routy dla pracowników i kelnera
-Route::get('/pracownik', function () {
-    return view('glownyWidok_pracownicy/employeemain');
-})->name('pracownik');
-
 Route::get('/kuchnia', [ZamowieniaController::class, 'index'])->name('kuchnia');
 Route::get('/kuchnia.realizacja', [ZamowieniaController::class, 'realizacja'])->name('kuchnia.realizacja');
 Route::get('/kuchnia.zakoncz', [ZamowieniaController::class, 'wydaj'])->name('kuchnia.zakoncz');
