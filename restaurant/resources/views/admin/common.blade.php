@@ -37,7 +37,7 @@
         <nav class="nav-menu d-none d-lg-block nav-bar-overflow">
           <ul>
             <li><a href=".">Strona dla klientów</a></li>
-            <li><a href="../../out">Wyloguj</a></li>
+            <li><a href="./out">Wyloguj</a></li>
           </ul>
         </nav>
       </div>
