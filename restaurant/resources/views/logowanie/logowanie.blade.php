@@ -13,6 +13,7 @@
 
 	</head>
 	<body class="img js-fullheight" style="background-image: url(https://static.vecteezy.com/system/resources/previews/001/959/920/large_2x/blurred-busy-restaurant-background-free-photo.JPG)">
+{{--    sekcja--}}
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
