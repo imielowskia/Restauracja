@@ -5,70 +5,32 @@
 <div id="main" class="container-fluid">
     <div class="row push-up">
         <div class="col-sm-2"></div>
+            <div id="menu-wybor" class="col-sm-7 text-center align-self-center bg-dark">
 
-        <div id="menu-wybor" class="col-sm-7 text-center align-self-center bg-dark">
+                <h3 class="text-light mt-4">Dania</h3>
 
-            <h3 class="text-light mt-4">Dania</h3>
+                    <div class="row mt-4 ">
+                        @foreach($dania->menu as $danie)
 
-                <div class="row mt-4 ">
-                    @foreach($dania->menu as $danie)
-
-                        @if ($danie->dostepnosc==1)
-                            <div class="col-sm-4 mt-5">
-                                <a href=""><button type="button"  class="btn btn-light btn-block custom-button" >{{$danie->nazwa}}</button></a>
-                            </div>
-                        @endif
-
-
-                    @endforeach
-            </div>
-{{--
-           <div class="row mt-4 ">
-
-               <div class="col-sm-1"></div>
-               <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Pizza Caprisciosa<p>28/32/38zł</p></a></div>
-               <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Pizza Peperoni<p>28/32/38zł</p></a></div>
-               <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Pizza Włoska<p>28/32/38zł</p></a></div>
-               <div class="col-sm-1"></div>
-           </div>
-             <div class="row mt-4">
-                 <div class="col-sm-1"></div>
-                 <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Połówka z kurczaka<p>20zł</p></a></div>
-                 <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Nuggets 9x + frytki<p>12zl</p></a></div>
-                 <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Duże frytki<p>12zł</p></a></div>
-                  <div class="col-sm-1"></div>
+                            @if ($danie->dostepnosc==1)
+                                <div class="col-sm-4 mt-5">
+                                    <a href=""><button type="button"  class="btn btn-light btn-block custom-button" >{{$danie->nazwa}}</button></a>
+                                </div>
+                            @endif
+                        @endforeach
                 </div>
-           <div class="row mt-4">
-               <div class="col-sm-1"></div>
-               <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Kurczak w sosie<p>23zł</p></a></div>
-               <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Burger<p>28zł</p></a></div>
-               <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Zapiekanka<p>12zł</p></a></div>
-                <div class="col-sm-1"></div>
-            </div>
 
-            <div class="row mt-4">
-               <div class="col-sm-1"></div>
-                <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Spaghetti Carbonara<p>28zł</p></a></div>
-                <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Lasagne<p>23zł</p></a></div>
-                <div class="col-sm-2  choice-menu offset-sm-1 text-dark bg-light truncate_text "><a class="text-decoration-none" href="">Risotto<p>18zł</p></a></div>
-                <div class="col-sm-1"></div>
-            </div>
---}}
+                    <div class="container">
+                        <div class="row">
 
-
-
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-sm-12 mt-2 p-3 d-flex justify-flex-end">
-                            <a href="kelnermenu"> <button type="button" class="btn btn-success mt-2">Dodaj</button></a>
-                            <a href="{{route('kelnermenu')}}"> <button type="button" class="btn btn-danger mt-2 ml-2 ">Cofnij</button></a>
+                            <div class="col-sm-12 mt-2 p-3 d-flex justify-flex-end">
+                                <a href="{{route('kelnermenu')}}"> <button type="button" class="btn btn-danger mt-2 ml-2 ">Cofnij</button></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-        </div>
+            </div>
         {{--            zamowienie--}}
         <div class="col-sm-3 ">
 
