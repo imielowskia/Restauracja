@@ -11,7 +11,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
-    background:url("https://images-na.ssl-images-amazon.com/images/I/71kO1Ec7kWL._AC_SL1200_.jpg")no-repeat center center fixed!important;
+    /* background:url("https://images-na.ssl-images-amazon.com/images/I/71kO1Ec7kWL._AC_SL1200_.jpg")no-repeat center center fixed!important; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -346,14 +346,20 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+body{
+  background-image: url("../img/bg.png");
+  background-repeat: repeat;
+  background-size: cover;
+}
+
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
-  background-size: cover;
-  position: relative;
+  /* background: url("../img/hero-bg.jpg"); */
+  /* background-size: cover; */
+  position: absolute;
 }
-
+/* 
 #hero:before {
   content: "";
   background: rgba(0, 0, 0, 0.6);
@@ -362,7 +368,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   right: 0;
-}
+} */
 
 #hero .container {
   position: relative;
@@ -449,8 +455,8 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
-  overflow: hidden;
+  padding: 0;
+  /* overflow: hidden; */
 }
 
 .section-title {
