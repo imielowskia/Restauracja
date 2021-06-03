@@ -17,6 +17,17 @@
     <link href="{{ asset('/mainpagestyles/assets/vendor/aos/aos.css') }}" rel="stylesheet">
     <link href="{{asset('mainpagestyles/assets/css/style.css')}}" rel="stylesheet">
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtR48fo07tFOljlalJbpzz4nStduiATr1gcPEx_My6rgN3474omfpW5wjXZLLGa9RaXy8&usqp=CAU">
+
+@php
+      $adminCount = \App\Models\uzytkownicy::where('pozycja_id', 4)->get()->count()
+      @endphp
+
+      @if($adminCount != 0) 
+        @if(!session()->has('userID') || \App\Models\uzytkownicy::find(session()->get('userID'))->pozycja_id != 4)
+          <script>window.location = "{{url('log-in-form')}}";</script>
+        @endif
+      @endif
+
 </head>
 <body>
 

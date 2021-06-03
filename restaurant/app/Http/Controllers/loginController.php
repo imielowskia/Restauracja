@@ -14,6 +14,7 @@ class loginController extends Controller
 {
     function login(){
         $user = Session()->get('userID');
+        $adminCount = uzytkownicy::where('pozycja_id', 4) -> get() -> count();
 
         if($user){
             $role = uzytkownicy::find($user)->pozycja_id;
@@ -26,6 +27,9 @@ class loginController extends Controller
                 return redirect('kuchnia');
             elseif($role == 4)
                 return redirect('admin');
+        }
+        else if($adminCount == 0){
+            return redirect(url('admin'));
         }
         else
             return view('logowanie.logowanie');
