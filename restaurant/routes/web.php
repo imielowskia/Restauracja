@@ -69,21 +69,24 @@ Route::post('/admin/users/edit', [UserController::class, 'update']);
 Route::get('/admin/users/delete/{id}', [UserController::class, 'delete']);
 
 Route::get('/admin/autoTables', [autoTablesController::class, 'init']);
-Route::get('/admin/autoTables/edit/roles', [autoTablesController::class, 'editRoles']);
-Route::get('/admin/autoTables/edit/roles/{id}', [autoTablesController::class, 'editRole']);
-Route::post('/admin/autoTables/edit/role', [autoTablesController::class, 'updateRoles']);
+Route::get('/admin/autoTables/roles/show', [autoTablesController::class, 'editRoles']);
+Route::get('/admin/autoTables/roles/show/edit/{id}', [autoTablesController::class, 'editRole']);
+Route::post('/admin/autoTables/roles/show/update', [autoTablesController::class, 'updateRoles']);
 
-Route::get('/admin/autoTables/edit/statuses', [autoTablesController::class, 'editStatuses']);
-Route::get('/admin/autoTables/edit/statuses/{id}', [autoTablesController::class, 'editStatus']);
-Route::post('/admin/autoTables/edit/status', [autoTablesController::class, 'updateStatus']);
+Route::get('/admin/autoTables/statuses/show', [autoTablesController::class, 'editStatuses']);
+Route::get('/admin/autoTables/statuses/show/edit/{id}', [autoTablesController::class, 'editStatus']);
+Route::post('/admin/autoTables/statuses/show/update', [autoTablesController::class, 'updateStatus']);
 
 Route::get('/admin/autoTables/generateTables', [autoTablesController::class, 'generateTables']);
 Route::post('/admin/autoTables/generateTables', [autoTablesController::class, 'processGenerateTables']);
 
-Route::prefix('/admin/autoTables/tables/')->group(function () {
-    Route::get('show', [autoTablesController::class, 'tablesShow']);
-    Route::get('show/{id}', [autoTablesController::class, 'editTable']);
-    Route::post('update', [autoTablesController::class, 'updateTable']);
+Route::prefix('/admin/autoTables/tables/')->group(function () { 
+    Route::get('show', [autoTablesController::class, 'tablesShow']); 
+    Route::get('show/edit/{id}', [autoTablesController::class, 'editTable']);
+    Route::get('show/delete/{id}', [autoTablesController::class, 'deleteTable']);
+    Route::post('show/update', [autoTablesController::class, 'updateTable']);
+    Route::get('show/add', [autoTablesController::class, 'addTable']);
+    Route::post('show/add', [autoTablesController::class, 'addNewTable']);
 });
 
 Route::get('log-in-form', [loginController::class, 'login']);

@@ -96,15 +96,21 @@ class autoTablesController extends Controller
     }
 
     function editRoles(){
-        $roles = pozycja::all();
-        
-        return view('admin.autoTables.editRoles', compact('roles'));
+        $objects = pozycja::all();
+        $title = 'Wszystkie role';
+        $columnsHead = [ '#',  'Nazwa' ];
+        $columnsBody = [ 'id',  'nazwa' ];
+        $manage = [ 'edit' => true, 'delete' => false, 'add' => false ];
+
+        return view('admin.sthToShow', compact('objects', 'title', 'columnsHead', 'columnsBody', 'manage'));
     }
 
     function editRole($id){
-        $role = pozycja::findOrFail($id);
-        
-        return view('admin.autoTables.editRole', compact('role'));
+        $object = pozycja::findOrFail($id);
+        $title = 'Edutuj role ' . $object->nazwa;
+        $values = [ ['type' => 'text', 'value' => 'nazwa'] ];
+
+        return view('admin.sthToEdit', compact('object', 'title', 'values'));
     }
 
     function updateRoles(request $r){
@@ -115,23 +121,28 @@ class autoTablesController extends Controller
         $temp = pozycja::findOrFail($r->input('id'));
         $temp -> nazwa = $r -> input('nazwa');
         $temp -> save();
-
-        return self::editRoles();
-
+        
+        return redirect(url()->current() . '/../');
     }
 
     //------------------------------------------STATUSES
 
     function editStatuses(){
-        $statuses = statusy::all();
+        $objects = statusy::all();
+        $title = 'Wszytkie statusy';
+        $columnsHead = [ '#',  'Nazwa' ];
+        $columnsBody = [ 'id',  'nazwa' ];
+        $manage = [ 'edit' => true, 'delete' => false, 'add' => false ];
 
-        return view('admin.autoTables.editStatuses', compact('statuses'));
+        return view('admin.sthToShow', compact('objects', 'title', 'columnsHead', 'columnsBody', 'manage'));
     }
 
     function editStatus($id){
-        $status = statusy::findOrFail($id);
+        $object = statusy::findOrFail($id);
+        $title = 'Edituj status ' . $object->nazwa;
+        $values = [ ['type' => 'text', 'value' => 'nazwa'] ];
 
-        return view('admin.autoTables.editStatus', compact('status'));
+        return view('admin.sthToEdit', compact('object', 'title', 'values'));
     }
 
     function updateStatus(request $r){
@@ -143,7 +154,7 @@ class autoTablesController extends Controller
         $temp -> nazwa = $r -> input('nazwa');
         $temp -> save();
         
-        return self::editStatuses();
+        return redirect(url()->current() . '/../');
     }
 
     // --------------------------------------------------- TABLES
@@ -178,15 +189,24 @@ class autoTablesController extends Controller
     }
 
     function tablesShow(){
-        $tables = stoliki::all();
+        $objects = stoliki::all();
+        $title = 'All tables';
+        $columnsHead = [ '#',  'Nazwa' ];
+        $columnsBody = [ 'id',  'numer' ];
+        $manage = [ 'edit' => true, 'delete' => true, 'add' => true ];
 
-        return view('admin.autoTables.showTables', compact('tables'));
+        if($objects->count() == 0)
+            return redirect('admin/autoTables/generateTables');
+        else
+            return view('admin.sthToShow', compact('objects', 'title', 'columnsHead', 'columnsBody', 'manage'));
     }
 
     function editTable($id){
-        $table = stoliki::findOrFail($id);
+        $object = stoliki::findOrFail($id);
+        $title = 'Edit table number ' . $object->numer;
+        $values = [ ['type' => 'number', 'value' => 'numer'] ];
 
-        return view('admin.autoTables.editTable', compact('table'));
+        return view('admin.sthToEdit', compact('object', 'title', 'values'));
     }
 
     function updateTable(request $r){
@@ -199,5 +219,28 @@ class autoTablesController extends Controller
         $temp -> save();
 
         return redirect(url('/admin/autoTables/tables/show'));
+    }
+    
+    function deleteTable($id){
+        stoliki::findOrFail($id)->delete();
+        
+        return redirect(url('/admin/autoTables/tables/show'));
+    }
+
+    function addTable(){
+        $title = 'Adding new table';
+        $values = [ ['type' => 'text', 'value' => 'numer'] ];
+
+        return view('admin.sthToAdd', compact('title', 'values'));
+    }
+
+    function addNewTable(request $r){
+        $r->validate([
+            'numer' => 'integer|unique:stoliki'
+        ]);
+
+        stoliki::create($r->all());
+
+        return redirect('/admin/autoTables/tables/show');
     }
 }
