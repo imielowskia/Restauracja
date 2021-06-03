@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('strona_k/assets/img/favicon.png')}}" rel="icon">
+    <link href="https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png" rel="icon">
     <link href="{{asset('strona_k/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -82,7 +82,7 @@
     <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
         <div class="row">
             <div class="col-lg-8">
-                <h1>Witam w naszej <span>Restauracji</span></h1>
+                <h1>Witamy w naszej <span>Restauracji</span></h1>
                 <h2>Jesteśmy razem z wami od 25 lat!</h2>
 
                 <div class="btns">
@@ -562,8 +562,8 @@
 
                             <!-- Grid column -->
                             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                                <h6 class="text-uppercase mb-4 font-weight-bold">Restaurant</h6>
-                                <p>Dziękujemy za wizitę na naszej stronie i zapraszamy ponownie.</p>
+                                <h6 class="text-uppercase mb-4 font-weight-bold">Restauracja</h6>
+                                <p>Dziękujemy za wizytę na naszej stronie i zapraszamy ponownie.</p>
                             </div>
 
                             <!-- Grid column -->
@@ -624,7 +624,7 @@
 
 
 
-
+</div>
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
