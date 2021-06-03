@@ -182,7 +182,7 @@ class autoTablesController extends Controller
         ]);
         $quantity = $r -> input('ilosc');
 
-        for($i = 1; $i<$quantity; $i++)
+        for($i = 1; $i<=$quantity; $i++)
             stoliki::create(['numer' => $i]);
 
         return redirect(url('/admin/autoTables'));

@@ -30,8 +30,7 @@
 
 </head>
 <body>
-
-  <header id="header" class="fixed-top ">
+  <header id="header">
     @if($errors->any())
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Holy guacamole!</strong> You should check in on some of those fields below.
@@ -41,7 +40,8 @@
       </div>
       @endif
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="employeemain.blade.php">Restauracja<span>.</span></a></h1>
+      <h1 class="logo"><a href="{{url('/')}}">Restauracja     
+      <span>.</span></a></h1>
       <nav class="nav-menu d-none d-lg-block nav-bar-overflow">
         <ul>
           <li><a href="{{url('/')}}">Strona dla klientów</a></li>
@@ -51,10 +51,8 @@
     </div>
   </header>
 
-  <section id="hero" class="d-flex align-items-center justify-content-center">
-      <div class="container" data-aos="fade-up">
+  <section id="hero">
         @yield('content')
-      </div>
   </section>
 
     <!-- <div id="preloader"></div> -->

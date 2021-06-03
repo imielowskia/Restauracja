@@ -543,7 +543,7 @@
 
                 <div class="section-title">
                     <h2>Kontakt</h2>
-                    <p>Z kontaktuj się z nami</p>
+                    <p>Skontaktuj się z nami</p>
                 </div>
             <a href="log-in-form"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
                 <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
