@@ -16,7 +16,10 @@ class loginController extends Controller
         $user = Session()->get('userID');
         $adminCount = uzytkownicy::where('pozycja_id', 4) -> get() -> count();
 
-        if($user){
+        if(uzytkownicy::find($user) == null)
+            Session()->forget('userID');
+
+        if(uzytkownicy::find($user)){
             $role = uzytkownicy::find($user)->pozycja_id;
 
             if($role == 1)
