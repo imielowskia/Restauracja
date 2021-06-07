@@ -4,6 +4,7 @@ use App\Http\Controllers\KasaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZamowieniaController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\autoTablesController;
 use Illuminate\Database\Eloquent;
 use Carbon\Carbon;
@@ -119,6 +120,8 @@ Route::get('/problems', function () {
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/', [PageController::class, 'index']);
 
 Route::get('/kelner-zamowienia', function () {
     return view('kelner_views/kelnerZamowienie');
