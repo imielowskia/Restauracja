@@ -102,6 +102,7 @@ Route::get('log-in-form', [loginController::class, 'login']);
 Route::post('log-in-form', [loginController::class, 'tryLogin']);
 
 Route::get('/kelnermenu-usun/{id}', [kelnerController::class, 'usunDanie']) -> name('usunDanie');
+Route::get('/kelnermenu-dodaj', [kelnerController::class, 'dodajZamowienie']) -> name('dodajZamowienie');
 
 Route::get('/kelnermenu', [kelnerController::class, 'pokazKategorie']) -> name('kelnermenu');
 Route::get('/kelner', [kelnerController::class, 'pokazTables']);

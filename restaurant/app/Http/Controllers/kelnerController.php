@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Zamowienie;
 use Illuminate\Http\Request;
 use \App\Models\Menu;
+use MongoDB\Driver\Session;
+
 class kelnerController extends Controller
 {
     function pokazTables(){
@@ -22,9 +25,40 @@ class kelnerController extends Controller
 
     function usunDanie($id)
     {
-        Session()->forget('idDania');
-
+        $tab=Session()->pull('idDania');
+        $i=0;
+        foreach ($tab as $danie)
+        {
+            if($danie==$id)
+            {
+                unset($tab[$i]);
+                break;
+            }
+            $i++;
+        }
+        foreach ($tab as $danie)
+        {
+            Session()->push('idDania', $danie);
+        }
         return(redirect(url() -> previous()));
+
+    }
+
+    function dodajZamowienie()
+    {
+        $zamowienie=new Zamowienie;
+        $zamowienie->stolik_id=session()->get('idStolik');
+        $zamowienie->uzytkownik_id=session()->get('userID');
+        $zamowienie->status_id=1;
+        $zamowienie->save();
+        foreach(Session()->get('idDania')as $dania)
+        {
+
+        }
+
+        Session()->forget('idStolik');
+        Session()->forget('idDania');
+        return(redirect(url('kelner-zamowienia')));
     }
 
     function dodaj_danie($id){
