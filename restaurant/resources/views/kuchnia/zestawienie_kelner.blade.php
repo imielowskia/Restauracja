@@ -1,7 +1,7 @@
 @include('kuchnia/header_kuchnia')
 <div class="container">
 
-    <h1 class="text-white">Dzisiejsze zamówienia kelnera:</h1>
+    <h1 class="text-white">Zamówienia kelnera:</h1>
     <h2 class="text-white">{{$kelner->imie}} {{$kelner->nazwisko}}</h2>
     <table class="table table-dark">
         <thead>
