@@ -41,6 +41,8 @@
     </table>
 
     <div class="d-flex justify-content-sm-end">
+        @if(Session()->has('idDania'))
         <a href="{{route('dodajZamowienie')}}"><button type="button" class="btn btn-success">Zatwierdź</button></a>
         <a href="{{route('usunZamowienie')}}"><button type="button" class="btn btn-danger ml-2">Anuluj</button></a></div>
+    @endif
 </div>
