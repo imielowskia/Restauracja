@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Zamowienie;
+use App\Models\Zamowienie_menu;
 use Illuminate\Http\Request;
 use \App\Models\Menu;
 use MongoDB\Driver\Session;
@@ -53,7 +54,10 @@ class kelnerController extends Controller
         $zamowienie->save();
         foreach(Session()->get('idDania')as $dania)
         {
-
+            $danie=new Zamowienie_menu;
+            $danie->menu_id=$dania;
+            $danie->zamowienie_id=$zamowienie->id;
+            $danie->save();
         }
 
         Session()->forget('idStolik');
