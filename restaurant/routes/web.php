@@ -108,7 +108,7 @@ Route::get('/kelnermenu-zamowienie', [kelnerController::class, 'usunZamowienie']
 Route::get('/kelnermenu', [kelnerController::class, 'pokazKategorie']) -> name('kelnermenu');
 Route::get('/kelner', [kelnerController::class, 'pokazTables']);
 Route::get('/kelner/{idStolika}', [kelnerController::class, 'zapiszIDStolika']);
-Route::get('/kelner_dania/{id}', [MenuController::class, 'wyswietl']);
+Route::get('/kelner_dania/{id}', [MenuController::class, 'wyswietl'])->name('kelner_dania');
 Route::get('/dodaj_danie/{id}', [kelnerController::class, 'dodaj_danie']);
 
 Route::get('/kelner_zmien/{id}', [ZamowieniaController::class, 'zmianaStatusu'])->name('kelner_zmien');
