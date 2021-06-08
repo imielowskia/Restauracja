@@ -1,5 +1,6 @@
 @include('kelner_views/header')
 @php
+
     $session_id = Session::get('userID');
             $zamowienie=\App\Models\Zamowienie::where('uzytkownik_id',$session_id )->get();@endphp
 <div id="main" class="container-fluid ">
