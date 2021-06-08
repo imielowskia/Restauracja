@@ -26,10 +26,10 @@
                                    @foreach($zamowienie as $Zamowienia)
                                    <tr>
                                        <th scope="row">{{$Zamowienia->id}}</th>
-                                       <td>{{$Zamowienia->status}}</td>
+                                       <td>{{$Zamowienia->status->nazwa}}</td>
                                        <td>{{ $Zamowienia->stolik_id }}</td>
                                        <td>{{ $Zamowienia->updated_at }}</td>
-                                       @if ($Zamowienia->status=='Do wydania')
+                                       @if ($Zamowienia->status==3)
                                        <td><a href="{{route('kelner_zmien',['id'=>$Zamowienia->id])}}"> <button type="button" onclick="" class="btn btn-danger">Odbierz</button></a>
                                            @endif
                                        </td>@endforeach
