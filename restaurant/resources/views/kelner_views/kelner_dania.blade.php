@@ -32,7 +32,7 @@
 
             </div>
         {{--            zamowienie--}}
-        @include('kelner_views/zamowienieTabelka')@endphp
+        @include('kelner_views/zamowienieTabelka')
     </div>
 
 
