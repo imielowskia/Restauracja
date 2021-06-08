@@ -6,6 +6,7 @@ use App\Http\Controllers\ZamowieniaController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\autoTablesController;
+use App\Http\Controllers\kelnerController;
 use Illuminate\Database\Eloquent;
 use Carbon\Carbon;
 /*
@@ -93,32 +94,20 @@ Route::prefix('/admin/autoTables/tables/')->group(function () {
 Route::get('log-in-form', [loginController::class, 'login']);
 Route::post('log-in-form', [loginController::class, 'tryLogin']);
 
+Route::get('/kelnermenu', [kelnerController::class, 'pokazKategorie']) -> name('kelnermenu');
+Route::get('/kelner', [kelnerController::class, 'pokazTables']);
+Route::get('/kelner/{idStolika}', [kelnerController::class, 'zapiszIDStolika']);
+Route::get('/kelner_dania/{id}', [MenuController::class, 'wyswietl']);
+Route::get('/dodaj_danie/{id}', [kelnerController::class, 'dodaj_danie']);
 
-Route::get('/kelnermenu', function () {
-    return view('kelner_views/kelner2');
-})->name('kelnermenu');
-
-Route::get('/kelner', function () {
-    return view('kelner_views/kelner');
-});
 Route::get('/kelner_zmien/{id}', [ZamowieniaController::class, 'zmianaStatusu'])->name('kelner_zmien');
-
-Route::get('/kelner_views/kelner_dania/{id}', [MenuController::class, 'wyswietl'])->name('dania');
-
-Route::get('/napoje', function () {
-    return view('kelner_views/kelner_napoje');
-});
-
-Route::get('/alkohole', function () {
-    return view('kelner_views/kelner_alkohole');
-});
-
-Route::get('/problems', function () {
-    return view('problemy');
-});
 
 Route::get('/', function () {
     return view('index');
+});
+
+Route::get('test', function () {
+    dd(Session()->get('zamowienie'));
 });
 
 Route::get('/', [PageController::class, 'index']);
@@ -126,7 +115,3 @@ Route::get('/', [PageController::class, 'index']);
 Route::get('/kelner-zamowienia', function () {
     return view('kelner_views/kelnerZamowienie');
 })->name('kelner-zamowienia');
-
-
-
-//Route::get('/kelner-zamowienia', [ZamowieniaController::class, 'index2']);

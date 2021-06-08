@@ -4,15 +4,15 @@
 
     <div class="row ">
                         <div class="col-sm-2"></div>
-                       <div class="col-sm-7 text-center align-items-sm-center ">
-                           <div class="list-group mt-4 ">
-                             <a href="#" class="list-group-item list-group-item-action bg-light disabled text-dark">
-                                  Wybierz stolik</a>
-                               @foreach($stolik as $stoliki)
-                              <a href="kelnermenu"  class="list-group-item list-group-item-action bg-dark text-light">Stolik {{$stoliki->id}}</a>
-                               @endforeach
+                        <div class="col-sm-7 text-center align-items-sm-center ">
+                            <div class="list-group mt-4 ">
+                                <a href="#" class="list-group-item list-group-item-action bg-light disabled text-dark">
+                                    Wybierz stolik</a>
+                                @foreach($stolik as $stoliki)
+                                <a href="{{url()->current()}}/{{$stoliki->id}}"  class="list-group-item list-group-item-action bg-dark text-light">Stolik {{$stoliki->id}}</a>
+                                @endforeach
 
-                          </div>
+                            </div>
         </div>
                         <div class="col-sm-3"></div>
     </div>

@@ -13,7 +13,7 @@
 
 @foreach($kategorie as $kategoria)
                            <div class="col-sm-4 mt-5">
-                               <a href="{{route('dania',['id'=>$kategoria->id])}}"><button type="button"  class="btn btn-light btn-block custom-button" >
+                               <a href="../kelner_dania/{{$kategoria->id}}"><button type="button"  class="btn btn-light btn-block custom-button" >
                                    {{$kategoria->nazwa}}</button></a>
                            </div>
                            @endforeach
@@ -23,8 +23,8 @@
                            </div>
                            <div class="col-sm-4 mt-2">
                                <a href="alkohole"><button type="button" class="btn btn-light btn-block custom-button">Alkohole</button></a>
-                           </div>--}}
-                          <div class="container">
+                            </div>--}}
+                            <div class="container">
                                 <div class="row mt-4">
 
                                     <div class="col-sm-12 mt-2 p-3 d-flex justify-flex-end">
