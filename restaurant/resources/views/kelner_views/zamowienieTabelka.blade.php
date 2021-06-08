@@ -39,7 +39,8 @@
         </tr>
         </thead>
     </table>
+
     <div class="d-flex justify-content-sm-end">
         <a href="{{route('dodajZamowienie')}}"><button type="button" class="btn btn-success">Zatwierdź</button></a>
-        <button type="button" class="btn btn-danger ml-2">Anuluj</button></div>
+        <a href="{{route('usunZamowienie')}}"><button type="button" class="btn btn-danger ml-2">Anuluj</button></a></div>
 </div>

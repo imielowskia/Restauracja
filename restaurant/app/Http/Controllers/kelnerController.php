@@ -71,4 +71,11 @@ class kelnerController extends Controller
         return(redirect(url() -> previous()));
 
     }
+
+    function usunZamowienie()
+    {
+        Session()->forget('idStolik');
+        Session()->forget('idDania');
+        return(redirect(url('kelner')));
+    }
 }
