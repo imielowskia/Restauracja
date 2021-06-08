@@ -2,7 +2,7 @@
 <div class="container">
     <form action="{{ route('kuchnia_zestawienie_kelner')}}" mothod="get">
     <h1 class="text-white">Zamówienia</h1>
-        <h1 class="text-white">od {{$startdata}} do {{$koniecdata}}</h1>
+        <h1 class="text-white">{{$data}}</h1>
     <table class="table table-dark">
         <thead>
         <tr>
@@ -29,7 +29,6 @@
     </table>
      <div class="text-white">Wybierz dzień:</div>
     <input type="date" name="data" value="{{\Carbon\Carbon::today()->toDateString()}}">
-    <input type="date" name="datak" value="{{\Carbon\Carbon::today()->toDateString()}}">
     <div class="text-white">Wybierz kelnera:</div>
         <select name="id">
             <option value="wszystkie">Wszystkie</option>
