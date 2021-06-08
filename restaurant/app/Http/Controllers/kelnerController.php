@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use \App\Models\Menu;
 class kelnerController extends Controller
 {
     function pokazTables(){
@@ -11,7 +11,7 @@ class kelnerController extends Controller
     }
 
     function zapiszIDStolika($id){
-        Session()->put('stolik', $id);
+        Session()->put('idStolik', $id);
 
         return redirect(url('kelnermenu'));
     }
@@ -20,10 +20,16 @@ class kelnerController extends Controller
         return view('kelner_views/kelner2');
     }
 
-    function dodaj_danie($id){
-        
-        Session()->push('zamowienie', $id);
+    function usunDanie($id)
+    {
+        Session()->forget('idDania');
 
+        return(redirect(url() -> previous()));
+    }
+
+    function dodaj_danie($id){
+        Session()->push('idDania', $id);
+        Session()->push('cena',Menu::findOrFail($id)->cena);
         return(redirect(url() -> previous()));
 
     }

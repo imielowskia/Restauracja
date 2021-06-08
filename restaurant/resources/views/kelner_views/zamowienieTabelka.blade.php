@@ -1,11 +1,10 @@
-@php $zamowienie=\App\Models\Zamowienie::all();@endphp
-@php $menu=\App\Models\Menu::all();@endphp
+
 <div class="col-sm-3 ">
 
     <table class="table table-bordered table-dark bg-dark mt-4 ">
         <thead>
         <tr>
-            <th class="text-center" colspan="3" scope="row">Zamówienie</th>
+            <th class="text-center" colspan="3" scope="row">Zamówienie numer stolika -  {{session()->get('idStolik','.')}}</th>
         </tr>
 
         </thead>
@@ -18,14 +17,19 @@
         </thead>
         <!--zawartosc tabeli-->
         <tbody>
-        @foreach($zamowienie as $Zamowienie)
-        <tr>
-            <th scope="row">Produkt 1</th>
-            <td>CENA</td>
-            <td><button type="button" class="btn btn-danger">Usuń</button></td>
-        </tr>
-        @endforeach
 
+        @if(Session()->has('idDania'))
+       @foreach(Session()->get('idDania','Dania') as $iddania)
+
+        <tr>
+            <th scope="row">{{App\Models\Menu::find($iddania)->nazwa}}</th>
+            <td>{{App\Models\Menu::find($iddania)->cena}}</td>
+
+            <td><a href="{{route('usunDanie',['id'=>$iddania])}}"><button type="button" onclick="" class="btn btn-danger">Usuń</button></a></td>
+        </tr>
+
+      @endforeach
+@endif
 
         </tbody>
         <thead>
