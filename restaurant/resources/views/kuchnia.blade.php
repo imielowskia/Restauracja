@@ -1,4 +1,5 @@
 @include('kuchnia/header_kuchnia')
+    @include('kuchnia/log')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -21,14 +22,13 @@
 
 </head>
 <body class="antialiased">
-<div class="container">
 <div><form action="{{ route('kuchnia.realizacja') }}" mothod="get" class=" form-group-item-dark">
         <p class="col-12" id="b">Złożone zamówienia:</p>
         <div class="row justify-content-md-center" id="a">
             <div class="col-12  " id="a">
                 <select name='multiple' multiple='multiple' class="form-control" id="exampleFormControlSelect1">
                     @foreach($Zamowienia as $Zamowienie)
-                        @if( $Zamowienie->status =='zlozone')
+                        @if( $Zamowienie->status_id==1)
                             <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik->numer}} &nbsp&nbsp&nbsp&nbspGodzina:{{$Zamowienie->created_at->hour}}:{{$Zamowienie->created_at->minute}}&nbsp&nbsp&nbsp&nbspKelner:{{$Zamowienie->uzytkownik->imie}} {{$Zamowienie->uzytkownik->nazwisko}}&nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach </option>
                         @endif
                     @endforeach
@@ -47,7 +47,7 @@
         <select name='multiple' multiple='multiple' class="form-control" id="exampleFormControlSelect1">
 
             @foreach($Zamowienia as $Zamowienie)
-                @if( $Zamowienie->status =='w realizacji')
+                @if( $Zamowienie->status_id ==2)
                     <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik->numer}} &nbsp&nbsp&nbsp&nbspGodzina:{{$Zamowienie->created_at->hour}}:{{$Zamowienie->created_at->minute}}&nbsp&nbsp&nbsp&nbspKelner:{{$Zamowienie->uzytkownik->imie}} {{$Zamowienie->uzytkownik->nazwisko}}&nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach </option>
                 @endif
             @endforeach
