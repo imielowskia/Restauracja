@@ -1,3 +1,4 @@
+@include('kuchnia/log')
 <!DOCTYPE html>
 <html lang="en">
 <head>
