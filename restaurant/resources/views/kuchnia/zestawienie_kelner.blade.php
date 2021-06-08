@@ -32,7 +32,7 @@
         <select name="id">
             <option value="wszystkie">Wszystkie</option>
             @foreach(\App\Models\uzytkownicy::all() as $user)
-                @if($user->pozycja->nazwa=='kelner')
+                @if($user->pozycja->id==1)
                     <option value="{{$user->id}}">
                         {{$user->imie}} {{$user->nazwisko}}
                     </option>
