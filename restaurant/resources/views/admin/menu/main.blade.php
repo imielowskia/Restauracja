@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row">
         <div class="col-12">
-            <a href="../">
+            <a href="{{url('admin')}}">
                 <button type="button" class="btn-block btn btn-secondary mb-3">Powrót</button>
             </a>
         </div>
