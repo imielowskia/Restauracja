@@ -24,9 +24,9 @@
 <body class="antialiased">
 <div><form action="{{ route('kuchnia.realizacja') }}" mothod="get" class=" form-group-item-dark">
         <p class="col-12" id="b">Złożone zamówienia:</p>
-        <div class="row justify-content-md-center" id="a">
-            <div class="col-12  " id="a">
-                <select name='multiple' multiple='multiple' class="form-control" id="exampleFormControlSelect1">
+        <div class="row justify-center" id="a">
+            <div class="col-12 " id="a">
+                <select name='multiple' multiple='multiple' class="form-control ml-3" id="exampleFormControlSelect1">
                     @foreach($Zamowienia as $Zamowienie)
                         @if( $Zamowienie->status_id==1)
                             <option value={{ $Zamowienie->id }}> NR stolika: {{$Zamowienie->stolik->numer}} &nbsp&nbsp&nbsp&nbspGodzina:{{$Zamowienie->created_at->hour}}:{{$Zamowienie->created_at->minute}}&nbsp&nbsp&nbsp&nbspKelner:{{$Zamowienie->uzytkownik->imie}} {{$Zamowienie->uzytkownik->nazwisko}}&nbsp&nbsp&nbsp&nbsp&nbspZamowienie:@foreach ($Zamowienie->menu as $danie){{$danie->nazwa}},@endforeach </option>
@@ -44,7 +44,7 @@
         <p class="col-12" id="b">Zamówienia w realizacji:</p>
         <div class="row justify-content-md-center" id="a">
             <div class="col-12  " id="a">
-        <select name='multiple' multiple='multiple' class="form-control" id="exampleFormControlSelect1">
+        <select name='multiple' multiple='multiple' class="form-control ml-3" id="exampleFormControlSelect1">
 
             @foreach($Zamowienia as $Zamowienie)
                 @if( $Zamowienie->status_id ==2)
