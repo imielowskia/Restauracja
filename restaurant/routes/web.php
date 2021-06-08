@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZamowieniaController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\KelnersTablesController;
 use App\Http\Controllers\autoTablesController;
 use App\Http\Controllers\kelnerController;
 use Illuminate\Database\Eloquent;
@@ -91,6 +92,12 @@ Route::prefix('/admin/autoTables/tables/')->group(function () {
     Route::post('show/add', [autoTablesController::class, 'addNewTable']);
 });
 
+Route::prefix('/admin/kelnersTables')->group(function () { 
+    Route::get('showKelners', [KelnersTablesController::class, 'showKelners']) -> name('stoliki-kelnerzy');
+    Route::get('showKelners/edit/{id}', [KelnersTablesController::class, 'editAssigments']);
+    Route::get('showKelners/edit/{idc}/edit/{idt}', [KelnersTablesController::class, 'zmienPrzypisanie']);
+});
+    
 Route::get('log-in-form', [loginController::class, 'login']);
 Route::post('log-in-form', [loginController::class, 'tryLogin']);
 

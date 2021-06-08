@@ -20,6 +20,12 @@
             <div class="col-xl-2 col-md-4 col-6 ">
                 <div class="icon-box">
                     <i class="ri-shirt-fill"></i>
+                    <h3><a href="{{route('stoliki-kelnerzy')}}">Edytuj stoliki kelnerów</a></h3>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-6 ">
+                <div class="icon-box">
+                    <i class="ri-shirt-fill"></i>
                     <h3><a href="admin/autoTables">Auto tabele</a></h3>
                 </div>
             </div>
