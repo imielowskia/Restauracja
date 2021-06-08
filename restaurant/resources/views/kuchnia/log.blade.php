@@ -1,14 +1,13 @@
-@if(session()->has('userID'))
 
-@php
-    $uzytkownik=\App\Models\uzytkownicy::find(
-    session()->get('userID'));
-
+@php $session_id = Session::get('userID');
+$user=\App\Models\uzytkownicy::find($session_id);
 @endphp
-@if($uzytkownik->pozycja_id<>3)
+@if($session_id=='')
     <script>window.location = "{{url('log-in-form')}}";</script
 @else
-@endif
-    @else<script>window.location = "{{url('log-in-form')}}";</script
-
+    @if($user->pozycja_id<>3)
+        <script>window.location = "{{url('log-in-form')}}";</script
     @endif
+@endif
+
+
