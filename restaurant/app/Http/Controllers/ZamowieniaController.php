@@ -66,14 +66,14 @@ class ZamowieniaController extends Controller
     }
     public function zamowienia_dzis()
     {   $startdata = isset( $_GET['data']) ?  $_GET['data'] : Carbon::today()->toDateString();
-        $koniecdata = isset( $_GET['datak']) ?  $_GET['datak'] : Carbon::today()->toDateString();
+        $koniecdata = isset( $_GET['datak']) ?  $_GET['datak'] : '2050-01-01';
         $zamowienia=\App\Models\Zamowienie::whereBetween('created_at',[$startdata,$koniecdata])
         ->wherein('status_id', [3,4,5])->get();
         return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia,'startdata'=>$startdata,'koniecdata'=>$koniecdata]);
     }
     public function zamowienia_dzis_kelner()
     {   $startdata = isset( $_GET['data']) ?  $_GET['data'] : Carbon::today()->toDateString();
-        $koniecdata = isset( $_GET['datak']) ?  $_GET['datak'] : Carbon::today()->toDateString();
+        $koniecdata = isset( $_GET['datak']) ?  $_GET['datak'] : '2050-01-01';
         if(isset($_GET['id']))
     {
         $id=$_GET['id'];
@@ -100,3 +100,4 @@ class ZamowieniaController extends Controller
 }
 
 }
+
