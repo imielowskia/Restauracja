@@ -18,7 +18,7 @@ class KelnersTablesController extends Controller
 
         foreach($objects as $o){
             $o->stoliki = '';
-            foreach(uzytkownicy_stolik::where('uzytkownik_id', $o -> id) -> get() as $stolik)
+            foreach(uzytkownicy_stolik::where('uzytkownik_id', $o -> id) -> orderBy('stolik_id') -> get() as $stolik)
                 $o -> stoliki .= stoliki::find($stolik->stolik_id) -> numer . ', ';
             if($o -> stoliki == '')
                 $o -> stoliki = 'Brak stolików!';
