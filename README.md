@@ -19,7 +19,7 @@ Jest to platforma do zarządzania restauracją, można dzięki niej przeprowadza
 - Panel Kucharza - [Szymon Smoliński](https://github.com/smolinskiszymon) oraz [Kamil Smoliński](https://github.com/KamilSmolinski)
   > Możliwość zobaczenia zamówień oczekujących na realizacji (oraz zmianę statusu na w trakcie realizacji) oraz w trakcie realizacji (oraz możliwość zmiany na oczekujące na wydanie)
 
-- Panel Kasjer - [Łukasz Smoliński](https://github.com/Lukasz-Sereda)
+- Panel Kasjer - [Łukasz Sereda](https://github.com/Lukasz-Sereda)
   > Możliwość zobaczenia zamówień gotowych do zapłaty, oraz zaznaczenia zamówienia jako zapłacone
 
 - Panel administracyjny - [Szymon Hryszko](https://github.com/Shirobachi)
