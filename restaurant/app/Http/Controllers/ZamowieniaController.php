@@ -65,11 +65,10 @@ class ZamowieniaController extends Controller
         return redirect()->route('kelner-zamowienia');
     }
     public function zamowienia_dzis()
-    {   $startdata = isset( $_GET['data']) ?  $_GET['data'] : Carbon::today()->toDateString();
-        $koniecdata = isset( $_GET['datak']) ?  $_GET['datak'] : Carbon::today()->toDateString();
-        $zamowienia=\App\Models\Zamowienie::whereBetween('created_at',[$startdata,$koniecdata])
+    {   $data = isset( $_GET['data']) ?  $_GET['data'] : Carbon::today()->toDateString();
+        $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', $data)
         ->wherein('status_id', [3,4,5])->get();
-        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia,'startdata'=>$startdata,'koniecdata'=>$koniecdata]);
+        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia,'data'=>$data]);
     }
     public function zamowienia_dzis_kelner()
     {  $data = isset( $_GET['data']) ?  $_GET['data'] : Carbon::today()->toDateString();
