@@ -40,12 +40,6 @@
                     <td>{{$zamowienie['zaplac']}} zł</td> <!--akcja-->
 
                     <td>
-                     <!--  <form action="{{ url("/kasa/zarchiwizuj") }}" method="post">
-                            @csrf
-                            <input type="hidden" name="id" value="{{$zamowienie['numers']}}">
-                            <input type="submit" class="btn btn-warning" value="zarchiwizuj">
-                        </form>
--->
                         <form action="{{ url("/kasa/zaplac") }}" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{$zamowienie['id']}}">
