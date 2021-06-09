@@ -1,8 +1,9 @@
 @include('kuchnia/header_kuchnia')
 <div class="container">
 
-    <h1 class="text-white">Dzisiejsze zamówienia kelnera:</h1>
-    <h2 class="text-white">{{$kelner->imie}} {{$kelner->nazwisko}}</h2>
+    <h1 class="text-white">Zamówienia kelnera:</h1>
+    <h1 class="text-white">{{$kelner->imie}} {{$kelner->nazwisko}}</h1>
+    <h1 class="text-white">{{$data}}</h1>
     <table class="table table-dark">
         <thead>
         <tr>
@@ -22,17 +23,19 @@
             <td>{{$zamowienie->uzytkownik->imie}} {{$zamowienie->uzytkownik->nazwisko}}</td>
             <td>{{$zamowienie['created_at']}}</td><!--godz-->
             <td>@foreach ($zamowienie->menu as $danie){{$danie->nazwa}}, @endforeach</td> <!--zawartosc-->
-            \               <td>{{$zamowienie->status->nazwa}}</td>
+                          <td>{{$zamowienie->status->nazwa}}</td>
         </tr>
         @endforeach
         </tbody>
     </table>
-    <div class="text-white">Wybierz kelnera:</div>
     <form action="{{ route('kuchnia_zestawienie_kelner') }}" mothod="get">
+        <div class="text-white">Wybierz dzień:</div>
+        <input type="date" name="data" value="{{\Carbon\Carbon::today()->toDateString()}}">
+        <div class="text-white">Wybierz kelnera:</div>
         <select name="id">
             <option value="wszystkie">Wszystkie</option>
             @foreach(\App\Models\uzytkownicy::all() as $user)
-                @if($user->pozycja->nazwa=='kelner')
+                @if($user->pozycja->id==1)
                     <option value="{{$user->id}}">
                         {{$user->imie}} {{$user->nazwisko}}
                     </option>

@@ -15,8 +15,8 @@ class ZamowieniaController extends Controller
     public function index()
     {
         if (Session()->get('userID')) {
-            $user = (isset(uzytkownicy::find(Session()->get('userID'))->login))? uzytkownicy::find(Session()->get('userID'))->pozycja->nazwa : '';
-            if ($user == 'kucharz') {
+            $user = (isset(uzytkownicy::find(Session()->get('userID'))->login))? uzytkownicy::find(Session()->get('userID'))->pozycja->id : '';
+            if ($user == 3) {
                 $Zamowienia = Zamowienie::all();
                 return view('kuchnia', ['Zamowienia' => $Zamowienia]);
             } else {
@@ -65,34 +65,37 @@ class ZamowieniaController extends Controller
         return redirect()->route('kelner-zamowienia');
     }
     public function zamowienia_dzis()
-    {   $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+    {   $startdata = isset( $_GET['data']) ?  $_GET['data'] : Carbon::today()->toDateString();
+        $koniecdata = isset( $_GET['datak']) ?  $_GET['datak'] : Carbon::today()->toDateString();
+        $zamowienia=\App\Models\Zamowienie::whereBetween('created_at',[$startdata,$koniecdata])
         ->wherein('status_id', [3,4,5])->get();
-        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
+        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia,'startdata'=>$startdata,'koniecdata'=>$koniecdata]);
     }
     public function zamowienia_dzis_kelner()
-    {   if(isset($_GET['id']))
+    {  $data = isset( $_GET['data']) ?  $_GET['data'] : Carbon::today()->toDateString();
+        if(isset($_GET['id']))
     {
         $id=$_GET['id'];
 
     if($id=="wszystkie")
     {
-        $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+        $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', $data)
             ->wherein('status_id', [3,4,5])->get();
-        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
+        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia,'data'=>$data]);
     }
     else {
         $kelner = uzytkownicy::find($id);
-        $zamowienia = \App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+        $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', $data)
             ->where('uzytkownik_id', $id)
             ->wherein('status_id', [3,4,5])->get();
-        return view('kuchnia/zestawienie_kelner', ['zamowienia' => $zamowienia, 'kelner' => $kelner]);
+        return view('kuchnia/zestawienie_kelner', ['zamowienia' => $zamowienia, 'kelner' => $kelner,'data'=>$data]);
     }
     }
     else  {
-        $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', Carbon::today()->toDateString())
+        $zamowienia=\App\Models\Zamowienie::whereDate('created_at', '=', $data)
             ->wherein('status_id', [3,4,5])->get();
-        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia]);
+        return view('kuchnia/zestawienie',['zamowienia'=>$zamowienia,'data'=>$data]);
     }
 }
-
 }
+

@@ -5,7 +5,7 @@
 @php $kategorie=\App\Models\kategorie::all();
 
 @endphp
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-sm-2"></div>
         <div id="menu-wybor" class="col-sm-7 text-center align-self-center bg-dark">
                        <h3 class="text-light mt-4">MENU</h3>
@@ -13,7 +13,7 @@
 
 @foreach($kategorie as $kategoria)
                            <div class="col-sm-4 mt-5">
-                               <a href="../kelner_dania/{{$kategoria->id}}"><button type="button"  class="btn btn-light btn-block custom-button" >
+                               <a href="{{route('kelner_dania',['id'=>$kategoria->id])}}"><button type="button"  class="btn btn-light btn-block custom-button" >
                                    {{$kategoria->nazwa}}</button></a>
                            </div>
                            @endforeach

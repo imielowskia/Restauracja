@@ -83,8 +83,8 @@ Route::post('/admin/autoTables/statuses/show/update', [autoTablesController::cla
 Route::get('/admin/autoTables/generateTables', [autoTablesController::class, 'generateTables']);
 Route::post('/admin/autoTables/generateTables', [autoTablesController::class, 'processGenerateTables']);
 
-Route::prefix('/admin/autoTables/tables/')->group(function () { 
-    Route::get('show', [autoTablesController::class, 'tablesShow']); 
+Route::prefix('/admin/autoTables/tables/')->group(function () {
+    Route::get('show', [autoTablesController::class, 'tablesShow']);
     Route::get('show/edit/{id}', [autoTablesController::class, 'editTable']);
     Route::get('show/delete/{id}', [autoTablesController::class, 'deleteTable']);
     Route::post('show/update', [autoTablesController::class, 'updateTable']);
@@ -92,19 +92,23 @@ Route::prefix('/admin/autoTables/tables/')->group(function () {
     Route::post('show/add', [autoTablesController::class, 'addNewTable']);
 });
 
-Route::prefix('/admin/kelnersTables')->group(function () { 
+Route::prefix('/admin/kelnersTables')->group(function () {
     Route::get('showKelners', [KelnersTablesController::class, 'showKelners']) -> name('stoliki-kelnerzy');
     Route::get('showKelners/edit/{id}', [KelnersTablesController::class, 'editAssigments']);
     Route::get('showKelners/edit/{idc}/edit/{idt}', [KelnersTablesController::class, 'zmienPrzypisanie']);
 });
-    
+
 Route::get('log-in-form', [loginController::class, 'login']);
 Route::post('log-in-form', [loginController::class, 'tryLogin']);
+
+Route::get('/kelnermenu-usun/{id}', [kelnerController::class, 'usunDanie']) -> name('usunDanie');
+Route::get('/kelnermenu-dodaj', [kelnerController::class, 'dodajZamowienie']) -> name('dodajZamowienie');
+Route::get('/kelnermenu-zamowienie', [kelnerController::class, 'usunZamowienie']) -> name('usunZamowienie');
 
 Route::get('/kelnermenu', [kelnerController::class, 'pokazKategorie']) -> name('kelnermenu');
 Route::get('/kelner', [kelnerController::class, 'pokazTables']);
 Route::get('/kelner/{idStolika}', [kelnerController::class, 'zapiszIDStolika']);
-Route::get('/kelner_dania/{id}', [MenuController::class, 'wyswietl']);
+Route::get('/kelner_dania/{id}', [MenuController::class, 'wyswietl'])->name('kelner_dania');
 Route::get('/dodaj_danie/{id}', [kelnerController::class, 'dodaj_danie']);
 
 Route::get('/kelner_zmien/{id}', [ZamowieniaController::class, 'zmianaStatusu'])->name('kelner_zmien');
@@ -114,6 +118,7 @@ Route::get('/', function () {
 });
 
 Route::get('test', function () {
+//    session()->flush();
     dd(Session()->get('zamowienie'));
 });
 

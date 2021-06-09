@@ -1,3 +1,4 @@
+@include('kuchnia/log')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +39,7 @@ $user=\App\Models\uzytkownicy::find($session_id);
                 <li class="nav-item"><a class="nav-link text-light" href="{{route('dostepne_dania')}}">Dostępność dań </a></li>
                 <li class="nav-item"><a class="nav-link text-light" href="{{route('zestawienie')}}">Zestawienie</a></li>
                     @isset($session_id)
-                <li class="nav-item"><a class="nav-link text-light" href="{{route('logout')}}">Wyolguj</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{{route('logout')}}">Wyloguj</a></li>
                     @endisset
             </ul>
         </div>

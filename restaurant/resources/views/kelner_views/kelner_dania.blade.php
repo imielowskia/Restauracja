@@ -7,7 +7,7 @@
         <div class="col-sm-2"></div>
             <div id="menu-wybor" class="col-sm-7 text-center align-self-center bg-dark">
 
-                <h3 class="text-light mt-4">Dania</h3>
+{{--                <h3 class="text-light mt-4">Dania</h3>--}}
 
                     <div class="row mt-4">
                         @foreach($dania->menu as $danie)
