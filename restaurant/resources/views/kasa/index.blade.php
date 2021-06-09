@@ -12,7 +12,7 @@
 
 <div class="container">
 
-    <h1>Kasa <small>Dzisiejszy zarobek: {{$todayTotal}} zł</small></h1>
+    <h1>Kasa</h1>
     <table class="table table-stripped">
         <thead>
             <tr>
@@ -51,6 +51,7 @@
             @endforeach
         </tbody>
     </table>
+    <h1><small>Dzisiejszy zarobek: {{$todayTotal}} zł</small></h1>
 
 </div>
 
