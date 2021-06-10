@@ -56,6 +56,7 @@ class kelnerController extends Controller
         $zamowienie->stolik_id=session()->get('idStolik');
         $zamowienie->uzytkownik_id=session()->get('userID');
         $zamowienie->status_id=1;
+        $zamowienie->zaplacone=0;
         $zamowienie->save();
         foreach(Session()->get('idDania')as $dania)
         {
