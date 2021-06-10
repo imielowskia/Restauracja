@@ -117,11 +117,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('test', function () {
-//    session()->flush();
-    dd(Session()->get('zamowienie'));
-});
-
 Route::get('/', [PageController::class, 'index']);
 
 Route::get('/kelner-zamowienia', function () {

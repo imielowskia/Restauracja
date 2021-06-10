@@ -24,7 +24,6 @@
                 <th>Cena</th>
                 <th></th>
                 <th>akcje</th>
-
             </tr>
         </thead>
         <tbody>
@@ -40,12 +39,6 @@
                     <td>{{$zamowienie['zaplac']}} zł</td> <!--akcja-->
 
                     <td>
-                     <!--  <form action="{{ url("/kasa/zarchiwizuj") }}" method="post">
-                            @csrf
-                            <input type="hidden" name="id" value="{{$zamowienie['numers']}}">
-                            <input type="submit" class="btn btn-warning" value="zarchiwizuj">
-                        </form>
--->
                         <form action="{{ url("/kasa/zaplac") }}" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{$zamowienie['id']}}">
@@ -57,6 +50,7 @@
             @endforeach
         </tbody>
     </table>
+    <h1><small>Dzisiejszy zarobek: {{$todayTotal}} zł</small></h1>
 
 </div>
 
