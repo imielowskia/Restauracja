@@ -66,8 +66,10 @@ class kelnerController extends Controller
     }
 
     function dodaj_danie($id){
+
         Session()->push('idDania', $id);
         Session()->push('cena',Menu::findOrFail($id)->cena);
+
         return(redirect(url() -> previous()));
 
     }

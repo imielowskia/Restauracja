@@ -1,4 +1,6 @@
+
 @include('kelner_views/header')
+
 @php
 
     $session_id = Session::get('userID');

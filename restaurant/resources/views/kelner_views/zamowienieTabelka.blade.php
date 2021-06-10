@@ -36,6 +36,7 @@
         <tr>
             <th scope="row">Suma</th>
             <td colspan="2">Suma</td>
+
         </tr>
         </thead>
     </table>
