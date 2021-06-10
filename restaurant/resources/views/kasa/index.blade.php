@@ -24,7 +24,6 @@
                 <th>Cena</th>
                 <th></th>
                 <th>akcje</th>
-
             </tr>
         </thead>
         <tbody>
