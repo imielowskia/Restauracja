@@ -27,7 +27,6 @@ class menuController extends Controller
     function add(request $r){
         $r -> validate([
             'nazwa' => 'required|unique:menu',
-            'opis' => 'required|min:15',
             'kategoria_id' => 'required',
             'cena' => 'required'
         ]);
@@ -47,7 +46,6 @@ class menuController extends Controller
     function update(request $r){
         $r -> validate([
             'nazwa' => 'required',
-            'opis' => 'required|min:15',
             'kategoria_id' => 'required',
             'cena' => 'required'
         ]);
