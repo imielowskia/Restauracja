@@ -1,3 +1,4 @@
+@include('kelner_views/log/logkelner')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +38,9 @@ $user=\App\Models\uzytkownicy::find($session_id);
                     </a>
                 </li>
                 <li class="nav-item"><a class="nav-link text-light" href="kelnermenu">Menu </a></li>
-                <li class="nav-item"><a class="nav-link disabled text-light" href="#!">{{$user->imie}} {{$user->nazwisko}}</a></li>
+                @isset($session_id)
+                    <li class="nav-item"><a class="nav-link disabled text-light" href="#!">{{$user->imie}} {{$user->nazwisko}}</a></li>
+                @endisset
                 <li class="nav-item"><a class="nav-link text-light" href="{{route('logout')}}">Wyloguj</a></li>
 
             </ul>

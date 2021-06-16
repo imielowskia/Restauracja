@@ -18,7 +18,10 @@ Jest to platforma do zarządzania restauracją, można dzięki niej przeprowadza
   > Możliwość tworzenie zamówienia, przekazywania do kuchnii, odbierania od kuchni oraz przekazywania do kasy
 
 - Panel Kucharza - [Szymon Smoliński](https://github.com/smolinskiszymon) oraz [Kamil Smoliński](https://github.com/KamilSmolinski)
-  > Możliwość zobaczenia zamówień oczekujących na realizacji (oraz zmianę statusu na w trakcie realizacji) oraz w trakcie realizacji (oraz możliwość zmiany na oczekujące na wydanie)
+  - Widok zamówień złożonych, możliwość przyjęcia ich do realizacji
+  - Widok zamówień będących w realizacji, możliwość przekazania ich do wydania
+  - Możliwość edytowania dostępności pozycji menu
+  - Możliwość wygenerowania zestawienia zamówień z dowolnego dnia
 
 - Panel Kasjer - [Łukasz Sereda](https://github.com/Lukasz-Sereda)
   > Możliwość zobaczenia zamówień gotowych do zapłaty, oraz zaznaczenia zamówienia jako zapłacone

@@ -1,4 +1,6 @@
+
 @include('kelner_views/header')
+
 @php $stolik=\App\Models\stoliki::all();@endphp
 <div id="main" class="container-fluid ">
 

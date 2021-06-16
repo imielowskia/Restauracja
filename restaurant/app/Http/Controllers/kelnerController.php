@@ -15,7 +15,10 @@ class kelnerController extends Controller
     }
 
     function zapiszIDStolika($id){
+        Session()->forget('idStolik');
+        Session()->forget('idDania');
         Session()->put('idStolik', $id);
+        Session()->put('suma',0.00);
 
         return redirect(url('kelnermenu'));
     }
@@ -28,6 +31,8 @@ class kelnerController extends Controller
     {
         $tab=Session()->pull('idDania');
         $i=0;
+        $d=Menu::find($id);
+        Session()->put('suma',Session()->get('suma')-$d->cena);
         foreach ($tab as $danie)
         {
             if($danie==$id)
@@ -51,6 +56,7 @@ class kelnerController extends Controller
         $zamowienie->stolik_id=session()->get('idStolik');
         $zamowienie->uzytkownik_id=session()->get('userID');
         $zamowienie->status_id=1;
+        $zamowienie->zaplacone=0;
         $zamowienie->save();
         foreach(Session()->get('idDania')as $dania)
         {
@@ -58,6 +64,7 @@ class kelnerController extends Controller
             $danie->menu_id=$dania;
             $danie->zamowienie_id=$zamowienie->id;
             $danie->save();
+
         }
 
         Session()->forget('idStolik');
@@ -66,8 +73,12 @@ class kelnerController extends Controller
     }
 
     function dodaj_danie($id){
+
         Session()->push('idDania', $id);
         Session()->push('cena',Menu::findOrFail($id)->cena);
+        $d=Menu::find($id);
+        Session()->put('suma',Session()->get('suma')+$d->cena);
+
         return(redirect(url() -> previous()));
 
     }

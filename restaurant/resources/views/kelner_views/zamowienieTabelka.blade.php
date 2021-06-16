@@ -29,13 +29,28 @@
         </tr>
 
       @endforeach
+        @else
+            @php Session()->put('suma',0); @endphp
 @endif
+
+
 
         </tbody>
         <thead>
         <tr>
             <th scope="row">Suma</th>
-            <td colspan="2">Suma</td>
+            <td colspan="2">
+               @if(Session::has('suma'))
+                  @php $a=Session::get('suma');
+
+                  @endphp
+ {{$a}}
+                @else
+                11
+                   @endif
+
+            </td>
+
         </tr>
         </thead>
     </table>

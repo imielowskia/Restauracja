@@ -24,7 +24,8 @@ class KasaController extends Controller
     public function zaplac(Request $request)
     {
         Zamowienie::where('id', $request->get("id"))->update(['zaplacone' => true]);
-        echo 'Zaplacono za zamowienie o numerze ' . ($request->get("id"));
+
+        return view('kasa/zaplac', ['nr' => $request->get("id")]);
     }
 
     private function sumOrdersPrice($orders) {
