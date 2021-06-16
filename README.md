@@ -1,9 +1,10 @@
 # Restauracja
+[![Check page online](https://img.shields.io/website?down_color=lightgrey&down_message=Strona%20nie%20jest%20dost%C4%99pna%20%7C%20Website%20unavailable%21&style=for-the-badge&up_color=offline&up_message=Zobacz%20stron%C4%99%20online%20%7C%20Check%20page%20online%21&url=https%3A%2F%2Frestauracja.hryszko.dev)](https://restauracja.hryszko.dev/)
+
 [![Laravel](https://img.shields.io/badge/Laravel-8.42.0-green)](https://laravel.com/docs/8.x/)
 ![](https://img.shields.io/github/languages/top/imielowskia/Restauracja)
 ![](https://img.shields.io/github/repo-size/imielowskia/Restauracja)
 ![](https://img.shields.io/tokei/lines/github/imielowskia/Restauracja)
-[![](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=blue&up_message=open%20live%20page&url=http%3A%2F%2F89.188.221.231%2FRestauracja%2Frestaurant%2Fpublic%2F)](http://89.188.221.231/Restauracja/restaurant/public/)
 [![](https://img.shields.io/github/contributors-anon/imielowskia/Restauracja)](https://tinyl.io/4DY5)
 [![](https://img.shields.io/github/last-commit/imielowskia/Restauracja)](https://tinyl.io/4DY5)
 ### Projekt w ramach praktyk studenckich na PWSTE w Jarosławiu
